@@ -16,7 +16,7 @@ module.exports = (env, { mode }) => {
 								'@babel/preset-react'
 							],
 							plugins: [
-								'@babel/transform-runtime',
+								'@babel/plugin-transform-runtime',
 								'@babel/plugin-proposal-class-properties'
 							]
 						}
