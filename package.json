@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
-    "@ziro/form-field": "^1.0.3",
+    "@ziro/form-field": "^1.0.14",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   }

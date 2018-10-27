@@ -1,6 +1,8 @@
 import React from 'react'
-import Field from '@ziro/form-field'
+import Form from './Form/index'
 
-const App = () => <Field />
+const App = () => (
+	<Form />
+)
 
 export default App
