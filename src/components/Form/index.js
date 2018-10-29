@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Field from '@ziro/form-field'
 import { get, CancelToken, isCancel } from 'axios'
 import { initialUiState, changeUiState } from './utils/stateMachine'
+import fetchInitialData from './utils/fetchInitialData'
 import { form, title } from './styles.js'
 
 export default class Form extends Component {
@@ -9,16 +10,13 @@ export default class Form extends Component {
 		uiState: initialUiState,
 		resellers: []
 	}
+	
 	changeUiState = changeUiState(this)
 	cancelTokenSource = CancelToken.source()
+	
 	componentDidMount = async () => {
 		try {
-			const { data: { values } } = await get(
-				`${process.env.RESELLERS_SHEET_URL}`,
-				{ cancelToken: this.cancelTokenSource.token }
-			)
-			const resellers = values.map( value => value[0] ).slice(1).sort()
-			this.setState({ resellers })
+			this.setState( await fetchInitialData(get, this.cancelTokenSource) )
 		} catch (error) {
 			if (isCancel(error))
 				console.log('Request canceled')
