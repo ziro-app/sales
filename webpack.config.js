@@ -31,11 +31,26 @@ module.exports = (env, { mode }) => {
 		plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ]
 	}
 	if (mode === 'development') {
+		const { resellers } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
+		config.plugins.push(
+			new webpack.DefinePlugin({
+				'process.env': {
+					RESELLERS_SHEET_URL: JSON.stringify(resellers)
+				}
+			})
+		)
 	}
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
-		config.plugins.push( new webpack.optimize.ModuleConcatenationPlugin() )
+		config.plugins.push(
+			new webpack.optimize.ModuleConcatenationPlugin(),
+			new webpack.DefinePlugin({
+				'process.env': {
+					RESELLERS_SHEET_URL: JSON.stringify(process.env.RESELLERS_SHEET_URL)
+				}
+			})
+		)
 	}
 	return config
 }

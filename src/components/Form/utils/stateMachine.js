@@ -10,9 +10,9 @@ const machine = {
 
 export const
 
-initialState = 'idle',
+initialUiState = 'idle',
 
-transition = (that) => (action) => {
+changeUiState = (that) => (action) => {
 	that.setState( (prevState) => {
 		return { uiState: machine[prevState.uiState][action] }
 	})
