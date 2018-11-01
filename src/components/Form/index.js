@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { get, CancelToken, isCancel } from 'axios'
-import Field from '@ziro/form-field'
+import Dropdown from '@ziro/dropdown'
 import ErrorBoundary from '../ErrorBoundary/index'
+import updateParent from './methods/updateParent'
 import { initialUiState, changeUiState } from './utils/stateMachine'
 import fetchInitialData from './utils/fetchInitialData'
 import { form, title } from './styles.js'
@@ -9,12 +10,16 @@ import { form, title } from './styles.js'
 export default class Form extends Component {
 	state = {
 		uiState: initialUiState,
-		resellers: []
+		/*-- form fields data --*/
+		resellers: [],
+		/*-- user inputs --*/
+		reseller: ''
 	}
-	
+	/*-- methods --*/
 	changeUiState = changeUiState(this)
+	updateParent = updateParent(this)
 	cancelTokenSource = CancelToken.source()
-
+	/*-- lifecycle --*/
 	componentDidMount = async () => {
 		try {
 			this.changeUiState('FETCH')
@@ -34,7 +39,12 @@ export default class Form extends Component {
 		<ErrorBoundary>
 			<div style={form}>
 				<h1 style={title}>Cadastrar atendimento</h1>
-				<Field />
+				<Dropdown
+					name='reseller'
+					placeholder='Lojista'
+					options={this.state.resellers}
+					updateParent={this.updateParent}
+				/>
 			</div>
 		</ErrorBoundary>
 }
