@@ -1,4 +1,4 @@
-const fetchInitialData = async (get, cancelTokenSource) => {
+const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 	const { data: { values } } = await get(
 		`${process.env.RESELLERS_SHEET_URL}`,
 		{ cancelToken: cancelTokenSource.token }
@@ -7,4 +7,4 @@ const fetchInitialData = async (get, cancelTokenSource) => {
 	return { resellers }
 }
 
-export default fetchInitialData
+export default fetchFromSpreadsheet
