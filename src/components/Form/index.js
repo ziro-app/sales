@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { get, CancelToken, isCancel } from 'axios'
 import Dropdown from '@ziro/dropdown'
+import DayPickerInput from 'react-day-picker/DayPickerInput'
 import ErrorBoundary from '../ErrorBoundary/index'
 import updateParent from './methods/updateParent'
 import { initialUiState, changeUiState } from './utils/stateMachine'
@@ -12,13 +13,19 @@ export default class Form extends Component {
 		uiState: initialUiState,
 		/*-- form fields data --*/
 		resellers: [],
+		representatives: ['Ariene', 'Mariana', 'Rubia'],
 		/*-- user inputs --*/
-		reseller: ''
+		reseller: '',
+		representative: '',
+		start_date: ''
 	}
 	/*-- methods --*/
 	changeUiState = changeUiState(this)
 	updateParent = updateParent(this)
 	cancelTokenSource = CancelToken.source()
+	handleDayChange = (day) => {
+		this.setState({ start_date: day })
+	}
 	/*-- lifecycle --*/
 	componentDidMount = async () => {
 		try {
@@ -45,6 +52,13 @@ export default class Form extends Component {
 					options={this.state.resellers}
 					updateParent={this.updateParent}
 				/>
+				<Dropdown
+					name='representative'
+					placeholder='Assessor'
+					options={this.state.representatives}
+					updateParent={this.updateParent}
+				/>
+				<DayPickerInput onDayChange={this.handleDayChange} />
 			</div>
 		</ErrorBoundary>
 }
