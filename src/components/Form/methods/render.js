@@ -6,15 +6,17 @@ import { dayPickerProps } from '../utils/dayPickerProps'
 /* import components */
 import Dropdown from '@ziro/dropdown'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
+import InputForDayPicker from '../components/InputForDayPicker'
 import ErrorBoundary from '../../ErrorBoundary/index'
 /* import styles */
-import { form, title } from '../styles.js'
+import { form, title } from '../styles'
 
 const render = (state, updateDropdown, updateDayPicker) =>
 	<ErrorBoundary>
 		<div style={form}>
 			<h1 style={title}>Cadastrar atendimento</h1>
 			<DayPickerInput
+				component={InputForDayPicker}
 				placeholder='Iniciado em'
 				onDayChange={updateDayPicker('start_date')}
 				formatDate={formatDate}
@@ -33,6 +35,7 @@ const render = (state, updateDropdown, updateDayPicker) =>
 				updateParent={updateDropdown}
 			/>
 			<DayPickerInput
+				component={InputForDayPicker}
 				placeholder='Encerrado em'
 				onDayChange={updateDayPicker('end_date')}
 				formatDate={formatDate}
