@@ -14,6 +14,7 @@ title = {
 input = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
+	outline: 'none',
 	border: 'none',
 	borderRadius: '25px',
 	padding: '12px 25px',
