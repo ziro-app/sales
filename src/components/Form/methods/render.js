@@ -1,5 +1,8 @@
 /* import libraries */
 import React from 'react'
+/* import utils */
+import formatDate from '../utils/formatDate'
+import { dayPickerProps } from '../utils/dayPickerProps'
 /* import components */
 import Dropdown from '@ziro/dropdown'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
@@ -23,7 +26,11 @@ const render = (state, updateDropdown, updateDayPicker) =>
 				options={state.representatives}
 				updateParent={updateDropdown}
 			/>
-			<DayPickerInput onDayChange={updateDayPicker} />
+			<DayPickerInput
+				onDayChange={updateDayPicker}
+				formatDate={formatDate}
+				dayPickerProps={dayPickerProps}
+			/>
 		</div>
 	</ErrorBoundary>
 

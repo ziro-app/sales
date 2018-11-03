@@ -10,11 +10,12 @@ import render from './methods/render'
 
 export default class Form extends Component {
 	state = {
+		/* initial ui state */
 		uiState: initialUiState,
-		/*-- dropdown data --*/
+		/* dropdown data */
 		resellers: [],
 		representatives: ['Ariene', 'Mariana', 'Rubia'],
-		/*-- user inputs --*/
+		/* user inputs */
 		reseller: '',
 		representative: '',
 		start_date: ''
@@ -28,5 +29,9 @@ export default class Form extends Component {
 	/*-- lifecycle --*/
 	componentDidMount = () => this.fetchInitialData()
 	componentWillUnmount = () => this.cancelTokenSource.cancel()
-	render = () => render(this.state, this.updateDropdown, this.updateDayPicker)
+	render = () => render(
+		this.state,
+		this.updateDropdown,
+		this.updateDayPicker
+	)
 }
