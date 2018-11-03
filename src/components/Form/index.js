@@ -18,7 +18,8 @@ export default class Form extends Component {
 		/* user inputs */
 		reseller: '',
 		representative: '',
-		start_date: ''
+		start_date: '',
+		end_date: ''
 	}
 	/*-- methods --*/
 	changeUiState = changeUiState(this)

@@ -14,11 +14,11 @@ const render = (state, updateDropdown, updateDayPicker) =>
 	<ErrorBoundary>
 		<div style={form}>
 			<h1 style={title}>Cadastrar atendimento</h1>
-			<Dropdown
-				name='reseller'
-				placeholder='Lojista'
-				options={state.resellers}
-				updateParent={updateDropdown}
+			<DayPickerInput
+				placeholder='Iniciado em'
+				onDayChange={updateDayPicker('start_date')}
+				formatDate={formatDate}
+				dayPickerProps={dayPickerProps}
 			/>
 			<Dropdown
 				name='representative'
@@ -26,8 +26,15 @@ const render = (state, updateDropdown, updateDayPicker) =>
 				options={state.representatives}
 				updateParent={updateDropdown}
 			/>
+			<Dropdown
+				name='reseller'
+				placeholder='Lojista'
+				options={state.resellers}
+				updateParent={updateDropdown}
+			/>
 			<DayPickerInput
-				onDayChange={updateDayPicker}
+				placeholder='Encerrado em'
+				onDayChange={updateDayPicker('end_date')}
 				formatDate={formatDate}
 				dayPickerProps={dayPickerProps}
 			/>
