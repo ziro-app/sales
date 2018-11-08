@@ -1,5 +1,6 @@
 /* import libraries */
 import React from 'react'
+import { Image } from 'cloudinary-react'
 /* import utils */
 import formatDate from '../utils/formatDate'
 import { dayPickerProps } from '../utils/dayPickerProps'
@@ -9,11 +10,21 @@ import DayPickerInput from 'react-day-picker/DayPickerInput'
 import InputForDayPicker from '../components/InputForDayPicker'
 import ErrorBoundary from '../../ErrorBoundary/index'
 /* import styles */
-import { form, title } from '../styles'
+import { form, logo, title } from '../styles'
 
 const render = (state, updateDropdown, updateDayPicker) =>
 	<ErrorBoundary>
 		<div style={form}>
+			<div style={logo}>
+			    <Image
+			      cloudName='ziro'
+			      width='45'
+			      publicId='logo-round_kxn8sa'
+			      version='1508000699'
+			      format='png'
+			      secure='true'
+			    />
+			</div>
 			<h1 style={title}>Cadastrar atendimento</h1>
 			<DayPickerInput
 				component={InputForDayPicker}

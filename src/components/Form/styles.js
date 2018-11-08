@@ -2,16 +2,22 @@ export const
 
 form = {
 	maxWidth: '400px',
-	margin: '0px auto 60px',
+	margin: '40px auto 60px',
 	padding: '0px 15%',
 	display: 'grid',
 	justifyItems: 'center',
 	gridRowGap: '25px'
 },
 
+logo = {
+	marginBottom: '-20px'
+},
+
 title = {
 	textAlign: 'center',
-	color: 'rgba(48,62,77,0.8)'
+	color: 'rgba(48,62,77,0.8)',
+	fontSize: '2.1rem',
+	margin: '0'
 },
 
 input = {
