@@ -6,7 +6,7 @@ form = {
 	padding: '0px 15%',
 	display: 'grid',
 	justifyItems: 'center',
-	gridRowGap: '25px'
+	gridRowGap: '30px'
 },
 
 logo = {

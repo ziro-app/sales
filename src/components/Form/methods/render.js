@@ -8,11 +8,12 @@ import { dayPickerProps } from '../utils/dayPickerProps'
 import Dropdown from '@ziro/dropdown'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import InputForDayPicker from '../components/InputForDayPicker'
+import Radio from '../components/Radio/index'
 import ErrorBoundary from '../../ErrorBoundary/index'
 /* import styles */
 import { form, logo, title } from '../styles'
 
-const render = (state, updateDropdown, updateDayPicker) =>
+const render = (state, updateDropdown, updateDayPicker, updateRadio) =>
 	<ErrorBoundary>
 		<div style={form}>
 			<div style={logo}>
@@ -28,7 +29,7 @@ const render = (state, updateDropdown, updateDayPicker) =>
 			<h1 style={title}>Cadastrar atendimento</h1>
 			<DayPickerInput
 				component={InputForDayPicker}
-				placeholder='Iniciado em'
+				placeholder='Data início'
 				onDayChange={updateDayPicker('start_date')}
 				formatDate={formatDate}
 				dayPickerProps={dayPickerProps}
@@ -45,9 +46,10 @@ const render = (state, updateDropdown, updateDayPicker) =>
 				options={state.resellers}
 				updateParent={updateDropdown}
 			/>
+			<Radio updateParent={updateRadio} />
 			<DayPickerInput
 				component={InputForDayPicker}
-				placeholder='Encerrado em'
+				placeholder='Data encerramento'
 				onDayChange={updateDayPicker('end_date')}
 				formatDate={formatDate}
 				dayPickerProps={dayPickerProps}

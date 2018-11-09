@@ -6,6 +6,7 @@ import { initialUiState, changeUiState } from './methods/stateMachine'
 import fetchInitialData from './methods/fetchInitialData'
 import updateDropdown from './methods/updateDropdown'
 import updateDayPicker from './methods/updateDayPicker'
+import updateRadio from './methods/updateRadio'
 import render from './methods/render'
 
 export default class Form extends Component {
@@ -14,11 +15,12 @@ export default class Form extends Component {
 		uiState: initialUiState,
 		/* dropdown data */
 		resellers: [],
-		representatives: ['Ariene', 'Mariana', 'Rubia'],
+		representatives: ['Mariana', 'Rubia'],
 		/* user inputs */
-		reseller: '',
-		representative: '',
 		start_date: '',
+		representative: '',
+		reseller: '',
+		transaction_type: '',
 		end_date: ''
 	}
 	/*-- methods --*/
@@ -26,6 +28,7 @@ export default class Form extends Component {
 	fetchInitialData = fetchInitialData(this)
 	updateDropdown = updateDropdown(this)
 	updateDayPicker = updateDayPicker(this)
+	updateRadio = updateRadio(this)
 	cancelTokenSource = CancelToken.source()
 	/*-- lifecycle --*/
 	componentDidMount = () => this.fetchInitialData()
@@ -33,6 +36,7 @@ export default class Form extends Component {
 	render = () => render(
 		this.state,
 		this.updateDropdown,
-		this.updateDayPicker
+		this.updateDayPicker,
+		this.updateRadio
 	)
 }
