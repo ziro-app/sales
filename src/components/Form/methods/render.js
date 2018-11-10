@@ -13,7 +13,7 @@ import Submit from '../components/Submit/index'
 /* import styles */
 import { form, logo, title } from '../styles'
 
-const render = (state, updateDropdown, updateDayPicker, updateRadio) =>
+const render = (state, updateDropdown, updateDayPicker, updateRadio, submitForm) =>
 	<div style={form}>
 		<div style={logo}>
 		    <Image
@@ -53,7 +53,7 @@ const render = (state, updateDropdown, updateDayPicker, updateRadio) =>
 			formatDate={formatDate}
 			dayPickerProps={dayPickerProps}
 		/>
-		<Submit />
+		<Submit submitForm={submitForm} />
 	</div>
 
 export default render

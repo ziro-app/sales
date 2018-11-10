@@ -7,6 +7,7 @@ import fetchInitialData from './methods/fetchInitialData'
 import updateDropdown from './methods/updateDropdown'
 import updateDayPicker from './methods/updateDayPicker'
 import updateRadio from './methods/updateRadio'
+import submitForm from './methods/submitForm'
 import render from './methods/render'
 
 export default class Form extends Component {
@@ -29,6 +30,7 @@ export default class Form extends Component {
 	updateDropdown = updateDropdown(this)
 	updateDayPicker = updateDayPicker(this)
 	updateRadio = updateRadio(this)
+	submitForm = submitForm(this)
 	cancelTokenSource = CancelToken.source()
 	/*-- lifecycle --*/
 	componentDidMount = () => this.fetchInitialData()
@@ -37,6 +39,7 @@ export default class Form extends Component {
 		this.state,
 		this.updateDropdown,
 		this.updateDayPicker,
-		this.updateRadio
+		this.updateRadio,
+		this.submitForm
 	)
 }
