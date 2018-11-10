@@ -38,5 +38,8 @@ export const dayPickerProps = {
 	months: months,
 	weekdaysShort: weekdaysShort,
 	weekdaysLong: weekdaysLong,
-	disabledDays: { daysOfWeek: [0,6] }
+	disabledDays: [
+		{ before: new Date() },
+		{ daysOfWeek: [0,6] }
+	]
 }

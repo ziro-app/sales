@@ -15,7 +15,7 @@ const validateForm = ({
 		const representative_is_valid = optionIsValid(representatives, representative)
 		const reseller_is_valid = optionIsValid(resellers, reseller)
 		const transaction_type_is_valid = optionIsValid(['Online','Offline'], transaction_type)
-		const end_date_is_valid = dateIsValid(end_date)		
+		const end_date_is_valid = new Date(end_date) >= new Date(start_date)
 		const formIsValid = start_date_is_valid
 			&& representative_is_valid
 			&& reseller_is_valid

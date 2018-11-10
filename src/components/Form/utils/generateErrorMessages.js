@@ -9,7 +9,7 @@ const generateErrorMessages = ({
 	const error_representative = representative_is_valid ? '' : 'Opção inválida'
 	const error_reseller = reseller_is_valid ? '' : 'Opção inválida'
 	const error_transaction_type = transaction_type_is_valid ? '' : 'Opção inválida'
-	const error_end_date = end_date_is_valid ? '' : 'Data inválida'
+	const error_end_date = end_date_is_valid ? '' : 'Deve ser maior ou igual que data início'
 	return {
 		error_start_date,
 		error_representative,
