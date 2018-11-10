@@ -1,8 +1,13 @@
-import formIsValid from '../utils/formIsValid'
+import validateForm from '../utils/validateForm'
 import sendToBackend from '../utils/sendToBackend'
 
 const submitForm = that => async () => {
-	if (formIsValid(that.state)) {
+	const {
+		formIsValid,
+		...fieldsAreValid
+	} = validateForm(that.state)
+	console.log(formIsValid, fieldsAreValid)
+	if (formIsValid) {
 		try {
 			that.changeUiState('SUBMIT')
 			await sendToBackend(that.state)
