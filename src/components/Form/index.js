@@ -22,7 +22,13 @@ export default class Form extends Component {
 		representative: '',
 		reseller: '',
 		transaction_type: '',
-		end_date: ''
+		end_date: '',
+		/* error messages */
+		error_start_date: '',
+		error_representative: '',
+		error_reseller: '',
+		error_transaction_type: '',
+		error_end_date: ''
 	}
 	/*-- methods --*/
 	changeUiState = changeUiState(this)
