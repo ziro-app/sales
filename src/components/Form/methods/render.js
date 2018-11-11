@@ -29,6 +29,7 @@ const render = (state, updateDropdown, updateDayPicker, updateRadio, submitForm)
 		<DayPickerInput
 			component={InputForDayPicker}
 			placeholder='Data início'
+			value={state.start_date}
 			onDayChange={updateDayPicker('start_date')}
 			formatDate={formatDate}
 			dayPickerProps={dayPickerProps}
@@ -37,18 +38,24 @@ const render = (state, updateDropdown, updateDayPicker, updateRadio, submitForm)
 			name='representative'
 			placeholder='Assessor'
 			options={state.representatives}
+			value={state.representative}
 			updateParent={updateDropdown}
 		/>
 		<Dropdown
 			name='reseller'
 			placeholder='Lojista'
 			options={state.resellers}
+			value={state.reseller}
 			updateParent={updateDropdown}
 		/>
-		<Radio updateParent={updateRadio} />
+		<Radio
+			value={state.transaction_type}
+			updateParent={updateRadio}
+		/>
 		<DayPickerInput
 			component={InputForDayPicker}
 			placeholder='Data fim'
+			value={state.end_date}
 			onDayChange={updateDayPicker('end_date')}
 			formatDate={formatDate}
 			dayPickerProps={dayPickerProps}

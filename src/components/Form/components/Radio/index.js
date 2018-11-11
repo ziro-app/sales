@@ -5,15 +5,11 @@ import WifiOffSvg from './WifiOffSvg'
 import { radioGroup, radioNotSelected, radioSelected, name, radio } from './styles'
 
 export default class Radio extends Component {
-	state = { value: '' }
-	handleChange = ({ target: { value } }) => {
-		this.setState({ value })
-		this.props.updateParent(value)
-	}
+	handleChange = ({ target: { value } }) => this.props.updateParent(value)
 	render = () =>
 		<div style={radioGroup} onChange={this.handleChange}>
 			<label
-				style={this.state.value === 'Online' ? radioSelected : radioNotSelected}
+				style={this.props.value === 'Online' ? radioSelected : radioNotSelected}
 				htmlFor='on'
 			>
 				<WifiOnSvg width={27} height={27} />
@@ -21,7 +17,7 @@ export default class Radio extends Component {
 			</label>
 			<input style={radio} type='radio' name='onOrOff' id='on' value='Online' />
 			<label
-				style={this.state.value === 'Offline' ? radioSelected : radioNotSelected}
+				style={this.props.value === 'Offline' ? radioSelected : radioNotSelected}
 				htmlFor='off'
 			>
 				<WifiOffSvg width={27} height={27} />
@@ -32,5 +28,6 @@ export default class Radio extends Component {
 }
 
 Radio.propTypes = {
+	value: PropTypes.string.isRequired,
 	updateParent: PropTypes.func.isRequired
 }

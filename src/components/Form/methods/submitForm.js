@@ -11,16 +11,18 @@ const submitForm = that => async () => {
 			that.changeUiState('SUBMIT')
 			await sendToBackend(that.state)
 			that.changeUiState('SUCCESS')
-			// that.setState({
-			// 	start_date: '',
-			// 	representative: '',
-			// 	reseller: '',
-			// 	transaction_type: '',
-			// 	end_date: ''
-			// })
+			that.setState({
+				start_date: '',
+				representative: '',
+				reseller: '',
+				transaction_type: '',
+				end_date: ''
+			})
+			alert('Formulário enviado com sucesso!')
 		} catch (error) {
 			that.changeUiState('ERROR')
 			console.log(error)
+			alert('Erro ao enviar formulário. Tente novamente.')
 		}
 	}
 }
