@@ -5,9 +5,11 @@
 
 const machine = {
 	idle: { FETCH: 'fetching', SUBMIT: 'submitting' },
-	fetching: { SUCCESS: 'idle', ERROR: 'error' },
-	submitting: { SUCCESS: 'idle', ERROR: 'error' },
-	error: { FETCH: 'fetching', SUBMIT: 'submitting' }
+	fetching: { SUCCESS: 'idle', ERROR: 'error_fetching' },
+	submitting: { SUCCESS: 'submitted', ERROR: 'error_submitting' },
+	submitted: { FETCH: 'fetching', SUBMIT: 'submitting' },
+	error_fetching: { FETCH: 'fetching', SUBMIT: 'submitting' },
+	error_submitting: { FETCH: 'fetching', SUBMIT: 'submitting' }
 }
 
 export const

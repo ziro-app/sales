@@ -71,7 +71,10 @@ const render = (state, updateDropdown, updateDayPicker, updateRadio, submitForm)
 				dayPickerProps={dayPickerProps}
 			/>
 		</ErrorWrapper>
-		<Submit submitForm={submitForm} />
+		<Submit
+			submitForm={submitForm}
+			uiState={state.uiState}
+		/>
 	</div>
 
 export default render

@@ -1,4 +1,19 @@
-export const submit = {
+export const
+
+container = {
+	width: '100%'
+},
+
+message = {
+	display: 'grid',
+	marginTop: '5px',
+	textAlign: 'center',
+	fontSize: '1.3rem',
+	fontWeight: '700',
+	// color: '#F16B6F'
+},
+
+submit = {
 	marginTop: '30px',
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
