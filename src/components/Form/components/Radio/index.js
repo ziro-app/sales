@@ -7,7 +7,7 @@ import { radioGroup, radioNotSelected, radioSelected, name, radio } from './styl
 export default class Radio extends Component {
 	handleChange = ({ target: { value } }) => this.props.updateParent(value)
 	render = () =>
-		<div style={radioGroup} onChange={this.handleChange}>
+		<div style={radioGroup}>
 			<label
 				style={this.props.value === 'Online' ? radioSelected : radioNotSelected}
 				htmlFor='on'
@@ -15,7 +15,15 @@ export default class Radio extends Component {
 				<WifiOnSvg width={27} height={27} />
 				<p style={name}>Online</p>
 			</label>
-			<input style={radio} type='radio' name='onOrOff' id='on' value='Online' />
+			<input
+				style={radio}
+				type='radio'
+				name='onOrOff'
+				id='on'
+				value='Online'
+				onChange={this.handleChange}
+				checked={this.props.value === 'Online'}
+			/>
 			<label
 				style={this.props.value === 'Offline' ? radioSelected : radioNotSelected}
 				htmlFor='off'
@@ -23,7 +31,15 @@ export default class Radio extends Component {
 				<WifiOffSvg width={27} height={27} />
 				<p style={name}>Offline</p>
 			</label>
-			<input style={radio} type='radio' name='onOrOff' id='off' value='Offline' />
+			<input
+				style={radio}
+				type='radio'
+				name='onOrOff'
+				id='off'
+				value='Offline'
+				onChange={this.handleChange}
+				checked={this.props.value === 'Offline'}
+			/>
 		</div>
 }
 
