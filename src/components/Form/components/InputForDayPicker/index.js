@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { input, inputFocus } from '../styles'
+import { input, inputFocus } from './styles'
 
 export default class InputForDayPicker extends Component {
 	render = () =>

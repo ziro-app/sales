@@ -7,15 +7,16 @@ import { dayPickerProps } from '../utils/dayPickerProps'
 /* import components */
 import Dropdown from '@ziro/dropdown'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import InputForDayPicker from '../components/InputForDayPicker'
+import InputForDayPicker from '../components/InputForDayPicker/index'
 import Radio from '../components/Radio/index'
 import Submit from '../components/Submit/index'
+import ErrorWrapper from  '../components/ErrorWrapper/index'
 /* import styles */
-import { form, logo, title } from '../styles'
+import { form, title } from '../styles'
 
 const render = (state, updateDropdown, updateDayPicker, updateRadio, submitForm) =>
 	<div style={form}>
-		<div style={logo}>
+		<div>
 		    <Image
 		      cloudName='ziro'
 		      width='45'
@@ -26,40 +27,50 @@ const render = (state, updateDropdown, updateDayPicker, updateRadio, submitForm)
 		    />
 		</div>
 		<h1 style={title}>Cadastrar atendimento</h1>
-		<DayPickerInput
-			component={InputForDayPicker}
-			placeholder='Data início'
-			value={state.start_date}
-			onDayChange={updateDayPicker('start_date')}
-			formatDate={formatDate}
-			dayPickerProps={dayPickerProps}
-		/>
-		<Dropdown
-			name='representative'
-			placeholder='Assessor'
-			options={state.representatives}
-			value={state.representative}
-			updateParent={updateDropdown}
-		/>
-		<Dropdown
-			name='reseller'
-			placeholder='Lojista'
-			options={state.resellers}
-			value={state.reseller}
-			updateParent={updateDropdown}
-		/>
-		<Radio
-			value={state.transaction_type}
-			updateParent={updateRadio}
-		/>
-		<DayPickerInput
-			component={InputForDayPicker}
-			placeholder='Data fim'
-			value={state.end_date}
-			onDayChange={updateDayPicker('end_date')}
-			formatDate={formatDate}
-			dayPickerProps={dayPickerProps}
-		/>
+		<ErrorWrapper errorMessage={state.error_start_date}>
+			<DayPickerInput
+				component={InputForDayPicker}
+				placeholder='Data início'
+				value={state.start_date}
+				onDayChange={updateDayPicker('start_date')}
+				formatDate={formatDate}
+				dayPickerProps={dayPickerProps}
+			/>
+		</ErrorWrapper>
+		<ErrorWrapper errorMessage={state.error_representative}>
+			<Dropdown
+				name='representative'
+				placeholder='Assessor'
+				options={state.representatives}
+				value={state.representative}
+				updateParent={updateDropdown}
+			/>
+		</ErrorWrapper>
+		<ErrorWrapper errorMessage={state.error_reseller}>
+			<Dropdown
+				name='reseller'
+				placeholder='Lojista'
+				options={state.resellers}
+				value={state.reseller}
+				updateParent={updateDropdown}
+			/>
+		</ErrorWrapper>
+		<ErrorWrapper errorMessage={state.error_transaction_type}>	
+			<Radio
+				value={state.transaction_type}
+				updateParent={updateRadio}
+			/>
+		</ErrorWrapper>
+		<ErrorWrapper errorMessage={state.error_end_date}>
+			<DayPickerInput
+				component={InputForDayPicker}
+				placeholder='Data fim'
+				value={state.end_date}
+				onDayChange={updateDayPicker('end_date')}
+				formatDate={formatDate}
+				dayPickerProps={dayPickerProps}
+			/>
+		</ErrorWrapper>
 		<Submit submitForm={submitForm} />
 	</div>
 
