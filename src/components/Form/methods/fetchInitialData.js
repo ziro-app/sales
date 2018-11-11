@@ -3,8 +3,8 @@ import fetchFromSpreadsheet from '../utils/fetchFromSpreadsheet'
 
 const fetchInitialData = that => async () => {
 	try {
-		that.changeUiState('FETCH')
 		that.setState( await fetchFromSpreadsheet(get, that.cancelTokenSource) )
+		// await Promise.reject('Erro ao carregar dados').then( value => console.log(value))
 		that.changeUiState('SUCCESS')
 	} catch (error) {
 		if (isCancel(error))

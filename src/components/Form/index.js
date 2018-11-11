@@ -8,7 +8,7 @@ import updateDropdown from './methods/updateDropdown'
 import updateDayPicker from './methods/updateDayPicker'
 import updateRadio from './methods/updateRadio'
 import submitForm from './methods/submitForm'
-import render from './methods/render'
+import renderForm from './methods/renderForm'
 
 export default class Form extends Component {
 	state = {
@@ -31,21 +31,16 @@ export default class Form extends Component {
 		error_end_date: ''
 	}
 	/*-- methods --*/
+	cancelTokenSource = CancelToken.source()
 	changeUiState = changeUiState(this)
 	fetchInitialData = fetchInitialData(this)
 	updateDropdown = updateDropdown(this)
 	updateDayPicker = updateDayPicker(this)
 	updateRadio = updateRadio(this)
 	submitForm = submitForm(this)
-	cancelTokenSource = CancelToken.source()
+	renderForm = renderForm(this)
 	/*-- lifecycle --*/
 	componentDidMount = () => this.fetchInitialData()
 	componentWillUnmount = () => this.cancelTokenSource.cancel()
-	render = () => render(
-		this.state,
-		this.updateDropdown,
-		this.updateDayPicker,
-		this.updateRadio,
-		this.submitForm
-	)
+	render = () => this.renderForm(this.state.uiState)
 }

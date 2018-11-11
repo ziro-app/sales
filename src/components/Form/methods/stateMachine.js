@@ -4,17 +4,14 @@
 /* This state machine exists to catch errors derived from async code */
 
 const machine = {
-	idle: { FETCH: 'fetching', SUBMIT: 'submitting' },
-	fetching: { SUCCESS: 'idle', ERROR: 'error_fetching' },
-	submitting: { SUCCESS: 'submitted', ERROR: 'error_submitting' },
-	submitted: { FETCH: 'fetching', SUBMIT: 'submitting' },
-	error_fetching: { FETCH: 'fetching', SUBMIT: 'submitting' },
-	error_submitting: { FETCH: 'fetching', SUBMIT: 'submitting' }
+	idle: { FETCH: 'fetching' },
+	fetching: { SUCCESS: 'idle', ERROR: 'error' },
+	error: { FETCH: 'fetching' }
 }
 
 export const
 
-initialUiState = 'idle',
+initialUiState = 'fetching',
 
 changeUiState = that => action => {
 	that.setState( ({ uiState }) => ({ uiState: machine[uiState][action] }) )

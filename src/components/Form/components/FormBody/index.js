@@ -2,19 +2,19 @@
 import React from 'react'
 import { Image } from 'cloudinary-react'
 /* import utils */
-import formatDate from '../utils/formatDate'
-import { dayPickerProps } from '../utils/dayPickerProps'
+import formatDate from '../../utils/formatDate'
+import { dayPickerProps } from '../../utils/dayPickerProps'
 /* import components */
 import Dropdown from '@ziro/dropdown'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import InputForDayPicker from '../components/InputForDayPicker/index'
-import Radio from '../components/Radio/index'
-import Submit from '../components/Submit/index'
-import ErrorWrapper from  '../components/ErrorWrapper/index'
+import InputForDayPicker from './InputForDayPicker/index'
+import Radio from './Radio/index'
+import Submit from './Submit/index'
+import ErrorWrapper from  './ErrorWrapper/index'
 /* import styles */
-import { form, title } from '../styles'
+import { form, title } from './styles'
 
-const render = (state, updateDropdown, updateDayPicker, updateRadio, submitForm) =>
+const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitForm }) =>
 	<div style={form}>
 		<div>
 		    <Image
@@ -77,4 +77,4 @@ const render = (state, updateDropdown, updateDayPicker, updateRadio, submitForm)
 		/>
 	</div>
 
-export default render
+export default FormBody
