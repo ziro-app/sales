@@ -1,6 +1,5 @@
 /* import libraries */
 import React from 'react'
-import { Image } from 'cloudinary-react'
 /* import utils */
 import formatDate from '../../utils/formatDate'
 import { dayPickerProps } from '../../utils/dayPickerProps'
@@ -10,13 +9,13 @@ import DayPickerInput from 'react-day-picker/DayPickerInput'
 import InputForDayPicker from './InputForDayPicker/index'
 import Radio from './Radio/index'
 import Submit from './Submit/index'
-import ErrorWrapper from  './ErrorWrapper/index'
+import ErrorMessage from  './ErrorMessage/index'
 /* import styles */
 import { body } from './styles'
 
 const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitForm }) =>
 	<div style={body}>
-		<ErrorWrapper errorMessage={state.error_start_date}>
+		<ErrorMessage message={state.error_start_date}>
 			<DayPickerInput
 				component={InputForDayPicker}
 				placeholder='Data início'
@@ -25,8 +24,8 @@ const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitF
 				formatDate={formatDate}
 				dayPickerProps={dayPickerProps}
 			/>
-		</ErrorWrapper>
-		<ErrorWrapper errorMessage={state.error_representative}>
+		</ErrorMessage>
+		<ErrorMessage message={state.error_representative}>
 			<Dropdown
 				name='representative'
 				placeholder='Assessor'
@@ -34,8 +33,8 @@ const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitF
 				value={state.representative}
 				updateParent={updateDropdown}
 			/>
-		</ErrorWrapper>
-		<ErrorWrapper errorMessage={state.error_reseller}>
+		</ErrorMessage>
+		<ErrorMessage message={state.error_reseller}>
 			<Dropdown
 				name='reseller'
 				placeholder='Lojista'
@@ -43,14 +42,14 @@ const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitF
 				value={state.reseller}
 				updateParent={updateDropdown}
 			/>
-		</ErrorWrapper>
-		<ErrorWrapper errorMessage={state.error_transaction_type}>	
+		</ErrorMessage>
+		<ErrorMessage message={state.error_transaction_type}>	
 			<Radio
 				value={state.transaction_type}
 				updateParent={updateRadio}
 			/>
-		</ErrorWrapper>
-		<ErrorWrapper errorMessage={state.error_end_date}>
+		</ErrorMessage>
+		<ErrorMessage message={state.error_end_date}>
 			<DayPickerInput
 				component={InputForDayPicker}
 				placeholder='Data fim'
@@ -59,7 +58,7 @@ const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitF
 				formatDate={formatDate}
 				dayPickerProps={dayPickerProps}
 			/>
-		</ErrorWrapper>
+		</ErrorMessage>
 		<Submit
 			submitForm={submitForm}
 			uiState={state.uiState}
