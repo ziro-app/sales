@@ -6,7 +6,7 @@ import { container, error } from './styles'
 const ErrorWrapper = ({ errorMessage, children }) =>
 	<div style={container}>
 		<label style={error}>
-			{errorMessage ? <AlertSvg width={16} height={16} /> : null} &nbsp; {errorMessage}
+			{errorMessage ? <AlertSvg size={16} /> : null} &nbsp; {errorMessage}
 		</label>  
 		{children}
 	</div>

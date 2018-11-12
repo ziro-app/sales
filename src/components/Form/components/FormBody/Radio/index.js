@@ -12,7 +12,7 @@ export default class Radio extends Component {
 				style={this.props.value === 'Online' ? radioSelected : radioNotSelected}
 				htmlFor='on'
 			>
-				<WifiOnSvg width={27} height={27} />
+				<WifiOnSvg size={27} />
 				<p style={name}>Online</p>
 			</label>
 			<input
@@ -28,7 +28,7 @@ export default class Radio extends Component {
 				style={this.props.value === 'Offline' ? radioSelected : radioNotSelected}
 				htmlFor='off'
 			>
-				<WifiOffSvg width={27} height={27} />
+				<WifiOffSvg size={27} />
 				<p style={name}>Offline</p>
 			</label>
 			<input

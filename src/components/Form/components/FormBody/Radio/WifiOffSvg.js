@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const WifiOffSvg = ({ width, height, color }) =>
-	<svg width={width} height={height} viewBox={'0 0 24 24'} fill={'none'} stroke={color} strokeWidth={'2'} strokeLinecap={'round'} strokeLinejoin={'round'}>
+const WifiOffSvg = ({ size, color }) =>
+	<svg width={size} height={size} viewBox={'0 0 24 24'} fill={'none'} stroke={color} strokeWidth={'2'} strokeLinecap={'round'} strokeLinejoin={'round'}>
 		<line x1={'1'} y1={'1'} x2={'23'} y2={'23'}></line>
 		<path d={'M16.72 11.06A10.94 10.94 0 0 1 19 12.55'}></path>
 		<path d={'M5 12.55a10.94 10.94 0 0 1 5.17-2.39'}></path>
@@ -13,14 +13,12 @@ const WifiOffSvg = ({ width, height, color }) =>
 	</svg>
 
 WifiOffSvg.defaultProps = {
-	width: 24,
-	height: 24,
+	size: 24,
 	color: 'currentColor'
 }
 
 WifiOffSvg.propTypes = {
-	width: PropTypes.number.isRequired,
-	height: PropTypes.number.isRequired,
+	size: PropTypes.number.isRequired,
 	color: PropTypes.string
 }
 
