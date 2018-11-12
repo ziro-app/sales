@@ -12,10 +12,10 @@ import Radio from './Radio/index'
 import Submit from './Submit/index'
 import ErrorWrapper from  './ErrorWrapper/index'
 /* import styles */
-import { form } from './styles'
+import { body } from './styles'
 
 const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitForm }) =>
-	<div style={form}>
+	<div style={body}>
 		<ErrorWrapper errorMessage={state.error_start_date}>
 			<DayPickerInput
 				component={InputForDayPicker}

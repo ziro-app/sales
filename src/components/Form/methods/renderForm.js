@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../components/Header/index'
+import FormHeader from '../components/FormHeader/index'
 import FormBody from '../components/FormBody/index'
 import Spinner from '../components/Spinner/index'
 import ErrorOnLoad from '../components/ErrorOnLoad/index'
@@ -16,7 +16,7 @@ const renderForm = that => uiState => {
 		fetching: <Spinner />,
 		error: <ErrorOnLoad />
 	}
-	return <Header>componentsToRender[uiState]</Header>
+	return <FormHeader>{componentsToRender[uiState]}</FormHeader>
 } 
 	
 

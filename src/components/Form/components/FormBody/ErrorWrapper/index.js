@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import AlertSvg from './AlertSvg'
-import { container, error } from './styles'
+import { error } from './styles'
 
 const ErrorWrapper = ({ errorMessage, children }) =>
-	<div style={container}>
+	<div>
 		<label style={error}>
 			{errorMessage ? <AlertSvg size={16} /> : null} &nbsp; {errorMessage}
 		</label>  

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Image } from 'cloudinary-react'
-import { title } from './styles'
+import { form, title } from './styles'
 
 const FormHeader = ({ children }) => (
-	<div>
+	<div style={form}>
 	    <Image
 	      cloudName='ziro'
 	      width='45'

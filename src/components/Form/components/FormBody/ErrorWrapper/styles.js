@@ -1,9 +1,5 @@
 export const
 
-container = {
-	width: '100%',
-},
-
 error = {
 	display: 'grid',
 	gridTemplateColumns: '16px 1fr',
