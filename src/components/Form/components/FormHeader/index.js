@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Image } from 'cloudinary-react'
 import { form, title } from './styles'
 
-const FormHeader = ({ children }) => (
+const FormHeader = ({ children }) =>
 	<div style={form}>
 	    <Image
 	      cloudName='ziro'
@@ -15,6 +16,9 @@ const FormHeader = ({ children }) => (
 		<h1 style={title}>Cadastrar atendimento</h1>
 		{children}
 	</div>
-)
+
+FormHeader.propTypes = {
+	children: PropTypes.element.isRequired
+}
 
 export default FormHeader

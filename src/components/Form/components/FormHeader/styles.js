@@ -3,7 +3,7 @@ export const
 form = {
 	maxWidth: '400px',
 	margin: '40px auto 60px',
-	padding: '0px 15%',
+	padding: '0px 10%',
 	display: 'grid',
 	justifyItems: 'center',
 	gridRowGap: '10px'

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import RenderErrorMessage from './RenderErrorMessage'
 
 export default class ErrorBoundary extends Component {
@@ -13,4 +14,8 @@ export default class ErrorBoundary extends Component {
 			return <RenderErrorMessage />
 		return this.props.children
 	}
+}
+
+ErrorBoundary.propTypes = {
+	children: PropTypes.element.isRequired
 }
