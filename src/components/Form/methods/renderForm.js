@@ -13,7 +13,7 @@ const renderForm = that => uiState => {
 			updateRadio={that.updateRadio}
 			submitForm={that.submitForm}
 		/>,
-		fetching: <Spinner />,
+		fetching: <Spinner size={'8rem'} />,
 		error: <ErrorOnLoad />
 	}
 	return <FormHeader>{componentsToRender[uiState]}</FormHeader>
