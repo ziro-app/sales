@@ -7,6 +7,7 @@ const ErrorOnLoad = () =>
 		<AlertSvg size={32} />
 		<p style={errorMessage}>Ocorreu um erro no carregamento dos dados</p>
 		<p style={errorMessage}>Teste sua conexão à internet e tente novamente</p>
+		<p style={errorMessage}>Se o erro persistir contate o suporte</p>
 	</div>
 
 export default ErrorOnLoad
