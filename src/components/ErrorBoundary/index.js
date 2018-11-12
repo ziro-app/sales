@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import RenderErrorMessage from './RenderErrorMessage'
 
 export default class ErrorBoundary extends Component {
 	state = { renderError: false }
@@ -9,7 +10,7 @@ export default class ErrorBoundary extends Component {
 	}
 	render = () => {
 		if (this.state.renderError)
-			return <h1>Erro na renderização</h1>
+			return <RenderErrorMessage />
 		return this.props.children
 	}
 }
