@@ -12,21 +12,10 @@ import Radio from './Radio/index'
 import Submit from './Submit/index'
 import ErrorWrapper from  './ErrorWrapper/index'
 /* import styles */
-import { form, title } from './styles'
+import { form } from './styles'
 
 const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitForm }) =>
 	<div style={form}>
-		<div>
-		    <Image
-		      cloudName='ziro'
-		      width='45'
-		      publicId='logo-round_kxn8sa'
-		      version='1508000699'
-		      format='png'
-		      secure='true'
-		    />
-		</div>
-		<h1 style={title}>Cadastrar atendimento</h1>
 		<ErrorWrapper errorMessage={state.error_start_date}>
 			<DayPickerInput
 				component={InputForDayPicker}
