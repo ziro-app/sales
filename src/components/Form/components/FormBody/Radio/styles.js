@@ -24,7 +24,7 @@ radioSelected = Object.assign( {}, radioNotSelected, {
 }),
 
 name = {
-	fontSize: '1.4rem',
+	fontSize: '1.6rem',
 	margin: '0'
 },
 

@@ -27,12 +27,6 @@ ul {
     list-style: none;
 }
 
-@media (max-width: 600px) {
-    html {
-        font-size: 55%;
-    }
-}
-
 /* ---------------- */
 /* Custom styles */
 /* ---------------- */

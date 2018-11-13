@@ -5,7 +5,7 @@ message = {
 	justifyItems: 'center',
 	marginTop: '15px',
 	textAlign: 'center',
-	fontSize: '1.4rem',
+	fontSize: '1.6rem',
 	fontWeight: '700',
 	color: '#ACCD82'
 },
@@ -23,7 +23,7 @@ submit = {
 	border: 'none',
 	borderRadius: '20px',
 	padding: '10px 25px',
-	fontSize: '1.4rem',
+	fontSize: '1.6rem',
 	fontWeight: '700',
 	color: '#FFF',
 	backgroundColor: 'rgba(48,62,77,0.8)',
