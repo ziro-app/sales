@@ -1,3 +1,3 @@
-const sendToBackend = state => Promise.reject(state).then( value => console.log(value))
+const sendToBackend = state => Promise.resolve('Sucesso')
 
 export default sendToBackend

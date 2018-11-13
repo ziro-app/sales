@@ -4,7 +4,6 @@ import sendToBackend from '../utils/sendToBackend'
 
 const submitForm = that => async () => {
 	const { formIsValid, ...fieldsAreValid } = validateForm(that.state)
-	console.log(formIsValid, fieldsAreValid)
 	that.setState(generateErrorMessages(fieldsAreValid))
 	if (formIsValid) {
 		try {
@@ -18,11 +17,9 @@ const submitForm = that => async () => {
 				transaction_type: '',
 				end_date: ''
 			})
-			alert('Formulário enviado com sucesso!')
 		} catch (error) {
 			that.changeUiState('ERROR')
 			console.log(error)
-			alert('Erro ao enviar formulário. Tente novamente.')
 		}
 	}
 }

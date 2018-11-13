@@ -1,28 +1,38 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { container, message, submit } from './styles'
+import Spinner from './Spinner/index'
+import { message, messageError, submit, submitting } from './styles'
 
-export default class Submit extends Component {
-	render = () =>
-		<div style={container}>
-			<input type='submit' style={submit} value='Enviar' onClick={this.props.submitForm} />
-			<label style={message}>
-				{
-					this.props.uiState === 'submitted'
-					?
-						<span>Formulário enviado com sucesso</span>
-					:
-						this.props.uiState === 'error_submitting'
-						?
-							<span>Erro ao enviar formulário</span>
-						:
-							null
-				}
+const Submit = ({ uiState, submitForm }) => {
+	/* define which component the UI will display based on the current state */
+	const componentsToRender = {
+		default: null,
+		submitting: <Spinner size={'5rem'} />,
+		submitted: <span>Formulário enviado com sucesso!</span>,
+		error_submitting: <span>Erro ao enviar formulário. Tente novamente ou contate o suporte</span>
+	}
+	/* make sure uiState does not fall out of the available options */
+	const ui = uiState !== 'submitting' && uiState !== 'submitted' && uiState !== 'error_submitting'
+		? 'default'
+		: uiState
+	return (
+		<div>
+			<input
+				type='submit'
+				style={uiState === 'submitting' ? submitting : submit}
+				value={uiState === 'submitting' ? 'Enviando...' : 'Enviar'}
+				onClick={uiState === 'submitting' ? null : submitForm}
+			/>
+			<label style={uiState === 'error_submitting' ? messageError : message}>
+				{componentsToRender[ui]}
 			</label>
 		</div>
+	)
 }
 
 Submit.propTypes = {
 	submitForm: PropTypes.func.isRequired,
 	uiState: PropTypes.string.isRequired
 }
+
+export default Submit
