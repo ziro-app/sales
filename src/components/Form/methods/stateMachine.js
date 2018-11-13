@@ -5,9 +5,13 @@
 /* changeUiState is a transition function for the state machine */
 
 const machine = {
-	fetching: { SUCCESS: 'fetched', ERROR: 'error' },
-	fetched: {},
-	error: {}
+	fetching: { SUCCESS: 'fetched', ERROR: 'error_fetching' },
+	error_fetching: {},
+	fetched: { INPUT: 'accepting_inputs' },
+	accepting_inputs: { INPUT: 'accepting_inputs', SUBMIT: 'submitting' },
+	submitting: { SUCCESS: 'submitted', ERROR: 'error_submitting' },
+	submitted: { INPUT: 'accepting_inputs' },
+	error_submitting: { INPUT: 'accepting_inputs', SUBMIT: 'submitting' }
 }
 
 export const
