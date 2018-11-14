@@ -31,12 +31,13 @@ module.exports = (env, { mode }) => {
 		plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ]
 	}
 	if (mode === 'development') {
-		const { resellers } = require('./credentials')
+		const { resellers, backend } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
 		config.plugins.push(
 			new webpack.DefinePlugin({
 				'process.env': {
-					RESELLERS_SHEET_URL: JSON.stringify(resellers)
+					RESELLERS_SHEET_URL: JSON.stringify(resellers),
+					BACKEND_URL: JSON.stringify(backend)
 				}
 			})
 		)
@@ -47,7 +48,8 @@ module.exports = (env, { mode }) => {
 			new webpack.optimize.ModuleConcatenationPlugin(),
 			new webpack.DefinePlugin({
 				'process.env': {
-					RESELLERS_SHEET_URL: JSON.stringify(process.env.RESELLERS_SHEET_URL)
+					RESELLERS_SHEET_URL: JSON.stringify(process.env.RESELLERS_SHEET_URL),
+					BACKEND_URL: JSON.stringify(process.env.BACKEND_URL)
 				}
 			})
 		)
