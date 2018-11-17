@@ -1,3 +1,4 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 
@@ -33,6 +34,7 @@ module.exports = (env, { mode }) => {
 	if (mode === 'development') {
 		const { resellers, backend } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
+		config.devServer = { historyApiFallback: true },
 		config.plugins.push(
 			new webpack.DefinePlugin({
 				'process.env': {
@@ -46,6 +48,7 @@ module.exports = (env, { mode }) => {
 		config.devtool = 'cheap-module-source-map'
 		config.plugins.push(
 			new webpack.optimize.ModuleConcatenationPlugin(),
+			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }]),
 			new webpack.DefinePlugin({
 				'process.env': {
 					RESELLERS_SHEET_URL: JSON.stringify(process.env.RESELLERS_SHEET_URL),
