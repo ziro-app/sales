@@ -1,3 +1,6 @@
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
@@ -17,6 +20,12 @@ module.exports = (env, { mode }) => {
 								'@babel/preset-react'
 							],
 							plugins: [
+								['transform-imports', {
+									'cloudinary-react': {
+										'transform': 'cloudinary-react/lib/components/${member}',
+										'preventFullImport': true
+									}
+								}],
 								'@babel/plugin-transform-runtime',
 								'@babel/plugin-proposal-class-properties'
 							]
@@ -47,7 +56,9 @@ module.exports = (env, { mode }) => {
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
 		config.plugins.push(
-			new webpack.optimize.ModuleConcatenationPlugin(),
+			new LodashModuleReplacementPlugin(),
+			new CompressionPlugin(),
+			new BundleAnalyzerPlugin(),
 			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }]),
 			new webpack.DefinePlugin({
 				'process.env': {
