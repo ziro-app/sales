@@ -1,6 +1,6 @@
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
@@ -56,6 +56,7 @@ module.exports = (env, { mode }) => {
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
 		config.plugins.push(
+			// new BundleAnalyzerPlugin(),
 			new LodashModuleReplacementPlugin(),
 			new CompressionPlugin(),
 			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }]),
