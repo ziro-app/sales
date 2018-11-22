@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import SaleSvg from './SaleSvg'
+import ReturnSvg from './ReturnSvg'
 import WifiOnSvg from './WifiOnSvg'
 import WifiOffSvg from './WifiOffSvg'
 import { radioGroup, radioNotSelected, radioSelected, name, radio } from './styles'
