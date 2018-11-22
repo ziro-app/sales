@@ -15,7 +15,8 @@ const submitForm = that => async () => {
 				start_date: '',
 				representative: '',
 				reseller: '',
-				transaction_type: '',
+				category: '',
+				type: '',
 				end_date: ''
 			})
 		} catch (error) {

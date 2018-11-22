@@ -47,11 +47,21 @@ const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitF
 				updateParent={updateDropdown}
 			/>
 		</ErrorMessage>
-		<ErrorMessage message={state.error_transaction_type}>	
+		<ErrorMessage message={state.error_category}>	
 			<Radio
+				name='category'
+				options={['Venda','Troca']}
+				icons={[<SaleSvg />,<ReturnSvg />]}
+				value={state.category}
+				updateParent={updateRadio}
+			/>
+		</ErrorMessage>	
+		<ErrorMessage message={state.error_type}>	
+			<Radio
+				name='type'
 				options={['Online','Offline']}
 				icons={[<WifiOnSvg />,<WifiOffSvg />]}
-				value={state.transaction_type}
+				value={state.type}
 				updateParent={updateRadio}
 			/>
 		</ErrorMessage>

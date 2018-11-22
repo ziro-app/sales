@@ -21,13 +21,15 @@ export default class Form extends Component {
 		start_date: '',
 		representative: '',
 		reseller: '',
-		transaction_type: '',
+		category: '',
+		type: '',
 		end_date: '',
 		/* error messages */
 		error_start_date: '',
 		error_representative: '',
 		error_reseller: '',
-		error_transaction_type: '',
+		error_category: '',
+		error_type: '',
 		error_end_date: ''
 	}
 	/*-- methods --*/

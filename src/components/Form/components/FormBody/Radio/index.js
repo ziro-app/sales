@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { radioGroup, radioNotSelected, radioSelected, name, radio } from './styles'
 
 export default class Radio extends Component {
-	handleChange = ({ target: { value } }) => this.props.updateParent(value)
+	handleChange = ({ target: { value } }) => this.props.updateParent(this.props.name, value)
 	render = () =>
 		<div style={radioGroup}>
 			{this.props.options.map( (option, index) =>
@@ -18,7 +18,7 @@ export default class Radio extends Component {
 					<input
 						style={radio}
 						type='radio'
-						name='options'
+						name={this.props.name}
 						id={option}
 						value={option}
 						onChange={this.handleChange}
@@ -30,6 +30,7 @@ export default class Radio extends Component {
 }
 
 Radio.propTypes = {
+	name: PropTypes.string.isRequired,
 	options: PropTypes.arrayOf(PropTypes.string).isRequired,
 	icons: PropTypes.arrayOf(PropTypes.element).isRequired,
 	value: PropTypes.string.isRequired,

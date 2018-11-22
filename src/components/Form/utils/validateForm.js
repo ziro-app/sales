@@ -4,7 +4,8 @@ const validateForm = ({
 	start_date,
 	representative,
 	reseller,
-	transaction_type,
+	category,
+	type,
 	end_date,
 	representatives,
 	resellers
@@ -14,12 +15,14 @@ const validateForm = ({
 		const start_date_is_valid = dateIsValid(start_date)
 		const representative_is_valid = optionIsValid(representatives, representative)
 		const reseller_is_valid = optionIsValid(resellers, reseller)
-		const transaction_type_is_valid = optionIsValid(['Online','Offline'], transaction_type)
+		const category_is_valid = optionIsValid(['Venda','Troca'], category)
+		const type_is_valid = optionIsValid(['Online','Offline'], type)
 		const end_date_is_valid = new Date(end_date) >= new Date(start_date)
 		const formIsValid = start_date_is_valid
 			&& representative_is_valid
 			&& reseller_is_valid
-			&& transaction_type_is_valid
+			&& category_is_valid
+			&& type_is_valid
 			&& end_date_is_valid
 		/* return the status of each field and if all are valid */
 		return {
@@ -27,7 +30,8 @@ const validateForm = ({
 			start_date_is_valid,
 			representative_is_valid,
 			reseller_is_valid,
-			transaction_type_is_valid,
+			category_is_valid,
+			type_is_valid,
 			end_date_is_valid
 		}
 	}
