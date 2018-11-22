@@ -10,6 +10,10 @@ import InputForDayPicker from './InputForDayPicker/index'
 import Radio from './Radio/index'
 import Submit from './Submit/index'
 import ErrorMessage from  './ErrorMessage/index'
+import SaleSvg from './Radio/icons/SaleSvg'
+import ReturnSvg from './Radio/icons/ReturnSvg'
+import WifiOnSvg from './Radio/icons/WifiOnSvg'
+import WifiOffSvg from './Radio/icons/WifiOffSvg'
 /* import styles */
 import { body } from './styles'
 
@@ -45,6 +49,8 @@ const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitF
 		</ErrorMessage>
 		<ErrorMessage message={state.error_transaction_type}>	
 			<Radio
+				options={['Online','Offline']}
+				icons={[<WifiOnSvg />,<WifiOffSvg />]}
 				value={state.transaction_type}
 				updateParent={updateRadio}
 			/>

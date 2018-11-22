@@ -10,7 +10,7 @@ const WifiOnSvg = ({ size, color }) =>
 	</svg>
 
 WifiOnSvg.defaultProps = {
-	size: 24,
+	size: 28,
 	color: 'currentColor'
 }
 

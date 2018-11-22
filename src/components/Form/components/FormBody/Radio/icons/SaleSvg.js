@@ -9,7 +9,7 @@ const SaleSvg = ({ size, color }) =>
 	</svg>
 
 SaleSvg.defaultProps = {
-	size: 24,
+	size: 28,
 	color: 'currentColor'
 }
 

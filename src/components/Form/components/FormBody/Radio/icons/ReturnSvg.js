@@ -10,7 +10,7 @@ const ReturnSvg = ({ size, color }) =>
 	</svg>
 
 ReturnSvg.defaultProps = {
-	size: 24,
+	size: 28,
 	color: 'currentColor'
 }
 

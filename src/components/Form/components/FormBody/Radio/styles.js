@@ -4,14 +4,12 @@ radioGroup = {
 	display: 'grid',
 	gridTemplateColumns: '1fr 1fr',
 	gridColumnGap: '10px',
-	width: '100%',
 	textAlign: 'center',
 	fontWeight: '700',
 	color: 'rgba(48,62,77,0.3)'
 },
 
 radioNotSelected = {
-	width: '100%',
 	padding: '20px 0',
 	borderRadius: '5px',
 	backgroundColor: 'rgba(48,62,77,0.025)'
