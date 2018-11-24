@@ -41,14 +41,15 @@ module.exports = (env, { mode }) => {
 		plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ]
 	}
 	if (mode === 'development') {
-		const { resellers, backend } = require('./credentials')
+		const { resellers, backend, sales } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
 		config.devServer = { historyApiFallback: true },
 		config.plugins.push(
 			new webpack.DefinePlugin({
 				'process.env': {
 					RESELLERS_SHEET_URL: JSON.stringify(resellers),
-					BACKEND_URL: JSON.stringify(backend)
+					BACKEND_URL: JSON.stringify(backend),
+					SALES_SHEET_URL: JSON.stringify(sales)
 				}
 			})
 		)
@@ -63,7 +64,8 @@ module.exports = (env, { mode }) => {
 			new webpack.DefinePlugin({
 				'process.env': {
 					RESELLERS_SHEET_URL: JSON.stringify(process.env.RESELLERS_SHEET_URL),
-					BACKEND_URL: JSON.stringify(process.env.BACKEND_URL)
+					BACKEND_URL: JSON.stringify(process.env.BACKEND_URL),
+					SALES_SHEET_URL: JSON.stringify(process.env.SALES_SHEET_URL)
 				}
 			})
 		)
