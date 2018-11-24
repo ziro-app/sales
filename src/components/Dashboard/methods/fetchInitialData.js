@@ -1,12 +1,9 @@
 import { get, isCancel } from 'axios'
+import fetchFromSpreadsheet from '../utils/fetchFromSpreadsheet'
 
 const fetchInitialData = that => async () => {
 	try {
-		const result = await get(
-			`${process.env.SALES_SHEET_URL}`,
-			{ cancelToken: that.cancelTokenSource.token }
-		)
-		console.log(result)
+		that.setState( await fetchFromSpreadsheet(get, that.cancelTokenSource) )
 	} catch (error) {
 		if (isCancel(error))
 			console.log('Request canceled')
