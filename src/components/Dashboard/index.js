@@ -15,6 +15,7 @@ export default class Dashboard extends Component {
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()
+	changeUiState = changeUiState(this)
 	fetchInitialData = fetchInitialData(this)
 	renderDashboard = renderDashboard(this)
 	/*-- lifecycle --*/

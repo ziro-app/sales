@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Panel = ({ sales }) =>
 	<ul style={{ maxWidth: '400px', margin: '0 auto' }}>
 		{sales.map( sale =>
