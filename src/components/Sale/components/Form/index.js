@@ -17,7 +17,7 @@ import WifiOffSvg from './Radio/icons/WifiOffSvg'
 /* import styles */
 import { body } from './styles'
 
-const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitForm }) =>
+const Form = ({ state, updateDropdown, updateDayPicker, updateRadio, submitForm }) =>
 	<div style={body}>
 		<ErrorMessage message={state.error_start_date}>
 			<DayPickerInput
@@ -81,4 +81,4 @@ const FormBody = ({ state, updateDropdown, updateDayPicker, updateRadio, submitF
 		/>
 	</div>
 
-export default FormBody
+export default Form

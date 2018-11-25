@@ -1,6 +1,6 @@
 export const
 
-form = {
+container = {
 	maxWidth: '400px',
 	margin: '40px auto 60px',
 	padding: '0px 10%',

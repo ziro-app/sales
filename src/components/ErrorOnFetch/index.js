@@ -2,7 +2,7 @@ import React from 'react'
 import AlertSvg from './AlertSvg'
 import { container, errorMessage } from './styles'
 
-const ErrorOnLoad = () => 
+const ErrorOnFetch = () => 
 	<div style={container}>
 		<AlertSvg size={32} />
 		<p style={errorMessage}>Ocorreu um erro no carregamento dos dados</p>
@@ -10,4 +10,4 @@ const ErrorOnLoad = () =>
 		<p style={errorMessage}>Se o erro persistir contate o suporte</p>
 	</div>
 
-export default ErrorOnLoad
+export default ErrorOnFetch
