@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Image } from 'cloudinary-react'
-import { container, title } from './styles'
+import { container, description } from './styles'
 
-const Header = ({ children }) =>
+const Header = ({ title, children }) =>
 	<div style={container}>
 	    <Image
 			cloudName='ziro'
@@ -13,11 +13,12 @@ const Header = ({ children }) =>
 			format='png'
 			secure='true'
 	    />
-		<h1 style={title}>Cadastrar atendimento</h1>
+		<h1 style={description}>{title}</h1>
 		{children}
 	</div>
 
 Header.propTypes = {
+	title: PropTypes.string.isRequired,
 	children: PropTypes.element.isRequired
 }
 
