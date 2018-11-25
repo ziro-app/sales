@@ -1,23 +1,18 @@
 import React from 'react'
+import { container, title, row, reseller } from './styles'
 
 const Panel = ({ sales }) =>
-	<ul style={{ maxWidth: '400px', margin: '0 auto' }}>
+	<ul style={container}>
+		<li style={title}>
+			<span>Fim</span>
+			<span>Assessor</span>
+			<span>Lojista</span>
+		</li>
 		{sales.map( sale =>
-			<li style={{ 
-				fontSize: '1.4rem',
-				display: 'grid',
-				gridTemplateColumns: '17% 18% 45%',
-				whiteSpace: 'nowrap'
-			}} key={sale[0]}>
-				<span>
-					{sale[4].substr(0,6)}
-				</span>
-				<span>
-					{sale[2]}
-				</span>
-				<span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
-					{sale[3]}
-				</span>
+			<li style={row} key={sale[0]}>
+				<span>{sale[4].substr(0,6)}</span>
+				<span>{sale[2]}</span>
+				<span style={reseller}>{sale[3]}</span>
 			</li>
 		)}
 	</ul>
