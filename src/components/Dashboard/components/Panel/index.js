@@ -1,12 +1,12 @@
 import React from 'react'
 import filterAndSort from '../../utils/filterAndSort'
-import { container, title, row, reseller } from './styles'
+import { container, title, representative, row, reseller } from './styles'
 
 const Panel = ({ sales }) =>
 	<ul style={container}>
 		<li style={title}>
 			<span>Fim</span>
-			<span>Assessor</span>
+			<span style={representative}>Assessor</span>
 			<span>Lojista</span>
 		</li>
 		{filterAndSort(sales).map( ({ id, fim, assessor, lojista }) =>

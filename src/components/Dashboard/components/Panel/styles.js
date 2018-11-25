@@ -14,12 +14,14 @@ title = {
 	fontWeight: '700'
 },
 
+representative = {
+	whiteSpace: 'nowrap',
+	overflow: 'hidden',
+	textOverflow: 'ellipsis'	
+},
+
 row = Object.assign({}, title, {
 	fontWeight: '400'
 }),
 
-reseller = {
-	whiteSpace: 'nowrap',
-	overflow: 'hidden',
-	textOverflow: 'ellipsis'
-}
+reseller = Object.assign({}, representative)
