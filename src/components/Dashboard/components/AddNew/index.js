@@ -6,7 +6,7 @@ import { button } from './styles'
 const AddNew = () =>
 	<Link to='/cadastrar'>
 		<div style={button}>
-			<AddNewSvg size={27} color={'rgba(48,62,77,1)'} />
+			<AddNewSvg size={27} color={'rgb(48,62,77)'} />
 		</div>
 	</Link>
 
