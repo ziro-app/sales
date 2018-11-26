@@ -17,4 +17,5 @@ const Panel = ({ sales }) =>
 			</li>
 		)}
 	</ul>
+
 export default Panel

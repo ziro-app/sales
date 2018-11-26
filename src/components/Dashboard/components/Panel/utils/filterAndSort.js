@@ -1,8 +1,9 @@
 import stringToDate from './stringToDate'
 
 const filterAndSort = sales => {
-	const filtered = sales.filter( sale => sale[5] === 'Aberto' )
-	const sorted = filtered.sort( (a,b) => stringToDate(a[4]) - stringToDate(b[4]) || (a[2] < b[2] ? -1 : 1) )
+	const filteredStatus = sales.filter( sale => sale[5] === 'Aberto' )
+	const filteredDate = filteredStatus.filter( sale => stringToDate(sale[4]) <= new Date() )
+	const sorted = filteredDate.sort( (a,b) => stringToDate(a[4]) - stringToDate(b[4]) || (a[2] < b[2] ? -1 : 1) )
 	const simplified = sorted.map( sale => {
 		sale[4] = sale[4].substr(0,6)
 		return sale

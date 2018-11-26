@@ -19,4 +19,5 @@ const renderDashboard = that => uiState => {
 	/* return component wrapped in header */
 	return <Header title='Atendimentos'>{componentsToRender[ui]}</Header>
 }
+
 export default renderDashboard
