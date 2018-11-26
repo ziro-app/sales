@@ -9,6 +9,18 @@ container = {
 	gridRowGap: '10px'
 },
 
+icons = {
+	position: 'relative',
+	width: '100%',
+	display: 'grid',
+	placeItems: 'center'
+},
+
+arrow = {
+	position: 'absolute',
+	justifySelf: 'left'
+},
+
 description = {
 	color: 'rgba(48,62,77,0.8)',
 	fontSize: '2.1rem',
