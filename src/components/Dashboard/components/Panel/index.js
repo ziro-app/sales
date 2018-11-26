@@ -1,5 +1,5 @@
 import React from 'react'
-import filterAndSort from '../../utils/filterAndSort'
+import filterAndSort from './utils/filterAndSort'
 import { container, title, representative, row, reseller } from './styles'
 
 const Panel = ({ sales }) =>
