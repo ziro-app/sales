@@ -9,8 +9,8 @@ const App = () =>
 	<ErrorBoundary>
 		<Router>
 			<Switch>
-				<Route exact path='/' component={Sale} />
-				<Route path='/dashboard' component={Dashboard} />
+				<Route exact path='/' component={Dashboard} />
+				<Route path='/cadastrar' component={Sale} />
 				<Route component={NotFound} />
 			</Switch>
 		</Router>
