@@ -10,7 +10,7 @@ import updateRadio from './methods/updateRadio'
 import submitForm from './methods/submitForm'
 import renderForm from './methods/renderForm'
 
-export default class Form extends Component {
+export default class Sale extends Component {
 	state = {
 		/* initial ui state */
 		uiState: initialUiState,
