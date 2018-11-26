@@ -6,7 +6,13 @@ container = {
 	margin: '0',
 },
 
-title = {
+status = {
+	margin: '0',
+	fontSize: '1.8rem',
+	color: 'rgba(48, 62, 77, 0.8)'
+},
+
+header = {
 	display: 'grid',
 	gridTemplateColumns: '25% 25% 50%',
 	fontSize: '1.4rem',
@@ -20,7 +26,7 @@ representative = {
 	textOverflow: 'ellipsis'	
 },
 
-row = Object.assign({}, title, {
+row = Object.assign({}, header, {
 	fontWeight: '400'
 }),
 
