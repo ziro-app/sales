@@ -2,8 +2,9 @@ export const
 
 button = {
 	position: 'fixed',
-	bottom: '2%',
-	right: '5%',
+	bottom: '20px',
+	/* viewport - maxWidth all divided by 2 and plus 20px of margin */
+	right: (window.innerWidth - 400) / 2 + 20,
 	display: 'grid',
 	padding: '15px',
 	borderRadius: '50%',
