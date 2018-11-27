@@ -3,10 +3,10 @@ export const
 container = {
 	display: 'grid',
 	gridRowGap: '10px',
-	margin: '0',
+	margin: '0px 0px 40px',
 },
 
-status = {
+title = {
 	margin: '0',
 	fontSize: '1.8rem',
 	color: 'rgba(48, 62, 77, 0.8)'
