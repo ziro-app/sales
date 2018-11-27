@@ -3,7 +3,7 @@ import Proptypes from 'prop-types'
 import { open } from './utils/filters'
 import { row, reseller } from './styles'
 
-const Filters = ({ sales, status }) => {
+const Tables = ({ sales, status }) => {
 	return (open(sales).map( ({ id, fim, assessor, lojista }) =>
 		<div style={row} key={id}>
 			<span>{fim}</span>
@@ -13,9 +13,9 @@ const Filters = ({ sales, status }) => {
 	))
 }
 
-Filters.propTypes = {
+Tables.propTypes = {
 	sales: Proptypes.array.isRequired,
 	status: Proptypes.string.isRequired
 }
 
-export default Filters
+export default Tables

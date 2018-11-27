@@ -1,15 +1,8 @@
 import React, { Fragment } from 'react'
-import Filters from './Filters'
+import Tables from './Tables'
 import AddNew from '../AddNew/index'
+import statusList from './utils/statusList'
 import { container, title, header, representative } from './styles'
-
-const statusList = [
-	'Abertos',
-	'Agendados',
-	'Em Pagamento',
-	'Retirados',
-	'Despachados'
-]
 
 const Panel = ({ sales }) =>
 	<Fragment>	
@@ -21,7 +14,7 @@ const Panel = ({ sales }) =>
 					<span style={representative}>Assessor</span>
 					<span>Lojista</span>
 				</div>
-				<Filters sales={sales} status={status} />
+				<Tables sales={sales} status={status} />
 			</div>
 		)}
 		<AddNew />
