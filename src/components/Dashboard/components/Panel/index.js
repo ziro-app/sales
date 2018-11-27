@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
+import Filters from './Filters'
 import AddNew from '../AddNew/index'
-import filterAndSort from './utils/filterAndSort'
-import { container, title, header, representative, row, reseller } from './styles'
+import { container, title, header, representative } from './styles'
 
 const statusList = [
 	'Abertos',
@@ -21,13 +21,7 @@ const Panel = ({ sales }) =>
 					<span style={representative}>Assessor</span>
 					<span>Lojista</span>
 				</div>
-				{filterAndSort(sales).map( ({ id, fim, assessor, lojista }) =>
-					<div style={row} key={id}>
-						<span>{fim}</span>
-						<span>{assessor}</span>
-						<span style={reseller}>{lojista}</span>
-					</div>
-				)}
+				<Filters sales={sales} status={status} />
 			</div>
 		)}
 		<AddNew />

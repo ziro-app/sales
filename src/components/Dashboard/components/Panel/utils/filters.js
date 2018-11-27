@@ -1,6 +1,6 @@
 import stringToDate from './stringToDate'
 
-const filterAndSort = sales => {
+const open = sales => {
 	const filteredStatus = sales.filter( sale => sale[5] === 'Aberto' )
 	const filteredDate = filteredStatus.filter( sale => stringToDate(sale[4]) <= new Date() )
 	const sorted = filteredDate.sort( (a,b) => stringToDate(a[4]) - stringToDate(b[4]) || (a[2] < b[2] ? -1 : 1) )
@@ -17,4 +17,4 @@ const filterAndSort = sales => {
 	return table
 }
 
-export default filterAndSort
+export { open }
