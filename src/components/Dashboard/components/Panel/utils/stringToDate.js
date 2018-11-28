@@ -15,7 +15,10 @@ const translateMonth = month => {
 	}
 }
 
-const stringToDate = string =>
-	new Date(`${string.substr(0,3)}${translateMonth(string.substr(3,3))}${string.substr(6,5)}`)
+const stringToDate = string => {
+	if (string.length === 6)
+		return new Date(`${string.substr(0,3)}${translateMonth(string.substr(3,3))}${new Date().getFullYear()}`)	
+	return new Date(`${string.substr(0,3)}${translateMonth(string.substr(3,3))}${string.substr(6,5)}`)
+}
 
 export default stringToDate
