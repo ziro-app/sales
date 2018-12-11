@@ -15,6 +15,7 @@ const Header = ({ path, title, children }) =>
 				version='1508000699'
 				format='png'
 				secure='true'
+				alt='logo'
 		    />
 	    </div>
 		<h1 style={description}>{title}</h1>

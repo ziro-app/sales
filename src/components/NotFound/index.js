@@ -11,6 +11,7 @@ const NotFound = () =>
 			version='1508000699'
 			format='png'
 			secure='true'
+			alt='logo'
 	    />
 		<h1 style={title}>Essa página não existe. Verifique a URL digitada</h1>
 	</div>

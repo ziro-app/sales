@@ -11,6 +11,7 @@ const RenderErrorMessage = () =>
 	      version='1508000699'
 	      format='png'
 	      secure='true'
+	      alt='logo'
 	    />
 		<p>Ocorreu um erro na renderização do aplicativo</p>
 		<p>Tente novamente ou contate o suporte</p>
