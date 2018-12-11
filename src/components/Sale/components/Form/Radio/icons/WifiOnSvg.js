@@ -16,7 +16,7 @@ WifiOnSvg.defaultProps = {
 
 WifiOnSvg.propTypes = {
 	size: PropTypes.number.isRequired,
-	color: PropTypes.string
+	color: PropTypes.string.isRequired
 }
 
 export default WifiOnSvg

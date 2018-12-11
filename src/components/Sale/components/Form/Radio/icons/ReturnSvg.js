@@ -16,7 +16,7 @@ ReturnSvg.defaultProps = {
 
 ReturnSvg.propTypes = {
 	size: PropTypes.number.isRequired,
-	color: PropTypes.string
+	color: PropTypes.string.isRequired
 }
 
 export default ReturnSvg

@@ -13,7 +13,7 @@ Spinner.defaultProps = {
 }
 
 Spinner.propTypes = {
-	size: PropTypes.string
+	size: PropTypes.string.isRequired
 }
 
 export default Spinner
