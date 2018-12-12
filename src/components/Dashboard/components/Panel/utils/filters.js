@@ -40,4 +40,13 @@ const pickup = sales => {
 	})
 }
 
-export { open, scheduled, payment, pickup }
+const dropoff = sales => {
+	const filteredStatus = sales.filter( sale => sale[5] === 'Despachado' )
+	const sorted = filteredStatus.sort( (a,b) => stringToDate(a[4]) - stringToDate(b[4]) || (a[2] < b[2] ? -1 : 1) )
+	return sorted.map( sale => {
+		sale[4] = sale[4].substr(0,6)
+		return sale
+	})
+}
+
+export { open, scheduled, payment, pickup, dropoff }

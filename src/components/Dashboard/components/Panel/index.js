@@ -3,6 +3,7 @@ import FilterOpen from './components/FilterOpen'
 import FilterScheduled from './components/FilterScheduled'
 import FilterPayment from './components/FilterPayment'
 import FilterPickup from './components/FilterPickup'
+import FilterDropoff from './components/FilterDropoff'
 import AddNew from '../AddNew/index'
 
 const Panel = ({ sales }) =>
@@ -11,6 +12,7 @@ const Panel = ({ sales }) =>
 		<FilterScheduled sales={sales} />
 		<FilterPayment sales={sales} />
 		<FilterPickup sales={sales} />
+		<FilterDropoff sales={sales} />
 		<AddNew />
 	</Fragment>
 
