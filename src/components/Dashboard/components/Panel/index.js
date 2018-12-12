@@ -1,17 +1,26 @@
 import React, { Fragment } from 'react'
 import Tables from './Tables'
 import AddNew from '../AddNew/index'
-import statusList from './utils/statusList'
-import { container, title } from './styles'
+import { open, scheduled, payment } from './utils/filters'
+import { container, title, header, representative, row, reseller } from './styles'
 
 const Panel = ({ sales }) =>
 	<Fragment>	
-		{statusList.map( (status, index) =>
-			<div style={container} key={index}>
-				<h1 style={title}>{status}</h1>
-				<Tables sales={sales} status={status} />
+		<div style={container}>
+			<h1 style={title}>Abertos</h1>
+			<div style={header}>
+				<span>Fim</span>
+				<span style={representative}>Assessor</span>
+				<span>Lojista</span>
 			</div>
-		)}
+			{open(sales).map( ({ id, fim, assessor, lojista }) =>
+				<div style={row} key={id}>
+					<span>{fim}</span>
+					<span>{assessor}</span>
+					<span style={reseller}>{lojista}</span>
+				</div>
+			)}
+		</div>
 		<AddNew />
 	</Fragment>
 
