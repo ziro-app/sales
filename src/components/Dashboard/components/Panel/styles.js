@@ -1,6 +1,7 @@
 export const
 
 container = {
+	width: '100%',
 	display: 'grid',
 	gridRowGap: '10px',
 	margin: '0px 0px 40px',
