@@ -3,8 +3,8 @@ import { open, scheduled, payment } from './utils/filters'
 import { container, title, header, representative, row, reseller } from './styles'
 
 const FilteredTable = ({ name, sales }) => {
-	const tables = {
-		Abertos:
+	switch (name) {
+		case 'Abertos': return (
 			<div style={container}>	
 				<h1 style={title}>{name}</h1>
 				<div style={header}>
@@ -19,10 +19,10 @@ const FilteredTable = ({ name, sales }) => {
 						<span style={reseller}>{lojista}</span>
 					</div>
 				)}
-			</div>,
-		Agendados: scheduled(name, sales)
+			</div>
+		)
+		case 'Agendados':  return scheduled(name, sales)
 	}
-	return tables[name]
 }
 
 export default FilteredTable
