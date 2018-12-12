@@ -21,6 +21,11 @@ header = {
 	fontWeight: '700'
 },
 
+empty = {
+	fontSize: '1.4rem',
+	color: 'rgba(48, 62, 77, 0.8)',
+},
+
 representative = {
 	whiteSpace: 'nowrap',
 	overflow: 'hidden',

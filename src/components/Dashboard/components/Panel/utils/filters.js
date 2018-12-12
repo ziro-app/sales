@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import stringToDate from './stringToDate'
-import { container, title, header, representative, row, reseller } from '../styles'
+import { container, title, header, representative, row, reseller, empty } from '../styles'
 
-const open = sales => {
+const open = (name, sales) => {
 	const filteredStatus = sales.filter( sale => sale[5] === 'Aberto' )
 	const filteredDate = filteredStatus.filter( sale => stringToDate(sale[4]) <= new Date() )
 	const sorted = filteredDate.sort( (a,b) => stringToDate(a[4]) - stringToDate(b[4]) || (a[2] < b[2] ? -1 : 1) )
@@ -10,17 +10,36 @@ const open = sales => {
 		sale[4] = sale[4].substr(0,6)
 		return sale
 	})
-	return simplified.map( sale => ({
-		id: sale[0],
-		fim: sale[4],
-		assessor: sale[2],
-		lojista: sale[3]
-	}))
+	if (simplified && simplified.length)
+		return (
+			<div style={container}>	
+				<h1 style={title}>{name}</h1>
+				<div style={header}>
+					<span>Fim</span>
+					<span style={representative}>Assessor</span>
+					<span>Lojista</span>
+				</div>
+				{simplified.map( sale => {
+					const [ id, inicio, assessor, lojista, fim, ...rest ] = sale
+					return (
+						<div style={row} key={id}>
+							<span>{fim}</span>
+							<span>{assessor}</span>
+							<span style={reseller}>{lojista}</span>
+						</div>
+				)})}
+			</div>
+		)
+	else
+		return (
+			<div style={container}>	
+				<h1 style={title}>{name}</h1>
+				<span style={empty}>Não há atendimentos abertos</span>
+			</div>
+		)
 }
 
 const scheduled = (name, sales) => {
-	console.log(name)
-	console.log(sales)
 	const filteredStatus = sales.filter( sale => sale[5] === 'Aberto' )
 	const filteredDate = filteredStatus.filter( sale => stringToDate(sale[1]) > new Date() )
 	const sorted = filteredDate.sort( (a,b) => stringToDate(a[1]) - stringToDate(b[1]) || (a[2] < b[2] ? -1 : 1) )
@@ -52,7 +71,7 @@ const scheduled = (name, sales) => {
 		return (
 			<div style={container}>	
 				<h1 style={title}>{name}</h1>
-				<span>Não há atendimentos agendados</span>
+				<span style={empty}>Não há atendimentos agendados</span>
 			</div>
 		)
 }
