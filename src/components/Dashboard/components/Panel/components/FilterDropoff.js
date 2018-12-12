@@ -28,7 +28,7 @@ const FilterDropoff = ({ sales }) => {
 		return (
 			<div style={container}>	
 				<h1 style={title}>Despachados</h1>
-				<span style={empty}>Não há atendimentos aguardando recebimento pelo lojista</span>
+				<span style={empty}>Todos os despachos tiveram recebimento confirmado</span>
 			</div>
 		)
 }

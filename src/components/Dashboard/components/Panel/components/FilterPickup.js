@@ -28,7 +28,7 @@ const FilterPickup = ({ sales }) => {
 		return (
 			<div style={container}>	
 				<h1 style={title}>Retirados</h1>
-				<span style={empty}>Não há atendimentos com mercadorias aguardando no escritório</span>
+				<span style={empty}>Não há mercadorias aguardando no escritório</span>
 			</div>
 		)
 }
