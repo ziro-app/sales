@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import { payment } from '../utils/filters'
 import { container, title, header, representative, row, reseller, empty } from '../styles'
 
@@ -31,6 +32,10 @@ const FilterPayment = ({ sales }) => {
 			}
 		</div>
 	)
+}
+
+FilterPayment.propTypes = {
+	sales: PropTypes.array.isRequired
 }
 
 export default FilterPayment

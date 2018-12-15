@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import { dropoff } from '../utils/filters'
 import { container, title, header, representative, row, reseller, empty } from '../styles'
 
@@ -31,6 +32,10 @@ const FilterDropoff = ({ sales }) => {
 			}
 		</div>
 	)
+}
+
+FilterDropoff.propTypes = {
+	sales: PropTypes.array.isRequired
 }
 
 export default FilterDropoff

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import FilterOpen from './components/FilterOpen'
 import FilterScheduled from './components/FilterScheduled'
 import FilterPayment from './components/FilterPayment'
@@ -15,5 +16,9 @@ const Panel = ({ sales }) =>
 		<FilterDropoff sales={sales} />
 		<AddNew />
 	</Fragment>
+
+Panel.propTypes = {
+	sales: PropTypes.array.isRequired
+}
 
 export default Panel
