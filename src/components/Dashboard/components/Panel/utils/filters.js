@@ -1,6 +1,4 @@
-import React, { Fragment } from 'react'
 import stringToDate from './stringToDate'
-import { container, title, header, representative, row, reseller, empty } from '../styles'
 
 const open = sales => {
 	const filteredStatus = sales.filter( sale => sale[5] === 'Aberto' )
