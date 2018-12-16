@@ -5,7 +5,7 @@ import BackSvg from './BackSvg'
 import { arrow } from './styles'
 
 const BackArrow = ({ path }) => {
-	if (path === '/cadastrar')
+	if (path !== '/')
 		return (
 	    	<Link style={arrow} to='/'>
 	    		<BackSvg size={27} color={'rgb(48,62,77)'} />
