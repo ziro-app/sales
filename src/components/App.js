@@ -11,6 +11,7 @@ const App = () =>
 			<Switch>
 				<Route exact path='/' component={Dashboard} />
 				<Route path='/cadastrar' component={Sale} />
+				<Route path='/atendimentos/:id' render={({match: {params: {id}}}) => <div>{id}</div>} />
 				<Route component={NotFound} />
 			</Switch>
 		</Router>
