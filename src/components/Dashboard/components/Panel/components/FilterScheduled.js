@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { scheduled } from '../utils/filters'
 import { container, title, header, representative, row, reseller, empty } from '../styles'
@@ -19,11 +20,13 @@ const FilterScheduled = ({ sales }) => {
 						{filteredData.map( sale => {
 							const [ id, inicio, assessor, lojista, ...rest ] = sale
 							return (
-								<div style={row} key={id}>
-									<span>{inicio}</span>
-									<span>{assessor}</span>
-									<span style={reseller}>{lojista}</span>
-								</div>
+								<Link to={`/atendimentos/${id}`} key={id}>
+									<div style={row} key={id}>
+										<span>{inicio}</span>
+										<span>{assessor}</span>
+										<span style={reseller}>{lojista}</span>
+									</div>
+								</Link>
 							)
 						})}
 					</Fragment>
