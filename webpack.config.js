@@ -45,7 +45,8 @@ module.exports = (env, { mode }) => {
 	if (mode === 'development') {
 		const { resellers, backend, sales } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
-		config.devServer = { historyApiFallback: true },
+		config.output = { publicPath: '/' }
+		config.devServer = { historyApiFallback: true }
 		config.plugins.push(
 			new webpack.DefinePlugin({
 				'process.env': {
