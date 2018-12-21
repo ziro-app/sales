@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../Header/index'
-import { container, row, label, data, select } from './styles'
+import { container, row, label, data, select, edit } from './styles'
 
 const SaleView = ({ match: { path, params: { id } } }) =>
 	<Header title={`Atendimento ${id}`} path={path}>
@@ -37,6 +37,7 @@ const SaleView = ({ match: { path, params: { id } } }) =>
 					)}
 				</select>
 			</div>
+			<input style={edit} type='submit' value='Editar' />
 		</div>
 	</Header>
 
