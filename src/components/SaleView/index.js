@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Header from '../Header/index'
-import { container, row, label, data, select, edit } from './styles'
+import { container, row, label, data, select, link, edit } from './styles'
 
 const SaleView = ({ match: { path, params: { id } } }) =>
 	<Header title={`Atendimento ${id}`} path={path}>
@@ -37,7 +38,9 @@ const SaleView = ({ match: { path, params: { id } } }) =>
 					)}
 				</select>
 			</div>
-			<input style={edit} type='submit' value='Editar' />
+			<Link style={link} to='/'>
+				<input style={edit} type='submit' value='Editar' />
+			</Link>
 		</div>
 	</Header>
 
