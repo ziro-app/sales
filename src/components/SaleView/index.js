@@ -38,7 +38,7 @@ const SaleView = ({ match: { path, params: { id } } }) =>
 					)}
 				</select>
 			</div>
-			<Link style={link} to='/'>
+			<Link style={link} to={`/atendimentos/${id}/editar`}>
 				<input style={edit} type='submit' value='Editar' />
 			</Link>
 		</div>

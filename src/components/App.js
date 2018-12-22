@@ -12,7 +12,8 @@ const App = () =>
 			<Switch>
 				<Route exact path='/' component={Dashboard} />
 				<Route path='/cadastrar' component={Sale} />
-				<Route path='/atendimentos/:id' component={SaleView} />
+				<Route exact path='/atendimentos/:id' component={SaleView} />
+				<Route path='/atendimentos/:id/editar' component={Sale} />
 				<Route component={NotFound} />
 			</Switch>
 		</Router>
