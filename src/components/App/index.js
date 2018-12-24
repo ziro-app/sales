@@ -2,13 +2,13 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 /* import methods */
-import updateSales from './updateSales'
+import updateSales from './methods/updateSales'
 /* import components */
-import Dashboard from './Dashboard/index'
-import Sale from './Sale/index'
-import SaleView from './SaleView/index'
-import NotFound from './NotFound/index'
-import ErrorBoundary from './ErrorBoundary/index'
+import Dashboard from '../Dashboard/index'
+import Sale from '../Sale/index'
+import SaleView from '../SaleView/index'
+import NotFound from '../NotFound/index'
+import ErrorBoundary from '../ErrorBoundary/index'
 
 export default class App extends Component {
 	state = {
