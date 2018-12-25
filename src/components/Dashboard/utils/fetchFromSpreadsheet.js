@@ -3,7 +3,6 @@ const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 		`${process.env.SALES_SHEET_URL}`,
 		{ cancelToken: cancelTokenSource.token }
 	)
-	console.log(values)
 	if (!values)
 		await Promise.reject('Error fetching data. values is undefined. At fetchFromSpreadsheet')
 	if (values.length === 0)
@@ -13,6 +12,8 @@ const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 		value[2],
 		value[3],
 		value[4],
+		value[5],
+		value[6],
 		value[7],
 		value[8]
 	]).slice(1)

@@ -18,7 +18,7 @@ const FilterOpen = ({ sales }) => {
 							<span>Lojista</span>
 						</div>
 						{filteredData.map( sale => {
-							const [ id, inicio, assessor, lojista, fim, ...rest ] = sale
+							const [ id, , assessor, lojista, , , fim, ...rest ] = sale
 							return (
 								<Link to={`/atendimentos/${id}`} key={id}>
 									<div style={row}>
