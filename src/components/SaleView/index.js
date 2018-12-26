@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Header from '../Header/index'
 import { container, row, label, data, select, link, edit } from './styles'
 
-const SaleView = ({ match: { path, params: { id } } }) =>
+const SaleView = ({ match: { path, params: { id } }, sales }) =>
 	<Header title={`Atendimento ${id}`} path={path}>
 		<div style={container}>
 			<div style={row}>

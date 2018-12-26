@@ -19,9 +19,9 @@ export default class App extends Component {
 		<ErrorBoundary>
 			<Router>
 				<Switch>
-					<Route exact path='/' render={ props => <Dashboard {...props} updateParent={this.updateSales} /> } />
+					<Route exact path='/' render={props => <Dashboard {...props} updateParent={this.updateSales} />} />
 					<Route path='/cadastrar' component={Sale} />
-					<Route exact path='/atendimentos/:id' component={SaleView} />
+					<Route exact path='/atendimentos/:id' render={props => <SaleView {...props} sales={this.state.sales} />} />
 					<Route path='/atendimentos/:id/editar' component={Sale} />
 					<Route component={NotFound} />
 				</Switch>
