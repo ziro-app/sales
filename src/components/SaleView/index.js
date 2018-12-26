@@ -5,7 +5,8 @@ import getSale from './utils/getSale'
 import { container, row, label, data, select, link, edit } from './styles'
 
 const SaleView = ({ match: { path, params: { id } }, sales }) => {
-	const sale = getSale(sales)
+	const sale = getSale(id, sales)
+	console.log(sale)
 	return (
 		<Header title={`Atendimento ${id}`} path={path}>
 			<div style={container}>
