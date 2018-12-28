@@ -36,11 +36,9 @@ const SaleView = ({ match: { path, params: { id } }, sales }) => {
 				</div>
 				<div style={row}>
 					<span style={label}>Status</span>
-					<select style={select}>
+					<select style={select} value={status}>
 						{statusList.map( (option, index) =>
-							<option value={option} key={index} selected={option === status}>
-								{option}
-							</option>
+							<option value={option} key={index}>{option}</option>
 						)}
 					</select>
 				</div>
