@@ -5,6 +5,7 @@ import getSale from './utils/getSale'
 import { container, row, label, data, select, link, edit } from './styles'
 
 const SaleView = ({ match: { path, params: { id } }, sales }) => {
+	const statusList = ['Aberto', 'Pagando', 'Retirado', 'Despachado', 'Entregue', 'Cancelado']
 	const { inicio, assessor, lojista, categoria, tipo, fim, status } = getSale(id, sales)
 	return (
 		<Header title={`Atendimento ${id}`} path={path}>
@@ -36,8 +37,10 @@ const SaleView = ({ match: { path, params: { id } }, sales }) => {
 				<div style={row}>
 					<span style={label}>Status</span>
 					<select style={select}>
-						{['Aberto', 'Entregue'].map( (option, index) =>
-							<option value={option} key={index}>{option}</option>
+						{statusList.map( (option, index) =>
+							<option value={option} key={index} selected={option === status}>
+								{option}
+							</option>
 						)}
 					</select>
 				</div>
