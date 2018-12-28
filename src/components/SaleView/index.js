@@ -5,34 +5,33 @@ import getSale from './utils/getSale'
 import { container, row, label, data, select, link, edit } from './styles'
 
 const SaleView = ({ match: { path, params: { id } }, sales }) => {
-	const sale = getSale(id, sales)
-	console.log(sale)
+	const { inicio, assessor, lojista, categoria, tipo, fim, status } = getSale(id, sales)
 	return (
 		<Header title={`Atendimento ${id}`} path={path}>
 			<div style={container}>
 				<div style={row}>
 					<span style={label}>Início</span>
-					<span style={data}>01/01/2019</span>
+					<span style={data}>{inicio}</span>
 				</div>
 				<div style={row}>
 					<span style={label}>Assessor</span>
-					<span style={data}>Rubia</span>
+					<span style={data}>{assessor}</span>
 				</div>
 				<div style={row}>
 					<span style={label}>Lojista</span>
-					<span style={data}>CLAUDIA CAMPELO DE OLIVEIRA</span>
+					<span style={data}>{lojista}</span>
 				</div>
 				<div style={row}>
 					<span style={label}>Categoria</span>
-					<span style={data}>Troca</span>
+					<span style={data}>{categoria}</span>
 				</div>
 				<div style={row}>
 					<span style={label}>Tipo</span>
-					<span style={data}>Online</span>
+					<span style={data}>{tipo}</span>
 				</div>
 				<div style={row}>
 					<span style={label}>Fim</span>
-					<span style={data}>02/01/2019</span>
+					<span style={data}>{fim}</span>
 				</div>
 				<div style={row}>
 					<span style={label}>Status</span>

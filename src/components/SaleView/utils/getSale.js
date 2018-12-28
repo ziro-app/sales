@@ -1,8 +1,9 @@
 const getSale = (id, sales) => {
 	const filtered = sales.filter(sale => sale[0] === id).pop()
+	console.log(sales)
+	console.log('f',filtered)
 	if (filtered && filtered.length)
 		return {
-			id: filtered[0],
 			inicio: filtered[1],
 			assessor: filtered[2],
 			lojista: filtered[3],
