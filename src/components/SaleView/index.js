@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Header from '../Header/index'
 import getSale from './utils/getSale'
@@ -48,6 +49,11 @@ const SaleView = ({ match: { path, params: { id } }, sales }) => {
 			</div>
 		</Header>
 	)
+}
+
+SaleView.propTypes = {
+	match: PropTypes.object.isRequired,
+	sales: PropTypes.array.isRequired
 }
 
 export default SaleView
