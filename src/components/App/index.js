@@ -1,30 +1,13 @@
-/* import libraries */
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-/* import methods */
 import updateSales from './methods/updateSales'
-/* import components */
-import Dashboard from '../Dashboard/index'
-import Sale from '../Sale/index'
-import SaleView from '../SaleView/index'
-import NotFound from '../NotFound/index'
-import ErrorBoundary from '../ErrorBoundary/index'
+import renderApp from './methods/renderApp'
+
 
 export default class App extends Component {
 	state = {
 		sales: []
 	}
 	updateSales = updateSales(this)
-	render = () =>
-		<ErrorBoundary>
-			<Router>
-				<Switch>
-					<Route exact path='/' render={props => <Dashboard {...props} updateParent={this.updateSales} />} />
-					<Route path='/cadastrar' component={Sale} />
-					<Route exact path='/atendimentos/:id' render={props => <SaleView {...props} sales={this.state.sales} />} />
-					<Route path='/atendimentos/:id/editar' component={Sale} />
-					<Route component={NotFound} />
-				</Switch>
-			</Router>
-		</ErrorBoundary>
+	renderApp = renderApp(this)
+	render = () => this.renderApp()
 }
