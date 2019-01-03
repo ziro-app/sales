@@ -7,7 +7,7 @@ const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 		`${process.env.REPRESENTATIVES_SHEET_URL}`,
 		{ cancelToken: cancelTokenSource.token }
 	)
-	if (!values_resellers && !values_representatives)
+	if (!values_resellers || !values_representatives)
 		await Promise.reject('Error fetching data. values is undefined. At fetchFromSpreadsheet')
 	if (values_resellers.length === 0 || values_representatives.length === 0)
 		await Promise.reject('Error fetching data. values.length === 0. At fetchFromSpreadsheet')
