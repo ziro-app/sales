@@ -16,7 +16,7 @@ export default class Sale extends Component {
 		uiState: initialUiState,
 		/* dropdown data */
 		resellers: [],
-		representatives: ['Mariana', 'Rubia'],
+		representatives: [],
 		/* user inputs */
 		start_date: '',
 		representative: '',
