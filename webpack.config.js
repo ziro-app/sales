@@ -43,7 +43,7 @@ module.exports = (env, { mode }) => {
 		plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ]
 	}
 	if (mode === 'development') {
-		const { resellers, representatives, backend, sales } = require('./credentials')
+		const { resellers, representatives, sales, statuses, backend } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
 		config.output = { publicPath: '/' }
 		config.devServer = { historyApiFallback: true }
@@ -52,8 +52,9 @@ module.exports = (env, { mode }) => {
 				'process.env': {
 					RESELLERS_SHEET_URL: JSON.stringify(resellers),
 					REPRESENTATIVES_SHEET_URL: JSON.stringify(representatives),
-					BACKEND_URL: JSON.stringify(backend),
-					SALES_SHEET_URL: JSON.stringify(sales)
+					SALES_SHEET_URL: JSON.stringify(sales),
+					STATUSES_SHEET_URL: JSON.stringify(statuses),
+					BACKEND_URL: JSON.stringify(backend)
 				}
 			})
 		)
@@ -78,8 +79,10 @@ module.exports = (env, { mode }) => {
 				'process.env': {
 					RESELLERS_SHEET_URL: JSON.stringify(process.env.RESELLERS_SHEET_URL),
 					REPRESENTATIVES_SHEET_URL: JSON.stringify(process.env.REPRESENTATIVES_SHEET_URL),
-					BACKEND_URL: JSON.stringify(process.env.BACKEND_URL),
-					SALES_SHEET_URL: JSON.stringify(process.env.SALES_SHEET_URL)
+					SALES_SHEET_URL: JSON.stringify(process.env.SALES_SHEET_URL),
+					STATUSES_SHEET_URL: JSON.stringify(process.env.STATUSES_SHEET_URL),
+					BACKEND_URL: JSON.stringify(process.env.BACKEND_URL)
+					
 				}
 			})
 		)
