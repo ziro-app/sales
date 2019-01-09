@@ -7,10 +7,14 @@ import getSale from './utils/getSale'
 import { container, row, label, data, select, link, edit } from './styles'
 
 export default class SaleView extends Component {
+	state = {
+		statuses: []
+	}
 	async componentDidMount() {
 		try {
-			const statuses = await get(`${process.env.STATUSES_SHEET_URL}`)
-			console.log(statuses)
+			const { data: { values } } = await get(`${process.env.STATUSES_SHEET_URL}`)
+			const statuses = values.map( value => value[0] )
+			this.setState({ statuses })
 		} catch (error) {
 			console.log(error.response)
 		}
@@ -19,7 +23,7 @@ export default class SaleView extends Component {
 		const path = this.props.match.path
 		const id = this.props.match.params.id
 		const sales = this.props.sales
-		const statusList = ['Aberto', 'Pagando', 'Retirado', 'Despachado', 'Entregue', 'Cancelado']
+		const statuses = this.state.statuses
 		const { inicio, assessor, lojista, categoria, tipo, fim, status } = getSale(id, sales)
 		return (
 			<Header title={`Atendimento ${id}`} path={path}>
@@ -51,7 +55,7 @@ export default class SaleView extends Component {
 					<div style={row}>
 						<span style={label}>Status</span>
 						<select style={select} value={status}>
-							{statusList.map( (option, index) =>
+							{statuses.map( (option, index) =>
 								<option value={option} key={index}>{option}</option>
 							)}
 						</select>
