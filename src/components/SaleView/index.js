@@ -1,7 +1,9 @@
+/* import libraries */
 import React, { Component } from 'react'
-import { get } from 'axios'
+import { CancelToken } from 'axios'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import fetchInitialData from './methods/fetchInitialData'
 import Header from '../Header/index'
 import getSale from './utils/getSale'
 import { container, row, label, data, select, link, edit } from './styles'
@@ -10,15 +12,12 @@ export default class SaleView extends Component {
 	state = {
 		statuses: []
 	}
-	async componentDidMount() {
-		try {
-			const { data: { values } } = await get(`${process.env.STATUSES_SHEET_URL}`)
-			const statuses = values.map( value => value[0] )
-			this.setState({ statuses })
-		} catch (error) {
-			console.log(error.response)
-		}
-	}
+	/*-- methods --*/
+	cancelTokenSource = CancelToken.source()
+	fetchInitialData = fetchInitialData(this)
+	/*-- lifecycle --*/
+	componentDidMount = () => this.fetchInitialData()
+	componentWillUnmount = () => this.cancelTokenSource.cancel()
 	render() {
 		const path = this.props.match.path
 		const id = this.props.match.params.id
