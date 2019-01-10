@@ -11,7 +11,8 @@ export default class Dashboard extends Component {
 		/* initial ui state */
 		uiState: initialUiState,
 		/* dashboard data */
-		sales: []
+		sales: [],
+		statuses: []
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()

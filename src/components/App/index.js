@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import updateSales from './methods/updateSales'
+import updateState from './methods/updateState'
 import renderApp from './methods/renderApp'
 
 
 export default class App extends Component {
 	state = {
-		sales: []
+		sales: [],
+		statuses: []
 	}
-	updateSales = updateSales(this)
+	updateState = updateState(this)
 	renderApp = renderApp(this)
 	render = () => this.renderApp()
 }
