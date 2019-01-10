@@ -27,7 +27,7 @@ export default class SaleView extends Component {
 		const path = this.props.match.path
 		const id = this.props.match.params.id
 		const sales = this.props.sales
-		const statuses = this.state.statuses
+		const statuses = this.props.statuses.length === 0 ? this.state.statuses : this.props.statuses
 		const { inicio, assessor, lojista, categoria, tipo, fim, status } = getSale(id, sales)
 		return (
 			<Header title={`Atendimento ${id}`} path={path}>
@@ -75,5 +75,6 @@ export default class SaleView extends Component {
 
 SaleView.propTypes = {
 	match: PropTypes.object.isRequired,
-	sales: PropTypes.array.isRequired
+	sales: PropTypes.array.isRequired,
+	statuses: PropTypes.array.isRequired
 }
