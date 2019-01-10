@@ -13,6 +13,7 @@ import { container, row, label, data, select, link, edit } from './styles'
 export default class SaleView extends Component {
 	state = {
 		uiState: initialUiState,
+		sales: [],
 		statuses: []
 	}
 	/*-- methods --*/

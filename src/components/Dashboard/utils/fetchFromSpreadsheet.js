@@ -4,9 +4,9 @@ const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 		{ cancelToken: cancelTokenSource.token }
 	)
 	if (!values)
-		await Promise.reject('Error fetching data. values is undefined. At fetchFromSpreadsheet')
+		await Promise.reject('Error at fetchFromSpreadsheet. values is undefined')
 	if (values.length === 0)
-		await Promise.reject('Error fetching data. values.length === 0. At fetchFromSpreadsheet')
+		await Promise.reject('Error at fetchFromSpreadsheet. values.length === 0')
 	const sales = values.map( value => [
 		value[0],
 		value[2],
