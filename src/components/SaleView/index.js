@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { CancelToken } from 'axios'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+/* import methods */
+import { initialUiState, changeUiState } from './methods/stateMachine'
 import fetchInitialData from './methods/fetchInitialData'
 import Header from '../Header/index'
 import getSale from './utils/getSale'
@@ -10,10 +12,12 @@ import { container, row, label, data, select, link, edit } from './styles'
 
 export default class SaleView extends Component {
 	state = {
+		uiState: initialUiState,
 		statuses: []
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()
+	changeUiState = changeUiState(this)
 	fetchInitialData = fetchInitialData(this)
 	/*-- lifecycle --*/
 	componentDidMount = () => this.fetchInitialData()
