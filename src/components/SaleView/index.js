@@ -26,7 +26,7 @@ export default class SaleView extends Component {
 	render() {
 		const path = this.props.match.path
 		const id = this.props.match.params.id
-		const sales = this.props.sales
+		const sales = this.props.sales.length === 0 ? this.state.sales : this.props.sales
 		const statuses = this.props.statuses.length === 0 ? this.state.statuses : this.props.statuses
 		const { inicio, assessor, lojista, categoria, tipo, fim, status } = getSale(id, sales)
 		return (
