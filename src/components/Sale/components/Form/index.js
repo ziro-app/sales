@@ -1,5 +1,6 @@
 /* import libraries */
 import React from 'react'
+import PropTypes from 'prop-types'
 /* import utils */
 import formatDate from '../../utils/formatDate'
 import { dayPickerProps } from '../../utils/dayPickerProps'
@@ -80,5 +81,13 @@ const Form = ({ state, updateDropdown, updateDayPicker, updateRadio, submitForm 
 			uiState={state.uiState}
 		/>
 	</div>
+
+Form.propTypes = {
+	state: PropTypes.object.isRequired,
+	updateDropdown: PropTypes.func.isRequired,
+	updateDayPicker: PropTypes.func.isRequired,
+	updateRadio: PropTypes.func.isRequired,
+	submitForm: PropTypes.func.isRequired
+}
 
 export default Form

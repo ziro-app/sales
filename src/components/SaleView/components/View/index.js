@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import getSale from '../../utils/getSale'
 import { container, row, label, data, select, link, edit } from './styles'
 
-const View = ({ sales, statuses, id }) => {
+const View = ({ id, sales, statuses }) => {
 	const { inicio, assessor, lojista, categoria, tipo, fim, status } = getSale(id, sales)
 	return (
 		<div style={container}>
@@ -45,6 +45,12 @@ const View = ({ sales, statuses, id }) => {
 			</Link>
 		</div>
 	)
+}
+
+View.propTypes = {
+	id: PropTypes.string.isRequired,
+	sales: PropTypes.array.isRequired,
+	statuses: PropTypes.array.isRequired
 }
 
 export default View
