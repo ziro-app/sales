@@ -48,4 +48,9 @@ edit = Object.assign({}, select, {
 	fontWeight: '700',
 	color: '#FFF',
 	backgroundColor: 'rgba(48,62,77,0.8)'
-})
+}),
+
+notFound = {
+	fontSize: '1.6rem',
+	color: 'rgba(48, 62, 77, 0.8)'
+}

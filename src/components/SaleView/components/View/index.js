@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import getSale from '../../utils/getSale'
-import { container, row, label, data, select, link, edit } from './styles'
+import { container, row, label, data, select, link, edit, notFound } from './styles'
 
 const View = ({ id, sales, statuses }) => {
 	const { found, inicio, assessor, lojista, categoria, tipo, fim, status } = getSale(id, sales)
@@ -46,9 +46,7 @@ const View = ({ id, sales, statuses }) => {
 				</Link>
 			</div>
 		)
-	return (
-		<div>Atendimento não encontrado</div>
-	)
+	return <div style={notFound}>Atendimento não existe na base</div>
 }
 
 View.propTypes = {
