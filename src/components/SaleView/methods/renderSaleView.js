@@ -4,7 +4,7 @@ import View from '../components/View/index'
 import Spinner from '../../Spinner/index'
 import ErrorOnFetch from '../../ErrorOnFetch/index'
 
-const renderSaleView = that => uiState => {
+const renderSaleView = that => ({ uiState, status }, saveStatus) => {
 	const path = that.props.match.path
 	const id = that.props.match.params.id
 	/* define which component the UI will display based on the current state */
@@ -14,6 +14,8 @@ const renderSaleView = that => uiState => {
 				id={id}
 				sales={that.props.sales.length === 0 ? that.state.sales : that.props.sales}
 				statuses={that.props.statuses.length === 0 ? that.state.statuses : that.props.statuses}				
+				userStatus={status}
+				updateParent={saveStatus}
 			/>,
 		fetching:
 			<Spinner size={'8rem'} />,
