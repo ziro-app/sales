@@ -1,7 +1,7 @@
 import React from 'react'
 import AlertSvg from './AlertSvg/index'
 import Spinner from './Spinner/index'
-import { row, label, select, message, submitting, success, error } from './styles'
+import { row, label, select, selectSubmit, message, submitting, success, error } from './styles'
 
 const Select = ({ uiState, selectValue, updateParentAndSheet, statuses }) => {
 	const componentsToRender = {
@@ -19,13 +19,18 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses }) => {
 		error_submitting:
 			<span style={error}>
 				<AlertSvg size={16} />
-				{'Erro ao enviar. Tente novamente'}
+				{'Erro ao enviar'}
 			</span>
 	}
 	return (
 		<div style={row}>
 			<span style={label}>Status</span>
-			<select style={select} value={selectValue} onChange={updateParentAndSheet}>
+			<select 
+				style={uiState === 'submitting' ? selectSubmit : select}
+				value={selectValue}
+				onChange={updateParentAndSheet}
+				disabled={uiState === 'submitting'}
+			>
 				{statuses.map( (option, index) =>
 					<option value={option} key={index}>{option}</option>
 				)}

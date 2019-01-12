@@ -34,6 +34,11 @@ select = {
 	0px 3px 30px 0px rgba(48,62,77,0.06), 0px 3px 40px 0px rgba(48,62,77,0.04)`
 },
 
+selectSubmit = Object.assign({}, select, {
+	backgroundColor: 'rgba(48, 62, 77, 0.045)',
+	boxShadow: 'none'
+}),
+
 message = {
 	gridArea: 'message',
 	margin: '0 0 0 20px'
