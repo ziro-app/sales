@@ -17,7 +17,6 @@ export default class SaleView extends Component {
 		statuses: [],
 		/* user inputs */
 		status: ''
-		/* error messages */
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()

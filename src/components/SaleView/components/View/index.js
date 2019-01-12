@@ -54,6 +54,7 @@ View.propTypes = {
 	id: PropTypes.string.isRequired,
 	sales: PropTypes.array.isRequired,
 	statuses: PropTypes.array.isRequired,
+	userStatus: PropTypes.string.isRequired,
 	updateParentAndSheet: PropTypes.func.isRequired
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import AlertSvg from './AlertSvg/index'
 import Spinner from './Spinner/index'
 import { row, label, select, selectSubmit, message, submitting, success, error } from './styles'
@@ -40,6 +41,13 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses }) => {
 			</label>
 		</div>
 	)
+}
+
+Select.propTypes = {
+	uiState: PropTypes.string.isRequired,
+	selectValue: PropTypes.string.isRequired,
+	updateParentAndSheet: PropTypes.func.isRequired,
+	statuses: PropTypes.array.isRequired
 }
 
 export default Select
