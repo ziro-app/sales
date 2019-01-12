@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import getSale from '../../utils/getSale'
 import { container, row, label, data, select, link, edit, notFound } from './styles'
 
-const View = ({ id, sales, statuses, userStatus, updateParent }) => {
+const View = ({ id, sales, statuses, userStatus, updateParentAndSheet }) => {
 	const { found, inicio, assessor, lojista, categoria, tipo, fim, status } = getSale(id, sales)
 	const selectValue = userStatus === '' ? status : userStatus
 	if (found)
@@ -36,7 +36,7 @@ const View = ({ id, sales, statuses, userStatus, updateParent }) => {
 				</div>
 				<div style={row}>
 					<span style={label}>Status</span>
-					<select style={select} value={selectValue} onChange={updateParent}>
+					<select style={select} value={selectValue} onChange={updateParentAndSheet}>
 						{statuses.map( (option, index) =>
 							<option value={option} key={index}>{option}</option>
 						)}
@@ -54,7 +54,7 @@ View.propTypes = {
 	id: PropTypes.string.isRequired,
 	sales: PropTypes.array.isRequired,
 	statuses: PropTypes.array.isRequired,
-	updateParent: PropTypes.func.isRequired
+	updateParentAndSheet: PropTypes.func.isRequired
 }
 
 export default View
