@@ -36,6 +36,7 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }
 					<span style={data}>{fim}</span>
 				</div>	
 				<Select
+					uiState={uiState}
 					selectValue={selectValue}
 					updateParentAndSheet={updateParentAndSheet}
 					statuses={statuses}
