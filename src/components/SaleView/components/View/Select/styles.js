@@ -35,7 +35,8 @@ select = {
 },
 
 selectSubmit = Object.assign({}, select, {
-	backgroundColor: 'rgba(48, 62, 77, 0.045)',
+	cursor: 'initial',
+	backgroundColor: '#FFF',
 	boxShadow: 'none'
 }),
 
