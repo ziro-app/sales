@@ -21,7 +21,7 @@ const submitForm = that => async () => {
 			})
 		} catch (error) {
 			that.changeUiState('ERROR')
-			console.log(error)
+			console.log(error.response)
 		}
 	}
 }

@@ -7,11 +7,10 @@
 const machine = {
 	fetching: { SUCCESS: 'fetched', ERROR: 'error_fetching' },
 	error_fetching: {},
-	fetched: { INPUT: 'accepting_inputs' },
-	accepting_inputs: { INPUT: 'accepting_inputs', SUBMIT: 'submitting' },
+	fetched: { SUBMIT: 'submitting' },
 	submitting: { SUCCESS: 'submitted', ERROR: 'error_submitting' },
-	submitted: { INPUT: 'accepting_inputs' },
-	error_submitting: { INPUT: 'accepting_inputs', SUBMIT: 'submitting' }
+	submitted: { SUBMIT: 'submitting' },
+	error_submitting: { SUBMIT: 'submitting' }
 }
 
 export const
