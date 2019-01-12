@@ -11,6 +11,7 @@ const renderSaleView = that => ({ uiState, status }, saveStatus) => {
 	const componentsToRender = {
 		default:
 			<View
+				uiState={uiState}
 				id={id}
 				sales={that.props.sales.length === 0 ? that.state.sales : that.props.sales}
 				statuses={that.props.statuses.length === 0 ? that.state.statuses : that.props.statuses}				

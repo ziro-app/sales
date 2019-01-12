@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import getSale from '../../utils/getSale'
-import { container, row, label, data, select, link, edit, notFound } from './styles'
+import Select from './Select/index'
+import { container, row, label, data, link, edit, notFound } from './styles'
 
-const View = ({ id, sales, statuses, userStatus, updateParentAndSheet }) => {
+const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }) => {
 	const { found, inicio, assessor, lojista, categoria, tipo, fim, status } = getSale(id, sales)
 	const selectValue = userStatus === '' ? status : userStatus
 	if (found)
@@ -36,11 +37,11 @@ const View = ({ id, sales, statuses, userStatus, updateParentAndSheet }) => {
 				</div>
 				<div style={row}>
 					<span style={label}>Status</span>
-					<select style={select} value={selectValue} onChange={updateParentAndSheet}>
-						{statuses.map( (option, index) =>
-							<option value={option} key={index}>{option}</option>
-						)}
-					</select>
+					<Select
+						selectValue={selectValue}
+						updateParentAndSheet={updateParentAndSheet}
+						statuses={statuses}
+					/>
 				</div>
 				<Link style={link} to={`/atendimentos/${id}/editar`}>
 					<input style={edit} type='submit' value='Editar' />
@@ -51,6 +52,7 @@ const View = ({ id, sales, statuses, userStatus, updateParentAndSheet }) => {
 }
 
 View.propTypes = {
+	uiState: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
 	sales: PropTypes.array.isRequired,
 	statuses: PropTypes.array.isRequired,
