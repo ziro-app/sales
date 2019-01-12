@@ -25,7 +25,7 @@ data = {
 },
 
 link = {
-	marginTop: '40px'
+	marginTop: '20px'
 },
 
 edit = {

@@ -2,6 +2,7 @@ export const
 
 row = {
 	display: 'grid',
+	gridTemplateRows: '35px 35px',
 	gridTemplateColumns: '100px 1fr',
 	gridTemplateAreas: `
 		'label select'
@@ -33,11 +34,21 @@ select = {
 	0px 3px 30px 0px rgba(48,62,77,0.06), 0px 3px 40px 0px rgba(48,62,77,0.04)`
 },
 
-error = {
+message = {
 	gridArea: 'message',
+	margin: '0 0 0 20px'
+},
+
+submitting = {
 	display: 'grid',
-	gridTemplateColumns: '16px 1fr',
+	gridTemplateColumns: '20px 1fr',
 	alignItems: 'center',
-	margin: '10px 0 0 20px',
+},
+
+success = {
+	color: '#ACCD82'
+},
+
+error = Object.assign({}, submitting, {
 	color: '#F16B6F'
-}
+})
