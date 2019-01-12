@@ -34,15 +34,12 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }
 				<div style={row}>
 					<span style={label}>Fim</span>
 					<span style={data}>{fim}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Status</span>
-					<Select
-						selectValue={selectValue}
-						updateParentAndSheet={updateParentAndSheet}
-						statuses={statuses}
-					/>
-				</div>
+				</div>	
+				<Select
+					selectValue={selectValue}
+					updateParentAndSheet={updateParentAndSheet}
+					statuses={statuses}
+				/>
 				<Link style={link} to={`/atendimentos/${id}/editar`}>
 					<input style={edit} type='submit' value='Editar' />
 				</Link>
