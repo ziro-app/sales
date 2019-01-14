@@ -1,7 +1,7 @@
 import { post } from 'axios'
 
 const sendToBackend = async (atendimento, status) => {
-	const { data: { message } } = await post(`${process.env.BACKEND_URL}`, { atendimento, status })
+	const { data: { message } } = await post(`${process.env.EDIT_STATUS_URL}`, { atendimento, status })
 	if (message === 'SUCCESS')
 		console.log(message)
 	else
