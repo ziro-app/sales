@@ -4,7 +4,7 @@ const saveStatus = that => async ({ target: { value } }) => {
 	that.setState({ status: value })
 	try {
 		that.changeUiState('SUBMIT')
-		await sendToBackend(value)
+		await sendToBackend(that.props.match.params.id, value)
 		that.changeUiState('SUCCESS')
 	} catch (error) {
 		that.changeUiState('ERROR')
