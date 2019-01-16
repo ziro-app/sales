@@ -29,9 +29,14 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 			await Promise.reject('Error at fetchFromSpreadsheet. values_sales is undefined')
 		if (values_sales.length === 0)
 			await Promise.reject('Error at fetchFromSpreadsheet. values_sales.length === 0')
-		const sale = values_sales.filter( value => value[0] === id )
-		console.log(id)
-		console.log(sale)
+		const sale = values_sales.filter( value => value[0] === id ).pop()
+		const start_date = sale[2]
+		const representative = sale[3]
+		const reseller = sale[4]
+		const category = sale[5]
+		const type = sale[6]
+		const end_date = sale[7]
+		return { resellers, representatives, start_date, representative, reseller, category, type, end_date }
 	}
 	return { resellers, representatives }
 }
