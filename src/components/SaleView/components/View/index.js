@@ -41,11 +41,9 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }
 					updateParentAndSheet={updateParentAndSheet}
 					statuses={statuses}
 				/>
-{/*				
 				<Link style={link} to={`/atendimentos/${id}/editar`}>
 					<input style={edit} type='submit' value='Editar' />
 				</Link>
-*/}
 			</div>
 		)
 	return <div style={notFound}>Atendimento não existe na base</div>

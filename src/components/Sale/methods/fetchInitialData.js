@@ -3,7 +3,8 @@ import fetchFromSpreadsheet from '../utils/fetchFromSpreadsheet'
 
 const fetchInitialData = that => async () => {
 	try {
-		that.setState(await fetchFromSpreadsheet(get, that.cancelTokenSource))
+		const id = that.props.match.params.id
+		that.setState(await fetchFromSpreadsheet(id, get, that.cancelTokenSource))
 		that.changeUiState('SUCCESS')
 	} catch (error) {
 		if (isCancel(error))

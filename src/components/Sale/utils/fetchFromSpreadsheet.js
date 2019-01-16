@@ -1,4 +1,4 @@
-const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
+const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 	/*-- get values_resellers --*/
 	const { data: { values: values_resellers } } = await get(
 		`${process.env.RESELLERS_SHEET_URL}`,
@@ -19,6 +19,20 @@ const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 	if (values_representatives.length === 0)
 		await Promise.reject('Error at fetchFromSpreadsheet. values_representatives.length === 0')
 	const representatives = values_representatives.map( value => value[0] ).slice(1).sort()
+	/*-- get values_sales --*/
+	if (id) {
+		const { data: { values: values_sales } } = await get(
+			`${process.env.SALES_SHEET_URL}`,
+			{ cancelToken: cancelTokenSource.token }
+		)
+		if (!values_sales)
+			await Promise.reject('Error at fetchFromSpreadsheet. values_sales is undefined')
+		if (values_sales.length === 0)
+			await Promise.reject('Error at fetchFromSpreadsheet. values_sales.length === 0')
+		const sale = values_sales.filter( value => value[0] === id )
+		console.log(id)
+		console.log(sale)
+	}
 	return { resellers, representatives }
 }
 
