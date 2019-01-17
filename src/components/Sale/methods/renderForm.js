@@ -27,7 +27,7 @@ const renderForm = that => uiState => {
 	const path = that.props.location.pathname
 	if (id)
 		return (
-			<Header title={`Editar atend. ${id}`} path={path}>
+			<Header title={`Editar atendimento ${id}`} path={path}>
 				{componentsToRender[ui]}
 			</Header>
 		)
