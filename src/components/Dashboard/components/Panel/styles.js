@@ -16,13 +16,13 @@ title = {
 header = {
 	display: 'grid',
 	gridTemplateColumns: '25% 25% 50%',
-	fontSize: '1.4rem',
+	fontSize: '1.5rem',
 	color: 'rgba(48, 62, 77, 0.8)',
 	fontWeight: '700'
 },
 
 empty = {
-	fontSize: '1.4rem',
+	fontSize: '1.5rem',
 	color: 'rgba(48, 62, 77, 0.8)',
 },
 

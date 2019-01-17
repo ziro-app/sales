@@ -5,7 +5,7 @@ container = {
 	gridRowGap: '10px',
 	width: '100%',
 	textAlign: 'left',
-	fontSize: '1.4rem',
+	fontSize: '1.5rem',
 	color: 'rgba(48, 62, 77, 0.8)'
 },
 
@@ -37,7 +37,7 @@ edit = {
 	borderRadius: '20px',
 	width: '100%',
 	padding: '10px 25px',
-	fontSize: '1.4rem',
+	fontSize: '1.5rem',
 	fontWeight: '700',
 	color: '#FFF',
 	backgroundColor: 'rgba(48,62,77,0.8)',

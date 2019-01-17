@@ -27,7 +27,7 @@ select = {
 	cursor: 'pointer',
 	border: 'none',
 	borderRadius: '20px',
-	fontSize: '1.4rem',
+	fontSize: '1.5rem',
 	color: 'rgba(48, 62, 77, 0.8)',
 	backgroundColor: 'rgba(48,62,77,0.024)',
 	boxShadow: `0px 3px 10px 0px rgba(48,62,77,0.10), 0px 3px 20px 0px rgba(48,62,77,0.08), 
