@@ -23,8 +23,16 @@ const renderForm = that => uiState => {
 	/* make sure uiState does not fall out of the available options */
 	const ui = uiState !== 'fetching' && uiState !== 'error_fetching' ? 'default' : uiState
 	/* return component wrapped in Header */
+	const id = that.props.match.params.id
+	const path = that.props.location.pathname
+	if (id)
+		return (
+			<Header title={`Editar atend. ${id}`} path={path}>
+				{componentsToRender[ui]}
+			</Header>
+		)
 	return (
-		<Header title='Cadastrar atendimento' path={that.props.location.pathname}>
+		<Header title='Cadastrar atendimento' path={path}>
 			{componentsToRender[ui]}
 		</Header>
 	)
