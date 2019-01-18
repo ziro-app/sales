@@ -13,14 +13,16 @@ const submitForm = that => async () => {
 			that.changeUiState('SUBMIT')
 			await sendToBackend(that.state, sale, action)
 			that.changeUiState('SUCCESS')
-			that.setState({
-				start_date: '',
-				representative: '',
-				reseller: '',
-				category: '',
-				type: '',
-				end_date: ''
-			})
+			if (!sale) {
+				that.setState({
+					start_date: '',
+					representative: '',
+					reseller: '',
+					category: '',
+					type: '',
+					end_date: ''
+				})
+			}
 		} catch (error) {
 			that.changeUiState('ERROR')
 			console.log(error.response)
