@@ -3,13 +3,14 @@ import generateErrorMessages from '../utils/generateErrorMessages'
 import sendToBackend from '../utils/sendToBackend'
 
 const submitForm = that => async () => {
+	const action = that.props.match.params.id ? 'EDIT' : 'CREATE'
 	const { formIsValid, ...fieldsAreValid } = validateForm(that.state)
 	that.setState(generateErrorMessages(fieldsAreValid))
 	that.changeUiState('INPUT')
 	if (formIsValid) {
 		try {
 			that.changeUiState('SUBMIT')
-			await sendToBackend(that.state)
+			await sendToBackend(that.state, action)
 			that.changeUiState('SUCCESS')
 			that.setState({
 				start_date: '',

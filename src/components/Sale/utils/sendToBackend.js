@@ -1,7 +1,8 @@
 import { post } from 'axios'
 
-const sendToBackend = async ({ start_date, representative, reseller, category, type, end_date }) => {
-	const { data: { message } } = await post(`${process.env.CREATE_URL}`, {
+const sendToBackend = async ({ start_date, representative, reseller, category, type, end_date }, action) => {
+	const url = action === 'CREATE' ? process.env.CREATE_ROW_URL : process.env.EDIT_ROW_URL
+	const { data: { message } } = await post(`${url}`, {
 		start_date,
 		representative,
 		reseller,
