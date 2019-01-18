@@ -52,7 +52,8 @@ submitting = {
 },
 
 success = {
-	color: '#ACCD82'
+	color: '#ACCD82',
+	fontWeight: '600'
 },
 
 error = Object.assign({}, submitting, {
