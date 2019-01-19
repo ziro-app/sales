@@ -27,7 +27,7 @@ const renderSaleView = that => ({ uiState, status }, saveStatus) => {
 	const ui = uiState !== 'fetching' && uiState !== 'error_fetching' ? 'default' : uiState
 	/* return component wrapped in Header */
 	return (
-		<Header title={`Atendimento ${id}`} path={path}>
+		<Header title={`Atendimento ${id}`} path={path} backRoute={'/'}>
 			{componentsToRender[ui]}
 		</Header>
 	)

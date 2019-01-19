@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import BackSvg from './BackSvg'
 import { arrow } from './styles'
 
-const BackArrow = ({ path }) => {
-	if (path !== '/')
+const BackArrow = ({ path, backRoute }) => {
+	if (backRoute && path !== '/')
 		return (
-	    	<Link style={arrow} to='/'>
+	    	<Link style={arrow} to={backRoute}>
 	    		<BackSvg size={27} color={'rgb(48,62,77)'} />
     		</Link>
 		)
@@ -15,7 +15,8 @@ const BackArrow = ({ path }) => {
 }
 
 BackArrow.propTypes = {
-	path: PropTypes.string.isRequired
+	path: PropTypes.string.isRequired,
+	backRoute: PropTypes.string
 }
 
 export default BackArrow

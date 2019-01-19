@@ -27,12 +27,12 @@ const renderForm = that => uiState => {
 	const path = that.props.location.pathname
 	if (id)
 		return (
-			<Header title={`Editar atendimento ${id}`} path={path}>
+			<Header title={`Editar atendimento ${id}`} path={path} backRoute={`/atendimentos/${id}`}>
 				{componentsToRender[ui]}
 			</Header>
 		)
 	return (
-		<Header title='Cadastrar atendimento' path={path}>
+		<Header title='Cadastrar atendimento' path={path} backRoute={'/'}>
 			{componentsToRender[ui]}
 		</Header>
 	)
