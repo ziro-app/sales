@@ -8,7 +8,7 @@ button = {
 	display: 'grid',
 	padding: '15px',
 	borderRadius: '50%',
-	backgroundColor: 'rgb(247,247,247)',
-	boxShadow: `0px 0px 10px 0px rgba(48,62,77,0.08), 0px 0px 20px 0px rgba(48,62,77,0.06), 
-	0px 0px 30px 0px rgba(48,62,77,0.04), 0px 0px 40px 0px rgba(48,62,77,0.02)`
+	backgroundColor: 'rgb(246,246,246)',
+	boxShadow: `0px 0px 10px 0px rgba(48,62,77,0.14), 0px 0px 20px 0px rgba(48,62,77,0.12), 
+	0px 0px 30px 0px rgba(48,62,77,0.10), 0px 0px 40px 0px rgba(48,62,77,0.08)`
 }
