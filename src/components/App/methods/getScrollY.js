@@ -1,5 +1,5 @@
 const getScrollY = that => () => {
-	console.log(window.pageYOffset)
+	that.setState({ scrollY: window.pageYOffset })
 }
 
 export default getScrollY

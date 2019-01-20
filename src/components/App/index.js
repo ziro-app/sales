@@ -13,7 +13,5 @@ export default class App extends Component {
 	getScrollY = getScrollY(this)
 	updateState = updateState(this)
 	renderApp = renderApp(this)
-	componentDidMount = () => window.addEventListener('scroll', this.getScrollY)
-	componentWillUnmount = () => window.removeEventListener('scroll',  this.getScrollY)
 	render = () => this.renderApp()
 }

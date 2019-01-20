@@ -12,7 +12,8 @@ export default class Dashboard extends Component {
 		uiState: initialUiState,
 		/* dashboard data */
 		sales: [],
-		statuses: []
+		statuses: [],
+		scrolled: false
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()
@@ -21,6 +22,15 @@ export default class Dashboard extends Component {
 	renderDashboard = renderDashboard(this)
 	/*-- lifecycle --*/
 	componentDidMount = () => this.fetchInitialData()
-	componentWillUnmount = () => this.cancelTokenSource.cancel()
+	componentDidUpdate = () => {
+		if (!this.state.scrolled && this.state.uiState === 'fetched') {
+			window.scroll(0, this.props.scrollY)
+			this.setState({ scrolled: true })
+		}
+	}
+	componentWillUnmount = () => {
+		this.props.getScrollY()
+		this.cancelTokenSource.cancel()
+	}
 	render = () => this.renderDashboard(this.state.uiState)
 }
