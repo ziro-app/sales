@@ -5,6 +5,7 @@ import { CancelToken } from 'axios'
 import { initialUiState, changeUiState } from './methods/stateMachine'
 import fetchInitialData from './methods/fetchInitialData'
 import renderDashboard from './methods/renderDashboard'
+import scrollToYPosition from './utils/scrollToYPosition'
 
 export default class Dashboard extends Component {
 	state = {
@@ -20,14 +21,10 @@ export default class Dashboard extends Component {
 	changeUiState = changeUiState(this)
 	fetchInitialData = fetchInitialData(this)
 	renderDashboard = renderDashboard(this)
+	scrollToYPosition = scrollToYPosition(this)
 	/*-- lifecycle --*/
 	componentDidMount = () => this.fetchInitialData()
-	componentDidUpdate = () => {
-		if (!this.state.scrolled && this.state.uiState === 'fetched') {
-			window.scroll(0, this.props.scrollY)
-			this.setState({ scrolled: true })
-		}
-	}
+	componentDidUpdate = () => this.scrollToYPosition()
 	componentWillUnmount = () => {
 		this.props.getScrollY()
 		this.cancelTokenSource.cancel()
