@@ -1,5 +1,6 @@
 /* import libraries */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { CancelToken } from 'axios'
 /* import methods */
 import { initialUiState, changeUiState } from './methods/stateMachine'
@@ -30,4 +31,11 @@ export default class Dashboard extends Component {
 		this.cancelTokenSource.cancel()
 	}
 	render = () => this.renderDashboard(this.state.uiState)
+}
+
+Dashboard.propTypes = {
+	windowWidth: PropTypes.number,
+	scrollY: PropTypes.number,
+	getScrollY: PropTypes.func,
+	updateParent: PropTypes.func.isRequired
 }
