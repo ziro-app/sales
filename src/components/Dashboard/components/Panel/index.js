@@ -18,7 +18,8 @@ const Panel = ({ sales, windowWidth }) =>
 	</Fragment>
 
 Panel.propTypes = {
-	sales: PropTypes.array.isRequired
+	sales: PropTypes.array.isRequired,
+	windowWidth: PropTypes.number
 }
 
 export default Panel
