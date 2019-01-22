@@ -7,7 +7,7 @@ import renderApp from './methods/renderApp'
 
 export default class App extends Component {
 	state = {
-		windowWidth: 0,
+		windowWidth: window.innerWidth,
 		scrollY: 0,
 		sales: [],
 		statuses: []

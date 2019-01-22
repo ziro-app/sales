@@ -8,7 +8,7 @@ const renderDashboard = that => uiState => {
 	/* define which component the UI will display based on the current state */
 	const componentsToRender = {
 		default:
-			<Panel sales={that.state.sales} />,
+			<Panel sales={that.state.sales} windowWidth={that.props.windowWidth} />,
 		fetching:
 			<Spinner size={'8rem'} />,
 		error_fetching:

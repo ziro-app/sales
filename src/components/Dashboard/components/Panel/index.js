@@ -7,14 +7,14 @@ import FilterPickup from './components/FilterPickup'
 import FilterDropoff from './components/FilterDropoff'
 import AddNew from '../AddNew/index'
 
-const Panel = ({ sales }) =>
+const Panel = ({ sales, windowWidth }) =>
 	<Fragment>	
 		<FilterOpen sales={sales} />
 		<FilterScheduled sales={sales} />
 		<FilterPayment sales={sales} />
 		<FilterPickup sales={sales} />
 		<FilterDropoff sales={sales} />
-		<AddNew />
+		<AddNew windowWidth={windowWidth} />
 	</Fragment>
 
 Panel.propTypes = {
