@@ -13,7 +13,7 @@ const submitForm = that => async () => {
 			that.changeUiState('SUBMIT')
 			await sendToBackend(that.state, sale, action)
 			that.changeUiState('SUCCESS')
-			if (!sale) {
+			if (action === 'CREATE') {
 				that.setState({
 					start_date: '',
 					representative: '',
@@ -23,6 +23,8 @@ const submitForm = that => async () => {
 					end_date: ''
 				})
 			}
+			if (action === 'EDIT')
+				that.props.forceReloadAfterEdit()
 		} catch (error) {
 			that.changeUiState('ERROR')
 			console.log(error.response)

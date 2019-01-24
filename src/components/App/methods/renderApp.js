@@ -13,7 +13,7 @@ const renderApp = that => () =>
 				<Route exact path='/' render={props => <Dashboard {...props} windowWidth={that.state.windowWidth} getScrollY={that.getScrollY} scrollY={that.state.scrollY} updateParent={that.updateState} />} />
 				<Route path='/cadastrar' component={Sale} />
 				<Route exact path='/atendimentos/:id' render={props => <SaleView {...props} sales={that.state.sales} statuses={that.state.statuses} />} />
-				<Route path='/atendimentos/:id/editar' component={Sale} />
+				<Route path='/atendimentos/:id/editar' render={props => <Sale {...props} forceReloadAfterEdit={that.forceReloadAfterEdit} />} />
 				<Route component={NotFound} />
 			</Switch>
 		</Router>
