@@ -1,5 +1,6 @@
 /* import libraries */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { CancelToken } from 'axios'
 /* import methods */
 import { initialUiState, changeUiState } from './methods/stateMachine'
@@ -45,4 +46,8 @@ export default class Sale extends Component {
 	componentDidMount = () => this.fetchInitialData()
 	componentWillUnmount = () => this.cancelTokenSource.cancel()
 	render = () => this.renderForm(this.state.uiState)
+}
+
+Sale.propTypes = {
+	forceReloadAfterEdit: PropTypes.func
 }
