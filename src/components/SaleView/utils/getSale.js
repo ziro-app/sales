@@ -8,7 +8,7 @@ const getSale = (id, sales) => {
 			lojista: filtered[3],
 			categoria: filtered[4],
 			tipo: filtered[5],
-			fim: filtered[6].substr(0,6),
+			despacho: filtered[6].substr(0,6),
 			status: filtered[7]
 		}
 	else return { found: false }

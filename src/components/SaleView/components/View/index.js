@@ -6,7 +6,7 @@ import Select from './Select/index'
 import { container, row, label, data, link, edit, notFound } from './styles'
 
 const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }) => {
-	const { found, inicio, assessor, lojista, categoria, tipo, fim, status } = getSale(id, sales)
+	const { found, inicio, assessor, lojista, categoria, tipo, despacho, status } = getSale(id, sales)
 	const selectValue = userStatus === '' ? status : userStatus
 	if (found)
 		return (
@@ -32,8 +32,8 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }
 					<span style={data}>{tipo}</span>
 				</div>
 				<div style={row}>
-					<span style={label}>Fim</span>
-					<span style={data}>{fim}</span>
+					<span style={label}>Despacho</span>
+					<span style={data}>{despacho}</span>
 				</div>	
 				<Select
 					uiState={uiState}

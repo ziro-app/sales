@@ -13,16 +13,16 @@ const FilterDroppingOff = ({ sales }) => {
 				?
 					<Fragment>
 						<div style={header}>
-							<span>Fim</span>
+							<span>Despacho</span>
 							<span style={representative}>Assessor</span>
 							<span>Lojista</span>
 						</div>
 						{filteredData.map( sale => {
-							const [ id, , assessor, lojista, , , fim, ...rest ] = sale
+							const [ id, , assessor, lojista, , , despacho, ...rest ] = sale
 							return (
 								<Link to={`/atendimentos/${id}`} key={id}>
 									<div style={row} key={id}>
-										<span>{fim}</span>
+										<span>{despacho}</span>
 										<span>{assessor}</span>
 										<span style={reseller}>{lojista}</span>
 									</div>
