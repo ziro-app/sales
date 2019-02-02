@@ -8,16 +8,7 @@ const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 		await Promise.reject('Error at fetchFromSpreadsheet. values_sales is undefined')
 	if (values_sales.length === 0)
 		await Promise.reject('Error at fetchFromSpreadsheet. values_sales.length === 0')
-	const sales = values_sales.map( value => [
-		value[0],
-		value[2],
-		value[3],
-		value[4],
-		value[5],
-		value[6],
-		value[7],
-		value[8]
-	]).slice(1)
+	const sales = values_sales.map( value => value.slice(1)).slice(1)
 	/*-- get values_statuses --*/
 	const { data: { values: values_statuses } } = await get(
 		`${process.env.STATUSES_SHEET_URL}`,
