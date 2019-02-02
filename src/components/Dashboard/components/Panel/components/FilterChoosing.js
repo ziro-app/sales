@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { dropoff } from '../utils/filters'
+import { choosing } from '../utils/filters'
 import { container, title, header, representative, row, reseller, empty } from '../styles'
 
-const FilterDropoff = ({ sales }) => {
-	const filteredData = dropoff(sales)
+const FilterChoosing = ({ sales }) => {
+	const filteredData = choosing(sales)
 	return (
-		<div style={container}>
-			<h1 style={title}>Despachados</h1>
+		<div style={container}>	
+			<h1 style={title}>Escolhendo</h1>
 			{filteredData && filteredData.length
 				?
 					<Fragment>
@@ -21,7 +21,7 @@ const FilterDropoff = ({ sales }) => {
 							const [ id, , assessor, lojista, , , fim, ...rest ] = sale
 							return (
 								<Link to={`/atendimentos/${id}`} key={id}>
-									<div style={row} key={id}>
+									<div style={row}>
 										<span>{fim}</span>
 										<span>{assessor}</span>
 										<span style={reseller}>{lojista}</span>
@@ -31,14 +31,14 @@ const FilterDropoff = ({ sales }) => {
 						})}
 					</Fragment>
 				:
-					<span style={empty}>Todos os despachos tiveram recebimento confirmado</span>
+					<span style={empty}>Não há lojistas escolhendo</span>
 			}
 		</div>
 	)
 }
 
-FilterDropoff.propTypes = {
+FilterChoosing.propTypes = {
 	sales: PropTypes.array.isRequired
 }
 
-export default FilterDropoff
+export default FilterChoosing

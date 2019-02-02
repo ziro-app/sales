@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { payment } from '../utils/filters'
+import { delivering } from '../utils/filters'
 import { container, title, header, representative, row, reseller, empty } from '../styles'
 
-const FilterPayment = ({ sales }) => {
-	const filteredData = payment(sales)
+const FilterDelivering = ({ sales }) => {
+	const filteredData = delivering(sales)
 	return (
 		<div style={container}>
-			<h1 style={title}>Pagando</h1>
+			<h1 style={title}>Em trânsito</h1>
 			{filteredData && filteredData.length
 				?
 					<Fragment>
@@ -31,14 +31,14 @@ const FilterPayment = ({ sales }) => {
 						})}
 					</Fragment>
 				:
-					<span style={empty}>Não há atendimentos aguardando pagamento</span>
+					<span style={empty}>Não há mercadorias em trânsito</span>
 			}
 		</div>
 	)
 }
 
-FilterPayment.propTypes = {
+FilterDelivering.propTypes = {
 	sales: PropTypes.array.isRequired
 }
 
-export default FilterPayment
+export default FilterDelivering

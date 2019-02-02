@@ -1,7 +1,7 @@
 import stringToDate from './stringToDate'
 
-const open = sales => {
-	const filteredStatus = sales.filter( sale => sale[7] === 'Aberto' )
+const choosing = sales => {
+	const filteredStatus = sales.filter( sale => sale[7] === 'Escolhendo' )
 	const filteredDate = filteredStatus.filter( sale => stringToDate(sale[1]) <= new Date() )
 	const sorted = filteredDate.sort( (a,b) => stringToDate(a[6]) - stringToDate(b[6]) || (a[2] < b[2] ? -1 : 1) )
 	return sorted.map( sale => {
@@ -11,7 +11,7 @@ const open = sales => {
 }
 
 const scheduled = sales => {
-	const filteredStatus = sales.filter( sale => sale[7] === 'Aberto' )
+	const filteredStatus = sales.filter( sale => sale[7] === 'Escolhendo' )
 	const filteredDate = filteredStatus.filter( sale => stringToDate(sale[1]) > new Date() )
 	const sorted = filteredDate.sort( (a,b) => stringToDate(a[1]) - stringToDate(b[1]) || (a[2] < b[2] ? -1 : 1) )
 	return sorted.map( sale => {
@@ -20,7 +20,7 @@ const scheduled = sales => {
 	})
 }
 
-const payment = sales => {
+const paying = sales => {
 	const filteredStatus = sales.filter( sale => sale[7] === 'Pagando' )
 	const sorted = filteredStatus.sort( (a,b) => stringToDate(a[6]) - stringToDate(b[6]) || (a[2] < b[2] ? -1 : 1) )
 	return sorted.map( sale => {
@@ -29,8 +29,8 @@ const payment = sales => {
 	})
 }
 
-const pickup = sales => {
-	const filteredStatus = sales.filter( sale => sale[7] === 'Retirado' )
+const pickingUp = sales => {
+	const filteredStatus = sales.filter( sale => sale[7] === 'Retirando' )
 	const sorted = filteredStatus.sort( (a,b) => stringToDate(a[6]) - stringToDate(b[6]) || (a[2] < b[2] ? -1 : 1) )
 	return sorted.map( sale => {
 		sale[6] = sale[6].substr(0,6)
@@ -38,8 +38,8 @@ const pickup = sales => {
 	})
 }
 
-const dropoff = sales => {
-	const filteredStatus = sales.filter( sale => sale[7] === 'Despachado' )
+const droppingOff = sales => {
+	const filteredStatus = sales.filter( sale => sale[7] === 'Despachando' )
 	const sorted = filteredStatus.sort( (a,b) => stringToDate(a[6]) - stringToDate(b[6]) || (a[2] < b[2] ? -1 : 1) )
 	return sorted.map( sale => {
 		sale[6] = sale[6].substr(0,6)
@@ -47,4 +47,13 @@ const dropoff = sales => {
 	})
 }
 
-export { open, scheduled, payment, pickup, dropoff }
+const delivering = sales => {
+	const filteredStatus = sales.filter( sale => sale[7] === 'Em trânsito' )
+	const sorted = filteredStatus.sort( (a,b) => stringToDate(a[6]) - stringToDate(b[6]) || (a[2] < b[2] ? -1 : 1) )
+	return sorted.map( sale => {
+		sale[6] = sale[6].substr(0,6)
+		return sale
+	})
+}
+
+export { choosing, scheduled, paying, pickingUp, droppingOff, delivering }

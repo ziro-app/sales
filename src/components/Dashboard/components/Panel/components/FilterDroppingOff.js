@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { open } from '../utils/filters'
+import { droppingOff } from '../utils/filters'
 import { container, title, header, representative, row, reseller, empty } from '../styles'
 
-const FilterOpen = ({ sales }) => {
-	const filteredData = open(sales)
+const FilterDroppingOff = ({ sales }) => {
+	const filteredData = droppingOff(sales)
 	return (
-		<div style={container}>	
-			<h1 style={title}>Abertos</h1>
+		<div style={container}>
+			<h1 style={title}>Despachando</h1>
 			{filteredData && filteredData.length
 				?
 					<Fragment>
@@ -21,7 +21,7 @@ const FilterOpen = ({ sales }) => {
 							const [ id, , assessor, lojista, , , fim, ...rest ] = sale
 							return (
 								<Link to={`/atendimentos/${id}`} key={id}>
-									<div style={row}>
+									<div style={row} key={id}>
 										<span>{fim}</span>
 										<span>{assessor}</span>
 										<span style={reseller}>{lojista}</span>
@@ -31,14 +31,14 @@ const FilterOpen = ({ sales }) => {
 						})}
 					</Fragment>
 				:
-					<span style={empty}>Não há atendimentos abertos</span>
+					<span style={empty}>Não há mercadorias despachando</span>
 			}
 		</div>
 	)
 }
 
-FilterOpen.propTypes = {
+FilterDroppingOff.propTypes = {
 	sales: PropTypes.array.isRequired
 }
 
-export default FilterOpen
+export default FilterDroppingOff

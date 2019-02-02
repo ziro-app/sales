@@ -1,19 +1,21 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import FilterOpen from './components/FilterOpen'
+import FilterChoosing from './components/FilterChoosing'
 import FilterScheduled from './components/FilterScheduled'
-import FilterPayment from './components/FilterPayment'
-import FilterPickup from './components/FilterPickup'
-import FilterDropoff from './components/FilterDropoff'
+import FilterPaying from './components/FilterPaying'
+import FilterPickingUp from './components/FilterPickingUp'
+import FilterDroppingOff from './components/FilterDroppingOff'
+import FilterDelivering from './components/FilterDelivering'
 import AddNew from '../AddNew/index'
 
 const Panel = ({ sales, windowWidth }) =>
-	<Fragment>	
-		<FilterOpen sales={sales} />
+	<Fragment>
 		<FilterScheduled sales={sales} />
-		<FilterPayment sales={sales} />
-		<FilterPickup sales={sales} />
-		<FilterDropoff sales={sales} />
+		<FilterChoosing sales={sales} />
+		<FilterPaying sales={sales} />
+		<FilterPickingUp sales={sales} />
+		<FilterDroppingOff sales={sales} />
+		<FilterDelivering sales={sales} />
 		<AddNew windowWidth={windowWidth} />
 	</Fragment>
 
