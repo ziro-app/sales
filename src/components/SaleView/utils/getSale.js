@@ -9,7 +9,7 @@ const getSale = (id, sales) => {
 			categoria: filtered[4],
 			tipo: filtered[5],
 			despacho: filtered[6].substr(0,6),
-			status: filtered[7]
+			status: filtered[12]
 		}
 	else return { found: false }
 }

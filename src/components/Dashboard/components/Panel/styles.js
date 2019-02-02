@@ -4,18 +4,18 @@ container = {
 	width: '100%',
 	display: 'grid',
 	gridRowGap: '10px',
-	margin: '0px 0px 40px',
+	margin: '0px 0px 50px',
 },
 
 title = {
-	margin: '0',
+	margin: '0 0 5px',
 	fontSize: '1.8rem',
 	color: 'rgba(48, 62, 77, 0.8)'
 },
 
 header = {
 	display: 'grid',
-	gridTemplateColumns: '25% 25% 50%',
+	gridTemplateColumns: '30% 30% 40%',
 	fontSize: '1.5rem',
 	color: 'rgba(48, 62, 77, 0.8)',
 	fontWeight: '700'

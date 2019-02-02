@@ -25,7 +25,6 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 			`${process.env.SALES_SHEET_URL}`,
 			{ cancelToken: cancelTokenSource.token }
 		)
-		console.log(values_sales)
 		if (!values_sales)
 			await Promise.reject('Error at fetchFromSpreadsheet. values_sales is undefined')
 		if (values_sales.length === 0)
