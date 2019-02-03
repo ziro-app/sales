@@ -17,6 +17,10 @@ label = {
 	fontWeight: '600'
 },
 
+data = {
+	padding: '5px 20px'	
+},
+
 select = {
 	gridArea: 'select',
 	width: '100%',

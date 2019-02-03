@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import AlertSvg from './AlertSvg/index'
 import Spinner from './Spinner/index'
 import compareDateToNow from '../../../utils/compareDateToNow'
-import { row, label, select, selectSubmit, message, submitting, success, error } from './styles'
+import { row, label, data, select, selectSubmit, message, submitting, success, error } from './styles'
 
 const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start }) => {
 	const saleIsScheduled = compareDateToNow(start)
-	console.log(saleIsScheduled)
 	const messages = {
 		default:
 			null,
@@ -21,19 +20,26 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start })
 	return (
 		<div style={row}>
 			<span style={label}>Status</span>
-			<select 
-				style={uiState === 'submitting' ? selectSubmit : select}
-				value={selectValue}
-				onChange={updateParentAndSheet}
-				disabled={uiState === 'submitting'}
-			>
-				{statuses.map( (option, index) =>
-					<option value={option} key={index}>{option}</option>
-				)}
-			</select>
-			<label style={message}>
-				{messages[uiState]}
-			</label>
+			{saleIsScheduled
+				?
+					<span style={data}>Agendado</span>
+				:
+					<Fragment>
+						<select
+							style={uiState === 'submitting' ? selectSubmit : select}
+							value={selectValue}
+							onChange={updateParentAndSheet}
+							disabled={uiState === 'submitting'}
+						>
+							{statuses.map( (option, index) =>
+								<option value={option} key={index}>{option}</option>
+							)}
+						</select>
+						<label style={message}>
+							{messages[uiState]}
+						</label>
+					</Fragment>
+			}
 		</div>
 	)
 }
