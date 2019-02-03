@@ -40,6 +40,7 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }
 					selectValue={selectValue}
 					updateParentAndSheet={updateParentAndSheet}
 					statuses={statuses}
+					start={inicio}
 				/>
 				<Link style={link} to={`/atendimentos/${id}/editar`}>
 					<input style={edit} type='submit' value='Editar' />

@@ -2,26 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import AlertSvg from './AlertSvg/index'
 import Spinner from './Spinner/index'
+import compareDateToNow from '../../../utils/compareDateToNow'
 import { row, label, select, selectSubmit, message, submitting, success, error } from './styles'
 
-const Select = ({ uiState, selectValue, updateParentAndSheet, statuses }) => {
-	const componentsToRender = {
+const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start }) => {
+	const saleIsScheduled = compareDateToNow(start)
+	console.log(saleIsScheduled)
+	const messages = {
 		default:
 			null,
 		submitting:
-			<span style={submitting}>
-				<Spinner size={'25px'} />
-				{'Enviando...'}
-			</span>,
+			<span style={submitting}><Spinner size={'25px'} />{'Enviando...'}</span>,
 		submitted:
-			<span style={success}>
-				Status atualizado!
-			</span>,
+			<span style={success}>{'Status atualizado!'}</span>,
 		error_submitting:
-			<span style={error}>
-				<AlertSvg size={16} />
-				{'Erro ao enviar'}
-			</span>
+			<span style={error}><AlertSvg size={16} />{'Erro ao enviar'}</span>
 	}
 	return (
 		<div style={row}>
@@ -37,7 +32,7 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses }) => {
 				)}
 			</select>
 			<label style={message}>
-				{componentsToRender[uiState]}
+				{messages[uiState]}
 			</label>
 		</div>
 	)
@@ -47,7 +42,8 @@ Select.propTypes = {
 	uiState: PropTypes.string.isRequired,
 	selectValue: PropTypes.string.isRequired,
 	updateParentAndSheet: PropTypes.func.isRequired,
-	statuses: PropTypes.array.isRequired
+	statuses: PropTypes.array.isRequired,
+	start: PropTypes.string.isRequired
 }
 
 export default Select
