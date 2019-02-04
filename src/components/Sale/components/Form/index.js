@@ -16,19 +16,24 @@ import ReturnSvg from './Radio/icons/ReturnSvg'
 import WifiOnSvg from './Radio/icons/WifiOnSvg'
 import WifiOffSvg from './Radio/icons/WifiOffSvg'
 /* import styles */
-import { body } from './styles'
+import { body, input } from './styles'
 
 const Form = ({ state, updateDropdown, updateDayPicker, updateRadio, submitForm }) =>
 	<div style={body}>
 		<ErrorMessage message={state.error_start_date}>
-			<DayPickerInput
-				component={InputForDayPicker}
-				placeholder='Data início'
-				value={state.start_date}
-				onDayChange={updateDayPicker('start_date')}
-				formatDate={formatDate}
-				dayPickerProps={dayPickerProps}
-			/>
+			{state.status !== 'Escolhendo'
+				?
+					<input style={input} placeholder={state.start_date} disabled={true} />
+				:
+					<DayPickerInput
+						component={InputForDayPicker}
+						placeholder='Data início'
+						value={state.start_date}
+						onDayChange={updateDayPicker('start_date')}
+						formatDate={formatDate}
+						dayPickerProps={dayPickerProps}
+					/>
+			}
 		</ErrorMessage>
 		<ErrorMessage message={state.error_representative}>
 			<Dropdown
