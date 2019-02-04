@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import getSale from '../../utils/getSale'
 import Select from './Select/index'
-import { container, row, label, data, link, edit, notFound } from './styles'
+import EditButton from './EditButton/index'
+import { container, row, label, data, notFound } from './styles'
 
 const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }) => {
 	const { found, inicio, assessor, lojista, categoria, tipo, despacho, status } = getSale(id, sales)
@@ -42,9 +42,7 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }
 					statuses={statuses}
 					start={inicio}
 				/>
-				<Link style={link} to={`/atendimentos/${id}/editar`}>
-					<input style={edit} type='submit' value='Editar' />
-				</Link>
+				<EditButton status={status} id={id} />
 			</div>
 		)
 	return <div style={notFound}>Atendimento não existe na base</div>
