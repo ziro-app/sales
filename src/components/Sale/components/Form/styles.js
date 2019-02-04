@@ -6,6 +6,12 @@ body = {
 	gridRowGap: '5px'
 },
 
+notAllowed = {
+	textAlign: 'center',
+	fontSize: '1.8rem',
+	color: 'rgba(48,62,77,0.8)'
+},
+
 input = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
