@@ -28,7 +28,11 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 					<ErrorMessage message={state.error_start_date}>
 						{id && state.status !== 'Escolhendo'
 							?
-								<input style={input} placeholder={state.start_date} disabled={true} />
+								<input
+									style={input}
+									placeholder={formatDate(state.start_date)}
+									disabled={true}
+								/>
 							:
 								<DayPickerInput
 									component={InputForDayPicker}
