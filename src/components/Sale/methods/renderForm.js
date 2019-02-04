@@ -5,10 +5,13 @@ import Spinner from '../../Spinner/index'
 import ErrorOnFetch from '../../ErrorOnFetch/index'
 
 const renderForm = that => uiState => {
+	const id = that.props.match.params.id
+	const path = that.props.location.pathname
 	/* define which component the UI will display based on the current state */
 	const componentsToRender = {
 		default:
 			<Form
+				id={id}
 				state={that.state}
 				updateDropdown={that.updateDropdown}
 				updateDayPicker={that.updateDayPicker}
@@ -23,8 +26,6 @@ const renderForm = that => uiState => {
 	/* make sure uiState does not fall out of the available options */
 	const ui = uiState !== 'fetching' && uiState !== 'error_fetching' ? 'default' : uiState
 	/* return component wrapped in Header */
-	const id = that.props.match.params.id
-	const path = that.props.location.pathname
 	if (id)
 		return (
 			<Header title={`Editar atendimento ${id}`} path={path} backRoute={`/atendimentos/${id}`}>

@@ -18,15 +18,15 @@ import WifiOffSvg from './Radio/icons/WifiOffSvg'
 /* import styles */
 import { body, notAllowed, input } from './styles'
 
-const Form = ({ state, updateDropdown, updateDayPicker, updateRadio, submitForm }) =>
+const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitForm }) =>
 	<div style={body}>
-		{state.status === 'Em trânsito'
+		{id && state.status === 'Em trânsito'
 			?
 				<div style={notAllowed}>Atendimentos com status 'Em trânsito' não podem ser modificados</div>
 			:
 				<Fragment>
 					<ErrorMessage message={state.error_start_date}>
-						{state.status !== 'Escolhendo'
+						{id && state.status !== 'Escolhendo'
 							?
 								<input style={input} placeholder={state.start_date} disabled={true} />
 							:
