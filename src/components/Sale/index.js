@@ -25,6 +25,8 @@ export default class Sale extends Component {
 		category: '',
 		type: '',
 		end_date: '',
+		/* sale status */
+		status: '',
 		/* error messages */
 		error_start_date: '',
 		error_representative: '',
