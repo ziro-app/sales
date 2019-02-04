@@ -1,3 +1,5 @@
+import dateToEnglish from './dateToEnglish'
+
 const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 	/*-- get values_resellers --*/
 	const { data: { values: values_resellers } } = await get(
@@ -31,7 +33,17 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 			await Promise.reject('Error at fetchFromSpreadsheet. values_sales.length === 0')
 		const [ sale ] = values_sales.filter( value => value[1] === id )
 		const [ , , start_date, representative, reseller, category, type, end_date, , , , , , status ] = sale
-		return { resellers, representatives, start_date, representative, reseller, category, type, end_date, status }
+		return {
+			resellers,
+			representatives,
+			start_date: dateToEnglish(start_date),
+			representative,
+			reseller,
+			category,
+			type,
+			end_date: dateToEnglish(end_date),
+			status
+		}
 	}
 	return { resellers, representatives }
 }
