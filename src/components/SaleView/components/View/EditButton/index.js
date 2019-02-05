@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { link, edit } from './styles'
+import { link, edit, submitting } from './styles'
 
 export default class EditButton extends Component {
 	state = {
@@ -19,15 +19,20 @@ export default class EditButton extends Component {
 	render = () => {
 		const id = this.props.id
 		const hideButton = this.state.hideButton
+		const uiState = this.props.uiState
 		return (
 			<Fragment>
 				{hideButton
 				?
 					null
 				:
-					<Link style={link} to={`/atendimentos/${id}/editar`}>
-						<input style={edit} type='submit' value='Editar' />
-					</Link>
+					uiState === 'submitting'
+					?
+						<input style={submitting} type='submit' value='Editar' />
+					:
+						<Link style={link} to={`/atendimentos/${id}/editar`}>
+							<input style={edit} type='submit' value='Editar' />
+						</Link>
 				}
 			</Fragment>
 		)
