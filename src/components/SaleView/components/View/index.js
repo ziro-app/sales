@@ -5,7 +5,7 @@ import Select from './Select/index'
 import EditButton from './EditButton/index'
 import { container, row, label, data, notFound } from './styles'
 
-const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }) => {
+const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet, forceReloadAfterEdit }) => {
 	const { found, inicio, assessor, lojista, categoria, tipo, despacho, status } = getSale(id, sales)
 	const selectValue = userStatus === '' ? status : userStatus
 	if (found)
@@ -42,7 +42,12 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }
 					statuses={statuses}
 					start={inicio}
 				/>
-				<EditButton status={selectValue} id={id} uiState={uiState} />
+				<EditButton
+					status={selectValue}
+					id={id}
+					uiState={uiState}
+					forceReloadAfterEdit={forceReloadAfterEdit}
+				/>
 			</div>
 		)
 	return <div style={notFound}>Atendimento não existe na base</div>
@@ -54,7 +59,8 @@ View.propTypes = {
 	sales: PropTypes.array.isRequired,
 	statuses: PropTypes.array.isRequired,
 	userStatus: PropTypes.string.isRequired,
-	updateParentAndSheet: PropTypes.func.isRequired
+	updateParentAndSheet: PropTypes.func.isRequired,
+	forceReloadAfterEdit: PropTypes.func.isRequired
 }
 
 export default View

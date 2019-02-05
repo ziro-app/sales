@@ -33,5 +33,6 @@ export default class SaleView extends Component {
 SaleView.propTypes = {
 	match: PropTypes.object.isRequired,
 	sales: PropTypes.array.isRequired,
-	statuses: PropTypes.array.isRequired
+	statuses: PropTypes.array.isRequired,
+	forceReloadAfterEdit: PropTypes.func.isRequired
 }

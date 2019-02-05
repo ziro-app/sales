@@ -17,6 +17,7 @@ const renderSaleView = that => ({ uiState, status }, saveStatus) => {
 				statuses={that.props.statuses.length === 0 ? that.state.statuses : that.props.statuses}				
 				userStatus={status}
 				updateParentAndSheet={saveStatus}
+				forceReloadAfterEdit={that.props.forceReloadAfterEdit}
 			/>,
 		fetching:
 			<Spinner size={'8rem'} />,

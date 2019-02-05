@@ -7,6 +7,10 @@ export default class EditButton extends Component {
 	state = {
 		hideButton: this.props.status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
 	}
+	handleClick = () => {
+		if (this.props.uiState === 'submitted')
+			this.props.forceReloadAfterEdit()
+	}
 	componentDidUpdate = () => {
 		const nonEditableStatus = this.props.status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
 		const uiStateIsSubmitted = this.props.uiState === 'submitted'
@@ -30,7 +34,7 @@ export default class EditButton extends Component {
 					?
 						<input style={submitting} type='submit' value='Editar' />
 					:
-						<Link style={link} to={`/atendimentos/${id}/editar`}>
+						<Link style={link} to={`/atendimentos/${id}/editar`} onClick={this.handleClick}>
 							<input style={edit} type='submit' value='Editar' />
 						</Link>
 				}
@@ -42,5 +46,6 @@ export default class EditButton extends Component {
 EditButton.propTypes = {
 	status: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
-	uiState: PropTypes.string.isRequired
+	uiState: PropTypes.string.isRequired,
+	forceReloadAfterEdit: PropTypes.func.isRequired
 }
