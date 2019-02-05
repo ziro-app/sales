@@ -1,26 +1,41 @@
-import React, { Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { link, edit } from './styles'
 
-const EditButton = ({ status, id }) => {
-	return (
-		<Fragment>
-			{status === 'Em trânsito'
+export default class EditButton extends Component {
+	state = {
+		hideButton: this.props.status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
+	}
+	componentDidUpdate = () => {
+		const nonEditableStatus = this.props.status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
+		const uiStateIsSubmitted = this.props.uiState === 'submitted'
+		const hideButton = this.state.hideButton
+		if (uiStateIsSubmitted && nonEditableStatus && !hideButton)
+			this.setState({ hideButton: true })
+		if (uiStateIsSubmitted && !nonEditableStatus && hideButton)
+			this.setState({ hideButton: false })
+	}
+	render = () => {
+		const id = this.props.id
+		const hideButton = this.state.hideButton
+		return (
+			<Fragment>
+				{hideButton
 				?
 					null
 				:
 					<Link style={link} to={`/atendimentos/${id}/editar`}>
 						<input style={edit} type='submit' value='Editar' />
 					</Link>
-			}
-		</Fragment>
-	)
+				}
+			</Fragment>
+		)
+	}
 }
 
 EditButton.propTypes = {
 	status: PropTypes.string.isRequired,
-	id: PropTypes.string.isRequired
+	id: PropTypes.string.isRequired,
+	uiState: PropTypes.string.isRequired
 }
-
-export default EditButton

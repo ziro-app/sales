@@ -19,9 +19,10 @@ submit = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
-	width: '100%',
+	cursor: 'pointer',
 	border: 'none',
 	borderRadius: '20px',
+	width: '100%',
 	padding: '10px 25px',
 	fontSize: '1.6rem',
 	fontWeight: '700',
@@ -32,6 +33,7 @@ submit = {
 },
 
 submitting = Object.assign({}, submit, {
+	cursor: 'initial',
 	color: 'rgba(48,62,77,0.3)',
 	backgroundColor: 'rgba(48,62,77,0.024)',
 	boxShadow: 'none'

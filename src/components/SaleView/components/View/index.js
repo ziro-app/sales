@@ -42,7 +42,7 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet }
 					statuses={statuses}
 					start={inicio}
 				/>
-				<EditButton status={status} id={id} />
+				<EditButton status={selectValue} id={id} uiState={uiState} />
 			</div>
 		)
 	return <div style={notFound}>Atendimento não existe na base</div>
