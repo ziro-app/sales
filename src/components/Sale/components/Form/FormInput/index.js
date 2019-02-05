@@ -11,6 +11,7 @@ const FormInput = ({ errorMessage, render }) => {
 }
 
 FormInput.propTypes = {
+	uiState: PropTypes.string.isRequired,
 	errorMessage: PropTypes.string.isRequired,
 	render: PropTypes.func.isRequired
 }
