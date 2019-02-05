@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import formatDate from '../../utils/formatDate'
 import { dayPickerProps } from '../../utils/dayPickerProps'
 /* import components */
+import FormInput from './FormInput/index'
 import Dropdown from '@ziro/dropdown'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import InputForDayPicker from './InputForDayPicker/index'
@@ -44,6 +45,18 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 						/>
 					}
 				</ErrorMessage>
+				<FormInput
+					errorMessage={state.error_representative}
+					render={() => (
+						<Dropdown
+							name='representative'
+							placeholder='Assessor'
+							options={state.representatives}
+							value={state.representative}
+							updateParent={updateDropdown}
+						/>						
+					)}
+				/>
 				<ErrorMessage message={state.error_representative}>
 					<Dropdown
 						name='representative'
