@@ -10,6 +10,7 @@ radioGroup = {
 },
 
 radioNotSelected = {
+	cursor: 'pointer',
 	padding: '20px 0',
 	borderRadius: '5px',
 	backgroundColor: 'rgba(48,62,77,0.025)'
