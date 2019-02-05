@@ -55,51 +55,100 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 					/>
 				}
 			</ErrorMessage>
-			<FormInput uiState={uiState} errorMessage={error_representative} render={() => (
-				<Dropdown
-					name='representative'
-					placeholder='Assessor'
-					options={representatives}
-					value={representative}
-					updateParent={updateDropdown}
-				/>)}
+			<FormInput uiState={uiState} errorMessage={error_representative}
+				render={() => (
+					<Dropdown
+						name='representative'
+						placeholder='Assessor'
+						options={representatives}
+						value={representative}
+						updateParent={updateDropdown}
+					/>
+				)}
+				renderSubmitting={() => (
+					<input
+						style={input}
+						placeholder={representative}
+						disabled={true}
+					/>
+				)}
 			/>
-			<FormInput uiState={uiState} errorMessage={error_reseller} render={() => (
-				<Dropdown
-					name='reseller'
-					placeholder='Lojista'
-					options={resellers}
-					value={reseller}
-					updateParent={updateDropdown}
-				/>)}
+			<FormInput uiState={uiState} errorMessage={error_reseller}
+				render={() => (
+					<Dropdown
+						name='reseller'
+						placeholder='Lojista'
+						options={resellers}
+						value={reseller}
+						updateParent={updateDropdown}
+					/>
+				)}
+				renderSubmitting={() => (
+					<input
+						style={input}
+						placeholder={reseller}
+						disabled={true}
+					/>
+				)}
 			/>
-			<FormInput uiState={uiState} errorMessage={error_category} render={() => (
-				<Radio
-					name='category'
-					options={['Venda','Troca']}
-					icons={[<SaleSvg />,<ReturnSvg />]}
-					value={category}
-					updateParent={updateRadio}
-				/>)}
+			<FormInput uiState={uiState} errorMessage={error_category}
+				render={() => (
+					<Radio
+						name='category'
+						options={['Venda','Troca']}
+						icons={[<SaleSvg />,<ReturnSvg />]}
+						value={category}
+						updateParent={updateRadio}
+					/>
+				)}
+				renderSubmitting={() => (
+					<Radio
+						name='category'
+						options={['Venda','Troca']}
+						icons={[<SaleSvg />,<ReturnSvg />]}
+						value=''
+						updateParent={updateRadio}
+					/>
+				)}
 			/>
-			<FormInput uiState={uiState} errorMessage={error_type} render={() => (
-				<Radio
-					name='type'
-					options={['Online','Offline']}
-					icons={[<WifiOnSvg />,<WifiOffSvg />]}
-					value={type}
-					updateParent={updateRadio}
-				/>)}
+			<FormInput uiState={uiState} errorMessage={error_type}
+				render={() => (
+					<Radio
+						name='type'
+						options={['Online','Offline']}
+						icons={[<WifiOnSvg />,<WifiOffSvg />]}
+						value={type}
+						updateParent={updateRadio}
+					/>
+				)}
+				renderSubmitting={() => (
+					<Radio
+						name='category'
+						options={['Online','Offline']}
+						icons={[<WifiOnSvg />,<WifiOffSvg />]}
+						value=''
+						updateParent={updateRadio}
+					/>
+				)}
 			/>
-			<FormInput uiState={uiState} errorMessage={error_end_date} render={() => (
-				<DayPickerInput
-					component={InputForDayPicker}
-					placeholder='Despacho'
-					value={end_date}
-					onDayChange={updateDayPicker('end_date')}
-					formatDate={formatDate}
-					dayPickerProps={dayPickerProps}
-				/>)}
+			<FormInput uiState={uiState} errorMessage={error_end_date}
+				render={() => (
+					<DayPickerInput
+						component={InputForDayPicker}
+						placeholder='Despacho'
+						value={end_date}
+						onDayChange={updateDayPicker('end_date')}
+						formatDate={formatDate}
+						dayPickerProps={dayPickerProps}
+					/>
+				)}
+				renderSubmitting={() => (
+					<input
+						style={input}
+						placeholder={formatDate(end_date)}
+						disabled={true}
+					/>
+				)}
 			/>
 			<Submit
 				submitForm={submitForm}
