@@ -45,64 +45,52 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 						/>
 					}
 				</ErrorMessage>
-				<FormInput
-					errorMessage={state.error_representative}
-					render={() => (
-						<Dropdown
-							name='representative'
-							placeholder='Assessor'
-							options={state.representatives}
-							value={state.representative}
-							updateParent={updateDropdown}
-						/>						
-					)}
-				/>
-				<ErrorMessage message={state.error_representative}>
+				<FormInput errorMessage={state.error_representative} render={() => (
 					<Dropdown
 						name='representative'
 						placeholder='Assessor'
 						options={state.representatives}
 						value={state.representative}
 						updateParent={updateDropdown}
-					/>
-				</ErrorMessage>
-				<ErrorMessage message={state.error_reseller}>
+					/>)}
+				/>
+				<FormInput errorMessage={state.error_reseller} render={() => (
 					<Dropdown
 						name='reseller'
 						placeholder='Lojista'
 						options={state.resellers}
 						value={state.reseller}
 						updateParent={updateDropdown}
-					/>
-				</ErrorMessage>
-				<ErrorMessage message={state.error_category}>	
+					/>)}
+				/>
+				<FormInput errorMessage={state.error_category} render={() => (
 					<Radio
 						name='category'
 						options={['Venda','Troca']}
 						icons={[<SaleSvg />,<ReturnSvg />]}
 						value={state.category}
 						updateParent={updateRadio}
-					/>
-				</ErrorMessage>	
-				<ErrorMessage message={state.error_type}>	
+					/>)}
+				/>
+				<FormInput errorMessage={state.error_type} render={() => (
 					<Radio
 						name='type'
 						options={['Online','Offline']}
 						icons={[<WifiOnSvg />,<WifiOffSvg />]}
 						value={state.type}
 						updateParent={updateRadio}
-					/>
-				</ErrorMessage>
-				<ErrorMessage message={state.error_end_date}>
+					/>)}
+				/>
+				<FormInput errorMessage={state.error_end_date} render={() => (
 					<DayPickerInput
 						component={InputForDayPicker}
-						placeholder='Data fim'
+						placeholder='Despacho'
 						value={state.end_date}
 						onDayChange={updateDayPicker('end_date')}
 						formatDate={formatDate}
 						dayPickerProps={dayPickerProps}
-					/>
-				</ErrorMessage>
+					/>)}
+				/>
 				<Submit
 					submitForm={submitForm}
 					uiState={state.uiState}
@@ -112,6 +100,7 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 	</div>
 
 Form.propTypes = {
+	id: PropTypes.string,
 	state: PropTypes.object.isRequired,
 	updateDropdown: PropTypes.func.isRequired,
 	updateDayPicker: PropTypes.func.isRequired,
