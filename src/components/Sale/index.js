@@ -8,6 +8,7 @@ import fetchInitialData from './methods/fetchInitialData'
 import updateDropdown from './methods/updateDropdown'
 import updateDayPicker from './methods/updateDayPicker'
 import updateRadio from './methods/updateRadio'
+import updateTime from './methods/updateTime'
 import submitForm from './methods/submitForm'
 import renderForm from './methods/renderForm'
 
@@ -25,6 +26,7 @@ export default class Sale extends Component {
 		category: '',
 		type: '',
 		end_date: '',
+		time: '',
 		/* sale status */
 		status: '',
 		/* error messages */
@@ -33,7 +35,8 @@ export default class Sale extends Component {
 		error_reseller: '',
 		error_category: '',
 		error_type: '',
-		error_end_date: ''
+		error_end_date: '',
+		error_time: ''
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()
@@ -42,6 +45,7 @@ export default class Sale extends Component {
 	updateDropdown = updateDropdown(this)
 	updateDayPicker = updateDayPicker(this)
 	updateRadio = updateRadio(this)
+	updateTime = updateTime(this)
 	submitForm = submitForm(this)
 	renderForm = renderForm(this)
 	/*-- lifecycle --*/

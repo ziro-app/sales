@@ -1,5 +1,5 @@
 /* import libraries */
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 /* import utils */
 import formatDate from '../../utils/formatDate'
@@ -10,20 +10,22 @@ import Dropdown from '@ziro/dropdown'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import InputForDayPicker from './InputForDayPicker/index'
 import Radio from './Radio/index'
+import Time from './Time/index'
 import Submit from './Submit/index'
-import ErrorMessage from  './ErrorMessage/index'
 import SaleSvg from './Radio/icons/SaleSvg'
 import ReturnSvg from './Radio/icons/ReturnSvg'
 import WifiOnSvg from './Radio/icons/WifiOnSvg'
 import WifiOffSvg from './Radio/icons/WifiOffSvg'
 /* import styles */
-import { body, notAllowed, input } from './styles'
+import { body, notAllowed, input, inputTime } from './styles'
 
-const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitForm }) => {
+const Form = ({
+		id, state, updateDropdown, updateDayPicker, updateRadio, updateTime, submitForm
+	}) => {
 	const {
 		uiState, status, start_date, error_start_date, representatives, representative,
 		error_representative, resellers, reseller, error_reseller, category, error_category,
-		type, error_type, end_date, error_end_date
+		type, error_type, end_date, error_end_date, time, error_time
 	} = state
 	const editing = id
 	const editingNotAllowed = status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
@@ -160,6 +162,22 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 					<input
 						style={input}
 						placeholder={formatDate(end_date)}
+						disabled={true}
+					/>
+				)}
+			/>
+			<FormInput uiState={uiState} errorMessage={error_time}
+				render={() => (
+					<Time
+						value={time}
+						updateParent={updateTime}
+					/>
+				)}
+				renderSubmitting={() => (
+					<input
+						style={inputTime}
+						placeholder={time}
+						type='time'
 						disabled={true}
 					/>
 				)}
