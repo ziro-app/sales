@@ -36,25 +36,35 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 		)
 	return (
 		<div style={body}>
-			<ErrorMessage message={error_start_date}>
-				{editing && status !== 'Escolhendo'
-				?
+			<FormInput uiState={uiState} errorMessage={error_start_date}
+				render={() => {
+					if (editing && status !== 'Escolhendo')
+						return (
+							<input
+								style={input}
+								placeholder={formatDate(start_date)}
+								disabled={true}
+							/>
+						)
+					return (
+						<DayPickerInput
+							component={InputForDayPicker}
+							placeholder='Data início'
+							value={start_date}
+							onDayChange={updateDayPicker('start_date')}
+							formatDate={formatDate}
+							dayPickerProps={dayPickerProps}
+						/>
+					)
+				}}
+				renderSubmitting={() => (
 					<input
 						style={input}
 						placeholder={formatDate(start_date)}
 						disabled={true}
 					/>
-				:
-					<DayPickerInput
-						component={InputForDayPicker}
-						placeholder='Data início'
-						value={start_date}
-						onDayChange={updateDayPicker('start_date')}
-						formatDate={formatDate}
-						dayPickerProps={dayPickerProps}
-					/>
-				}
-			</ErrorMessage>
+				)}
+			/>
 			<FormInput uiState={uiState} errorMessage={error_representative}
 				render={() => (
 					<Dropdown
