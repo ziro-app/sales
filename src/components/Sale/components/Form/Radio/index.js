@@ -9,7 +9,7 @@ export default class Radio extends Component {
 			{this.props.options.map( (option, index) =>
 				<Fragment key={index}>
 					<label
-						style={this.props.value === option ? radioSelected : radioNotSelected}
+						style={this.props.value === option ? radioSelected(this.props.disabled) : radioNotSelected}
 						htmlFor={option}
 					>
 						{this.props.icons[index]}
@@ -21,7 +21,7 @@ export default class Radio extends Component {
 						name={this.props.name}
 						id={option}
 						value={option}
-						onChange={this.handleChange}
+						onChange={this.props.disabled ? null : this.handleChange}
 						checked={this.props.value === option}
 					/>
 				</Fragment>
@@ -34,5 +34,6 @@ Radio.propTypes = {
 	options: PropTypes.arrayOf(PropTypes.string).isRequired,
 	icons: PropTypes.arrayOf(PropTypes.element).isRequired,
 	value: PropTypes.string.isRequired,
-	updateParent: PropTypes.func.isRequired
+	updateParent: PropTypes.func.isRequired,
+	disabled: PropTypes.bool.isRequired
 }

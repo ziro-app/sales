@@ -99,6 +99,7 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 						icons={[<SaleSvg />,<ReturnSvg />]}
 						value={category}
 						updateParent={updateRadio}
+						disabled={false}
 					/>
 				)}
 				renderSubmitting={() => (
@@ -106,8 +107,9 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 						name='category'
 						options={['Venda','Troca']}
 						icons={[<SaleSvg />,<ReturnSvg />]}
-						value=''
+						value={category}
 						updateParent={updateRadio}
+						disabled={true}
 					/>
 				)}
 			/>
@@ -119,6 +121,7 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 						icons={[<WifiOnSvg />,<WifiOffSvg />]}
 						value={type}
 						updateParent={updateRadio}
+						disabled={false}
 					/>
 				)}
 				renderSubmitting={() => (
@@ -126,8 +129,9 @@ const Form = ({ id, state, updateDropdown, updateDayPicker, updateRadio, submitF
 						name='category'
 						options={['Online','Offline']}
 						icons={[<WifiOnSvg />,<WifiOffSvg />]}
-						value=''
+						value={type}
 						updateParent={updateRadio}
+						disabled={true}
 					/>
 				)}
 			/>

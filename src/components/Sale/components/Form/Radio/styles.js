@@ -16,11 +16,19 @@ radioNotSelected = {
 	backgroundColor: 'rgba(48,62,77,0.025)'
 },
 
-radioSelected = Object.assign( {}, radioNotSelected, {
-	color: 'rgba(48,62,77,0.8)',
-	boxShadow: `0px 0px 10px 0px rgba(48,62,77,0.08), 0px 0px 20px 0px rgba(48,62,77,0.06), 
-	0px 0px 30px 0px rgba(48,62,77,0.04), 0px 0px 40px 0px rgba(48,62,77,0.02)`
-}),
+radioSelected = (disabled) => {
+	if (disabled) {
+		return Object.assign( {}, radioNotSelected, {
+			boxShadow: `0px 0px 10px 0px rgba(48,62,77,0.08), 0px 0px 20px 0px rgba(48,62,77,0.06), 
+			0px 0px 30px 0px rgba(48,62,77,0.04), 0px 0px 40px 0px rgba(48,62,77,0.02)`
+		})
+	}
+	return Object.assign( {}, radioNotSelected, {
+		color: 'rgba(48,62,77,0.8)',
+		boxShadow: `0px 0px 10px 0px rgba(48,62,77,0.08), 0px 0px 20px 0px rgba(48,62,77,0.06), 
+		0px 0px 30px 0px rgba(48,62,77,0.04), 0px 0px 40px 0px rgba(48,62,77,0.02)`
+	})
+},
 
 name = {
 	fontSize: '1.6rem',
