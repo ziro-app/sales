@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { input, inputFilled } from './styles'
 
 export default class Time extends Component {
@@ -16,3 +17,7 @@ export default class Time extends Component {
 	}
 }
 
+Time.propTypes = {
+	value: PropTypes.string.isRequired,
+	updateParent: PropTypes.func.isRequired
+}
