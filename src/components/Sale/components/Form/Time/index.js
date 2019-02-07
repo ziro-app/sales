@@ -8,8 +8,8 @@ export default class Time extends Component {
 			<input
 				style={time}
 				type='text'
-				placeholder='Horário 00:00'
-				value={this.props.time}
+				placeholder='Horário'
+				value={this.props.value}
 				onChange={this.handleChange}
 			/>
 		)

@@ -1,11 +1,6 @@
 const updateTime = that => value => {
-	console.log(value)
-	if (value) {
+	if (value.match(/^[0-9:]+$/g) || value === '') {
 		that.setState({ time: value })
-		that.changeUiState('INPUT')
-	}
-	else {
-		that.setState({ time: '' })
 		that.changeUiState('INPUT')
 	}
 }
