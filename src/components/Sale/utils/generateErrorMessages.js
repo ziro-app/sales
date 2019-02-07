@@ -13,7 +13,7 @@ const generateErrorMessages = ({
 	const error_category = category_is_valid ? '' : 'Categoria inválida'
 	const error_type = type_is_valid ? '' : 'Tipo inválido'
 	const error_end_date = end_date_is_valid ? '' : 'Deve ser maior ou igual que data início'
-	const error_time = time_is_valid ? '' : 'Formato deve ser 00:00'
+	const error_time = time_is_valid ? '' : 'Deve ser entre 08:00 e 17:00'
 	return {
 		error_start_date,
 		error_representative,

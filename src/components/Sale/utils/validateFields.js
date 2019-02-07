@@ -8,4 +8,4 @@ dateIsValid = date => new Date(date) instanceof Date && !isNaN(new Date(date)),
 
 optionIsValid = (options, input) => Boolean(options.filter( option => option === input).length),
 
-timeIsValid = time => Boolean(time.match(/^(2[0-3]|[01][0-9]):([0-5][0-9])$/g))
+timeIsValid = time => Boolean(time.match(/^(0[8-9]|1[0-7]):([0-5][0-9])$/g))
