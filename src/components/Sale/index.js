@@ -27,6 +27,7 @@ export default class Sale extends Component {
 		type: '',
 		end_date: '',
 		time: '',
+		shipping: '',
 		/* sale status */
 		status: '',
 		/* error messages */
@@ -36,7 +37,8 @@ export default class Sale extends Component {
 		error_category: '',
 		error_type: '',
 		error_end_date: '',
-		error_time: ''
+		error_time: '',
+		error_shipping: ''
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()
