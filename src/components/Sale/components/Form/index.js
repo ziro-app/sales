@@ -176,8 +176,8 @@ const Form = ({
 				renderSubmitting={() => (
 					<input
 						style={inputTime}
+						type='text'
 						placeholder={time}
-						type='time'
 						disabled={true}
 					/>
 				)}

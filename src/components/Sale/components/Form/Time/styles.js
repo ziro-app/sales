@@ -1,6 +1,6 @@
 export const
 
-time = {
+input = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
@@ -14,4 +14,10 @@ time = {
 	textIndent: '25px',
 	color: 'rgba(48,62,77,0.8)',
 	fontWeight: '700'	
-}
+},
+
+inputFilled = Object.assign({}, input, {
+	color: 'rgba(48,62,77,0.8)',
+	boxShadow: `0px 0px 10px 0px rgba(48,62,77,0.08), 0px 0px 20px 0px rgba(48,62,77,0.06), 
+	0px 0px 30px 0px rgba(48,62,77,0.04), 0px 0px 40px 0px rgba(48,62,77,0.02)`
+})
