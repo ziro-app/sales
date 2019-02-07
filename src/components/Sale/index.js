@@ -19,6 +19,7 @@ export default class Sale extends Component {
 		/* dropdown data */
 		resellers: [],
 		representatives: [],
+		shipping_options: [],
 		/* user inputs */
 		start_date: '',
 		representative: '',

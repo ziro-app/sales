@@ -25,7 +25,8 @@ const Form = ({
 	const {
 		uiState, status, start_date, error_start_date, representatives, representative,
 		error_representative, resellers, reseller, error_reseller, category, error_category,
-		type, error_type, end_date, error_end_date, time, error_time, shipping, error_shipping
+		type, error_type, end_date, error_end_date, time, error_time, shipping_options,
+		shipping, error_shipping
 	} = state
 	const editing = id
 	const editingNotAllowed = status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
@@ -187,7 +188,7 @@ const Form = ({
 					<Dropdown
 						name='shipping'
 						placeholder='Transporte'
-						options={resellers}
+						options={shipping_options}
 						value={shipping}
 						updateParent={updateDropdown}
 					/>

@@ -21,6 +21,16 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 	if (values_representatives.length === 0)
 		await Promise.reject('Error at fetchFromSpreadsheet. values_representatives.length === 0')
 	const representatives = values_representatives.map( value => value[0] ).slice(1).sort()
+	/*-- get values_shipping --*/
+	const { data: { values: values_shipping } } = await get(
+		`${process.env.SHIPPING_SHEET_URL}`,
+		{ cancelToken: cancelTokenSource.token }
+	)
+	if (!values_shipping)
+		await Promise.reject('Error at fetchFromSpreadsheet. values_shipping is undefined')
+	if (values_shipping.length === 0)
+		await Promise.reject('Error at fetchFromSpreadsheet. values_shipping.length === 0')
+	const shipping_options = values_shipping.map( value => value[0] ).slice(1).sort()
 	/*-- get values_sales --*/
 	if (id) {
 		const { data: { values: values_sales } } = await get(
@@ -36,6 +46,7 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 		return {
 			resellers,
 			representatives,
+			shipping_options,
 			start_date: dateToEnglish(start_date),
 			representative,
 			reseller,
@@ -45,7 +56,7 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 			status
 		}
 	}
-	return { resellers, representatives }
+	return { resellers, representatives, shipping_options }
 }
 
 export default fetchFromSpreadsheet
