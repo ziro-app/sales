@@ -8,6 +8,7 @@ const validateForm = ({
 	type,
 	end_date,
 	time,
+	shipping,
 	representatives,
 	resellers
 }) => {
@@ -20,6 +21,7 @@ const validateForm = ({
 		const type_is_valid = optionIsValid(['Online','Offline'], type)
 		const end_date_is_valid = new Date(end_date) >= new Date(start_date)
 		const time_is_valid = timeIsValid(time)
+		const shipping_is_valid = optionIsValid(resellers, shipping)
 		const formIsValid = start_date_is_valid
 			&& representative_is_valid
 			&& reseller_is_valid
@@ -27,6 +29,7 @@ const validateForm = ({
 			&& type_is_valid
 			&& end_date_is_valid
 			&& time_is_valid
+			&& shipping_is_valid
 		/* return the status of each field and if all are valid */
 		return {
 			formIsValid,
@@ -36,7 +39,8 @@ const validateForm = ({
 			category_is_valid,
 			type_is_valid,
 			end_date_is_valid,
-			time_is_valid
+			time_is_valid,
+			shipping_is_valid
 		}
 	}
 }
