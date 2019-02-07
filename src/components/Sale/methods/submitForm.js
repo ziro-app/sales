@@ -20,7 +20,8 @@ const submitForm = that => async () => {
 					reseller: '',
 					category: '',
 					type: '',
-					end_date: ''
+					end_date: '',
+					time: ''
 				})
 			}
 			if (action === 'EDIT')

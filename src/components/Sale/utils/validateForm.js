@@ -1,4 +1,4 @@
-import { dateIsValid, optionIsValid } from './validateFields'
+import { dateIsValid, optionIsValid, timeIsValid } from './validateFields'
 
 const validateForm = ({
 	start_date,
@@ -7,6 +7,7 @@ const validateForm = ({
 	category,
 	type,
 	end_date,
+	time,
 	representatives,
 	resellers
 }) => {
@@ -18,12 +19,14 @@ const validateForm = ({
 		const category_is_valid = optionIsValid(['Venda','Troca'], category)
 		const type_is_valid = optionIsValid(['Online','Offline'], type)
 		const end_date_is_valid = new Date(end_date) >= new Date(start_date)
+		const time_is_valid = timeIsValid(time)
 		const formIsValid = start_date_is_valid
 			&& representative_is_valid
 			&& reseller_is_valid
 			&& category_is_valid
 			&& type_is_valid
 			&& end_date_is_valid
+			&& time_is_valid
 		/* return the status of each field and if all are valid */
 		return {
 			formIsValid,
@@ -32,7 +35,8 @@ const validateForm = ({
 			reseller_is_valid,
 			category_is_valid,
 			type_is_valid,
-			end_date_is_valid
+			end_date_is_valid,
+			time_is_valid
 		}
 	}
 }

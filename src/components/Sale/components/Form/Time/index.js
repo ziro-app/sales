@@ -7,8 +7,8 @@ export default class Time extends Component {
 		return (
 			<input
 				style={time}
-				type='time'
-				placeholder='00:00'
+				type='text'
+				placeholder='Horário 00:00'
 				value={this.props.time}
 				onChange={this.handleChange}
 			/>

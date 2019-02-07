@@ -6,4 +6,6 @@ export const
 
 dateIsValid = date => new Date(date) instanceof Date && !isNaN(new Date(date)),
 
-optionIsValid = (options, input) => Boolean(options.filter( option => option === input).length)
+optionIsValid = (options, input) => Boolean(options.filter( option => option === input).length),
+
+timeIsValid = time => Boolean(time.match(/^(2[0-3]|[01][0-9]):([0-5][0-9])$/g))
