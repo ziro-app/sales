@@ -15,7 +15,7 @@ messageError = Object.assign({}, message, {
 }),
 
 submit = {
-	marginTop: '30px',
+	marginTop: '60px',
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',

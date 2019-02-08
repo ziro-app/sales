@@ -17,7 +17,7 @@ import ReturnSvg from './Radio/icons/ReturnSvg'
 import WifiOnSvg from './Radio/icons/WifiOnSvg'
 import WifiOffSvg from './Radio/icons/WifiOffSvg'
 /* import styles */
-import { body, notAllowed, input, inputTime } from './styles'
+import { body, notAllowed, input, subtitle, inputTime } from './styles'
 
 const Form = ({
 		id, state, updateDropdown, updateDayPicker, updateRadio, updateTime, submitForm
@@ -167,6 +167,7 @@ const Form = ({
 					/>
 				)}
 			/>
+			<div style={subtitle}>Complemento despacho</div>
 			<FormInput uiState={uiState} errorMessage={error_time}
 				render={() => (
 					<Time

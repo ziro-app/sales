@@ -28,6 +28,15 @@ input = {
 	fontWeight: '700'
 },
 
+subtitle = {
+	margin: '60px 0 0',
+	textTransform: 'uppercase',
+	textAlign: 'center',
+	fontSize: '1.6rem',
+	fontWeight: '600',
+	color: 'rgba(48,62,77,0.8)'
+},
+
 inputTime = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
