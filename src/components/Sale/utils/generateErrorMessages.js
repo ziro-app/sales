@@ -7,6 +7,7 @@ const generateErrorMessages = ({
 	end_date_is_valid,
 	time_is_valid,
 	shipping_is_valid,
+	address_is_valid,
 	packaging_is_valid
 }) => {
 	const error_start_date = start_date_is_valid ? '' : 'Data inválida'
@@ -17,6 +18,7 @@ const generateErrorMessages = ({
 	const error_end_date = end_date_is_valid ? '' : 'Deve ser maior ou igual que data início'
 	const error_time = time_is_valid ? '' : 'Deve ser entre 08:00 e 17:00'
 	const error_shipping = shipping_is_valid ? '' : 'Transporte inválido'
+	const error_address = address_is_valid ? '' : 'Endereço inválido'
 	const error_packaging = packaging_is_valid ? '' : 'Opção de fardo inválida'
 	return {
 		error_start_date,
@@ -27,6 +29,7 @@ const generateErrorMessages = ({
 		error_end_date,
 		error_time,
 		error_shipping,
+		error_address,
 		error_packaging
 	}
 }
