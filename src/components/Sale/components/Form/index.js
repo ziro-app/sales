@@ -26,7 +26,8 @@ const Form = ({
 		uiState, status, start_date, error_start_date, representatives, representative,
 		error_representative, resellers, reseller, error_reseller, category, error_category,
 		type, error_type, end_date, error_end_date, time, error_time, shipping_options,
-		shipping, error_shipping, packaging_options, packaging, error_packaging
+		shipping, error_shipping, packaging_options, packaging, error_packaging, addresses,
+		address, error_address
 	} = state
 	const editing = id
 	const editingNotAllowed = status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
@@ -39,6 +40,7 @@ const Form = ({
 		)
 	return (
 		<div style={body}>
+		{/*---------------------------START_DATE-------------------------*/}
 			<FormInput uiState={uiState} errorMessage={error_start_date}
 				render={() => {
 					if (editing && status !== 'Escolhendo')
@@ -68,6 +70,7 @@ const Form = ({
 					/>
 				)}
 			/>
+		{/*---------------------------REPRESENTATIVE-------------------------*/}
 			<FormInput uiState={uiState} errorMessage={error_representative}
 				render={() => (
 					<Dropdown
@@ -86,6 +89,7 @@ const Form = ({
 					/>
 				)}
 			/>
+		{/*---------------------------RESSELER-------------------------*/}
 			<FormInput uiState={uiState} errorMessage={error_reseller}
 				render={() => (
 					<Dropdown
@@ -104,6 +108,7 @@ const Form = ({
 					/>
 				)}
 			/>
+		{/*---------------------------CATEGORY-------------------------*/}	
 			<FormInput uiState={uiState} errorMessage={error_category}
 				render={() => (
 					<Radio
@@ -126,6 +131,7 @@ const Form = ({
 					/>
 				)}
 			/>
+		{/*---------------------------TYPE-------------------------*/}	
 			<FormInput uiState={uiState} errorMessage={error_type}
 				render={() => (
 					<Radio
@@ -148,6 +154,7 @@ const Form = ({
 					/>
 				)}
 			/>
+		{/*---------------------------END_DATE-------------------------*/}	
 			<FormInput uiState={uiState} errorMessage={error_end_date}
 				render={() => (
 					<DayPickerInput
@@ -168,6 +175,7 @@ const Form = ({
 				)}
 			/>
 			<div style={subtitle}>Complemento despacho</div>
+		{/*---------------------------TIME-------------------------*/}	
 			<FormInput uiState={uiState} errorMessage={error_time}
 				render={() => (
 					<Time
@@ -184,6 +192,7 @@ const Form = ({
 					/>
 				)}
 			/>
+		{/*---------------------------SHIPPING-------------------------*/}	
 			<FormInput uiState={uiState} errorMessage={error_shipping}
 				render={() => (
 					<Dropdown
@@ -202,6 +211,26 @@ const Form = ({
 					/>
 				)}
 			/>
+		{/*---------------------------ADDRESS-------------------------*/}	
+			<FormInput uiState={uiState} errorMessage={error_address}
+				render={() => (
+					<Dropdown
+						name='address'
+						placeholder='Endereço'
+						options={addresses}
+						value={address}
+						updateParent={updateDropdown}
+					/>
+				)}
+				renderSubmitting={() => (
+					<input
+						style={input}
+						placeholder={address}
+						disabled={true}
+					/>
+				)}
+			/>
+		{/*---------------------------PACKAGING-------------------------*/}	
 			<FormInput uiState={uiState} errorMessage={error_packaging}
 				render={() => (
 					<Dropdown

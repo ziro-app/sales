@@ -20,6 +20,7 @@ export default class Sale extends Component {
 		resellers: [],
 		representatives: [],
 		shipping_options: [],
+		addresses: [],
 		packaging_options: ['Livre', '23Kg', 'Sacolas'],
 		/* user inputs */
 		start_date: '',
@@ -30,6 +31,7 @@ export default class Sale extends Component {
 		end_date: '',
 		time: '',
 		shipping: '',
+		address: '',
 		packaging: '',
 		/* sale status */
 		status: '',
@@ -42,6 +44,7 @@ export default class Sale extends Component {
 		error_end_date: '',
 		error_time: '',
 		error_shipping: '',
+		error_address: '',
 		error_packaging: ''
 	}
 	/*-- methods --*/
