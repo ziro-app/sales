@@ -26,7 +26,7 @@ const Form = ({
 		uiState, status, start_date, error_start_date, representatives, representative,
 		error_representative, resellers, reseller, error_reseller, category, error_category,
 		type, error_type, end_date, error_end_date, time, error_time, shipping_options,
-		shipping, error_shipping
+		shipping, error_shipping, packaging_options, packaging, error_packaging
 	} = state
 	const editing = id
 	const editingNotAllowed = status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
@@ -198,6 +198,24 @@ const Form = ({
 					<input
 						style={input}
 						placeholder={shipping}
+						disabled={true}
+					/>
+				)}
+			/>
+			<FormInput uiState={uiState} errorMessage={error_packaging}
+				render={() => (
+					<Dropdown
+						name='packaging'
+						placeholder='Fardo'
+						options={packaging_options}
+						value={packaging}
+						updateParent={updateDropdown}
+					/>
+				)}
+				renderSubmitting={() => (
+					<input
+						style={input}
+						placeholder={packaging}
 						disabled={true}
 					/>
 				)}
