@@ -36,7 +36,7 @@ ul {
   100% { transform: rotate(359.99deg) }
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
     color: rgba(48,62,77,0.3);
 }
 

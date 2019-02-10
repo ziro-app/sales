@@ -9,6 +9,7 @@ export default class TextArea extends Component {
 			<textarea
 				style={this.props.value !== '' ? areaFilled : area}
 				placeholder='Observações'
+				rows='3'
 				value={this.props.value}
 				onChange={this.handleChange}
 			/>
