@@ -1,51 +1,25 @@
 import dateToEnglish from './dateToEnglish'
 
 const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
-	/*------------------------------ get values_resellers --------------------------------*/
-	const { data: { values: values_resellers } } = await get(
-		`${process.env.RESELLERS_SHEET_URL}`,
+	const { data: { values } } = await get(
+		`${process.env.OPTIONS_SHEET_URL}`,
 		{ cancelToken: cancelTokenSource.token }
 	)
-	if (!values_resellers)
-		await Promise.reject('Error at fetchFromSpreadsheet. values_resellers is undefined')
-	if (values_resellers.length === 0)
-		await Promise.reject('Error at fetchFromSpreadsheet. values_resellers.length === 0')
-	const resellers = values_resellers.map( value => value[0] ).slice(1).sort()
-	const invoice_options = [ 'SEM NOTA', ...values_resellers.map( value => value[0] ).slice(1).sort() ]
-	/*------------------------------ get values_representatives --------------------------------*/
-	const { data: { values: values_representatives } } = await get(
-		`${process.env.REPRESENTATIVES_SHEET_URL}`,
-		{ cancelToken: cancelTokenSource.token }
-	)
-	if (!values_representatives)
-		await Promise.reject('Error at fetchFromSpreadsheet. values_representatives is undefined')
-	if (values_representatives.length === 0)
-		await Promise.reject('Error at fetchFromSpreadsheet. values_representatives.length === 0')
-	const representatives = values_representatives.map( value => value[0] ).slice(1).sort()
-	/*------------------------------ get values_shipping --------------------------------*/
-	const { data: { values: values_shipping } } = await get(
-		`${process.env.SHIPPING_SHEET_URL}`,
-		{ cancelToken: cancelTokenSource.token }
-	)
-	if (!values_shipping)
-		await Promise.reject('Error at fetchFromSpreadsheet. values_shipping is undefined')
-	if (values_shipping.length === 0)
-		await Promise.reject('Error at fetchFromSpreadsheet. values_shipping.length === 0')
-	const shipping_options = values_shipping.map( value => value[0] ).slice(1).sort()
-	/*------------------------------ get values_address --------------------------------*/
-	const { data: { values: values_address } } = await get(
-		`${process.env.ADDRESSES_SHEET_URL}`,
-		{ cancelToken: cancelTokenSource.token }
-	)
-	if (!values_address)
-		await Promise.reject('Error at fetchFromSpreadsheet. values_address is undefined')
-	if (values_address.length === 0)
-		await Promise.reject('Error at fetchFromSpreadsheet. values_address.length === 0')
-	const part_one = values_address.filter( value => value[0] === 'FAVORITOS').map( value => value[1])
-	const part_two = values_address.filter( value => value[0] !== 'FAVORITOS').map( value => ({
-		[value[0]]: value[1]
+	if (!values)
+		await Promise.reject('Error at fetchFromSpreadsheet. values is undefined')
+	if (values.length === 0)
+		await Promise.reject('Error at fetchFromSpreadsheet. values.length === 0')
+	const resellers = values.map(value => value[0]).slice(1).sort().filter(value => Boolean(value[0]))
+	const representatives = values.map(value => value[1]).slice(1).sort().filter(value => Boolean(value[0]))
+	const shipping_options = values.map(value => value[2]).slice(1).sort().filter(value => Boolean(value[0]))
+
+	const part_one = values.filter( value => value[3] === 'FAVORITOS').map( value => value[4])
+	const part_two = values.filter( value => value[3] !== 'FAVORITOS' && value[3]).map( value => ({
+		[value[3]]: value[4]
 	})).slice(1)
 	const addresses = [ ...part_two, { FAVORITOS: part_one } ]
+	const invoice_options = values.map(value => value[5]).slice(1).sort().filter(value => Boolean(value[0]))
+
 	/*------------------------------ get values_sales --------------------------------*/
 	if (id) {
 		const { data: { values: values_sales } } = await get(
