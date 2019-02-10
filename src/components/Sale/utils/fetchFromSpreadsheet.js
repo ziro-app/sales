@@ -1,3 +1,4 @@
+import { getOptions, getOptionsNoSort, getOptionsAddress } from './getOptions'
 import dateToEnglish from './dateToEnglish'
 
 const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
@@ -9,18 +10,11 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 		await Promise.reject('Error at fetchFromSpreadsheet. values is undefined')
 	if (values.length === 0)
 		await Promise.reject('Error at fetchFromSpreadsheet. values.length === 0')
-	const resellers = values.map(value => value[0]).slice(1).sort().filter(value => Boolean(value[0]))
-	const representatives = values.map(value => value[1]).slice(1).sort().filter(value => Boolean(value[0]))
-	const shipping_options = values.map(value => value[2]).slice(1).sort().filter(value => Boolean(value[0]))
-
-	const part_one = values.filter( value => value[3] === 'FAVORITOS').map( value => value[4])
-	const part_two = values.filter( value => value[3] !== 'FAVORITOS' && value[3]).map( value => ({
-		[value[3]]: value[4]
-	})).slice(1)
-	const addresses = [ ...part_two, { FAVORITOS: part_one } ]
-	const invoice_options = values.map(value => value[5]).slice(1).sort().filter(value => Boolean(value[0]))
-
-	/*------------------------------ get values_sales --------------------------------*/
+	const resellers = getOptions(values,0)
+	const representatives = getOptions(values,1)
+	const shipping_options = getOptions(values,2)
+	const addresses = getOptionsAddress(values,3)
+	const invoice_options = getOptionsNoSort(values,5)
 	if (id) {
 		const { data: { values: values_sales } } = await get(
 			`${process.env.SALES_SHEET_URL}`,
