@@ -1,4 +1,5 @@
 import { dateIsValid, optionIsValid, timeIsValid } from './validateFields'
+import getResellerAddress from './getResellerAddress'
 
 const validateForm = ({
 	start_date,
@@ -27,7 +28,7 @@ const validateForm = ({
 		const end_date_is_valid = new Date(end_date) >= new Date(start_date)
 		const time_is_valid = timeIsValid(time)
 		const shipping_is_valid = optionIsValid(shipping_options, shipping)
-		const address_is_valid = optionIsValid(addresses, address)
+		const address_is_valid = optionIsValid(getResellerAddress(addresses, reseller), address)
 		const packaging_is_valid = optionIsValid(packaging_options, packaging)
 		const formIsValid = start_date_is_valid
 			&& representative_is_valid
