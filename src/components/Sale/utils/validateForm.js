@@ -12,13 +12,15 @@ const validateForm = ({
 	shipping,
 	address,
 	packaging,
+	invoice,
 	representatives,
 	resellers,
 	shipping_options,
 	addresses,
-	packaging_options
+	packaging_options,
+	invoice_options
 }) => {
-	if (representatives && resellers && shipping_options && addresses && packaging_options) {
+	if (representatives && resellers && shipping_options && addresses && packaging_options && invoice_options) {
 		/* check if each field contains valid values */
 		const start_date_is_valid = dateIsValid(start_date)
 		const representative_is_valid = optionIsValid(representatives, representative)
@@ -30,6 +32,8 @@ const validateForm = ({
 		const shipping_is_valid = optionIsValid(shipping_options, shipping)
 		const address_is_valid = optionIsValid(getResellerAddress(addresses, reseller), address)
 		const packaging_is_valid = optionIsValid(packaging_options, packaging)
+		const invoice_is_valid = optionIsValid(invoice_options, invoice)
+		/* check if all fields are valid */
 		const formIsValid = start_date_is_valid
 			&& representative_is_valid
 			&& reseller_is_valid
@@ -40,6 +44,7 @@ const validateForm = ({
 			&& shipping_is_valid
 			&& address_is_valid
 			&& packaging_is_valid
+			&& invoice_is_valid
 		/* return the status of each field and if all are valid */
 		return {
 			formIsValid,
@@ -52,7 +57,8 @@ const validateForm = ({
 			time_is_valid,
 			shipping_is_valid,
 			address_is_valid,
-			packaging_is_valid
+			packaging_is_valid,
+			invoice_is_valid
 		}
 	}
 }

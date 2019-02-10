@@ -8,7 +8,8 @@ const generateErrorMessages = ({
 	time_is_valid,
 	shipping_is_valid,
 	address_is_valid,
-	packaging_is_valid
+	packaging_is_valid,
+	invoice_is_valid
 }) => {
 	const error_start_date = start_date_is_valid ? '' : 'Data inválida'
 	const error_representative = representative_is_valid ? '' : 'Assessor inválido'
@@ -20,6 +21,7 @@ const generateErrorMessages = ({
 	const error_shipping = shipping_is_valid ? '' : 'Transporte inválido'
 	const error_address = address_is_valid ? '' : 'Endereço inválido'
 	const error_packaging = packaging_is_valid ? '' : 'Opção de fardo inválida'
+	const error_invoice = invoice_is_valid ? '' : 'Opção de nota inválida'
 	return {
 		error_start_date,
 		error_representative,
@@ -30,7 +32,8 @@ const generateErrorMessages = ({
 		error_time,
 		error_shipping,
 		error_address,
-		error_packaging
+		error_packaging,
+		error_invoice
 	}
 }
 
