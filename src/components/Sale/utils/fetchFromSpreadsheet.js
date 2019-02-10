@@ -40,7 +40,11 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 		await Promise.reject('Error at fetchFromSpreadsheet. values_address is undefined')
 	if (values_address.length === 0)
 		await Promise.reject('Error at fetchFromSpreadsheet. values_address.length === 0')
-	const addresses = values_address.map( value => value[0] ).slice(1).sort()
+	const part_one = values_address.filter( value => value[0] === 'FAVORITOS').map( value => value[1])
+	const part_two = values_address.filter( value => value[0] !== 'FAVORITOS').map( value => ({
+		[value[0]]: value[1]
+	})).slice(1)
+	const addresses = [ ...part_two, { FAVORITOS: part_one } ]
 	/*------------------------------ get values_sales --------------------------------*/
 	if (id) {
 		const { data: { values: values_sales } } = await get(
