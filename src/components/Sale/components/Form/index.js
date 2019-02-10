@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 /* import utils */
 import formatDate from '../../utils/formatDate'
 import { dayPickerProps } from '../../utils/dayPickerProps'
+import getResellerAddress from '../../utils/getResellerAddress'
 /* import components */
 import FormInput from './FormInput/index'
 import Dropdown from '@ziro/dropdown'
@@ -217,7 +218,7 @@ const Form = ({
 					<Dropdown
 						name='address'
 						placeholder='Endereço'
-						options={addresses}
+						options={getResellerAddress(addresses, reseller)}
 						value={address}
 						updateParent={updateDropdown}
 					/>
