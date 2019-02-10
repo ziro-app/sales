@@ -256,7 +256,7 @@ const Form = ({
 				render={() => (
 					<Dropdown
 						name='invoice'
-						placeholder='Nota'
+						placeholder='Nota Fiscal'
 						options={invoice_options}
 						value={invoice}
 						updateParent={updateDropdown}
@@ -274,6 +274,7 @@ const Form = ({
 			<FormInput uiState={uiState} errorMessage={error_comments}
 				render={() => (
 					<TextArea
+						placeholder='Observações'
 						value={comments}
 						updateParent={updateComments}
 					/>
