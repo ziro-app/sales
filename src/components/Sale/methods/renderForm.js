@@ -17,6 +17,7 @@ const renderForm = that => uiState => {
 				updateDayPicker={that.updateDayPicker}
 				updateRadio={that.updateRadio}
 				updateTime={that.updateTime}
+				updateComments={that.updateComments}
 				submitForm={that.submitForm}
 			/>,
 		fetching:

@@ -12,6 +12,7 @@ import DayPickerInput from 'react-day-picker/DayPickerInput'
 import InputForDayPicker from './InputForDayPicker/index'
 import Radio from './Radio/index'
 import Time from './Time/index'
+import TextArea from './TextArea/index'
 import Submit from './Submit/index'
 import SaleSvg from './Radio/icons/SaleSvg'
 import ReturnSvg from './Radio/icons/ReturnSvg'
@@ -21,14 +22,14 @@ import WifiOffSvg from './Radio/icons/WifiOffSvg'
 import { body, notAllowed, input, subtitle, inputTime } from './styles'
 
 const Form = ({
-		id, state, updateDropdown, updateDayPicker, updateRadio, updateTime, submitForm
+		id, state, updateDropdown, updateDayPicker, updateRadio, updateTime, updateComments, submitForm
 	}) => {
 	const {
 		uiState, status, start_date, error_start_date, representatives, representative,
 		error_representative, resellers, reseller, error_reseller, category, error_category,
 		type, error_type, end_date, error_end_date, time, error_time, shipping_options,
 		shipping, error_shipping, packaging_options, packaging, error_packaging, addresses,
-		address, error_address, invoice_options, invoice, error_invoice
+		address, error_address, invoice_options, invoice, error_invoice, comments, error_comments
 	} = state
 	const editing = id
 	const editingNotAllowed = status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
@@ -265,6 +266,22 @@ const Form = ({
 					<input
 						style={input}
 						placeholder={invoice}
+						disabled={true}
+					/>
+				)}
+			/>
+		{/*---------------------------COMMENTS-------------------------*/}	
+			<FormInput uiState={uiState} errorMessage={error_comments}
+				render={() => (
+					<TextArea
+						value={comments}
+						updateParent={updateComments}
+					/>
+				)}
+				renderSubmitting={() => (
+					<textarea
+						style={input}
+						placeholder={comments}
 						disabled={true}
 					/>
 				)}
