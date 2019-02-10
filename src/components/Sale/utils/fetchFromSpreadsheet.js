@@ -11,6 +11,7 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 	if (values_resellers.length === 0)
 		await Promise.reject('Error at fetchFromSpreadsheet. values_resellers.length === 0')
 	const resellers = values_resellers.map( value => value[0] ).slice(1).sort()
+	const invoice_options = [ 'SEM NOTA', ...values_resellers.map( value => value[0] ).slice(1).sort() ]
 	/*------------------------------ get values_representatives --------------------------------*/
 	const { data: { values: values_representatives } } = await get(
 		`${process.env.REPRESENTATIVES_SHEET_URL}`,
@@ -62,6 +63,7 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 			representatives,
 			shipping_options,
 			addresses,
+			invoice_options,
 			start_date: dateToEnglish(start_date),
 			representative,
 			reseller,
@@ -71,7 +73,7 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 			status
 		}
 	}
-	return { resellers, representatives, shipping_options, addresses }
+	return { resellers, representatives, shipping_options, addresses, invoice_options }
 }
 
 export default fetchFromSpreadsheet

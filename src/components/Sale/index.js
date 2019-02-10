@@ -22,6 +22,7 @@ export default class Sale extends Component {
 		shipping_options: [],
 		addresses: [],
 		packaging_options: ['Livre', '23Kg', 'Sacolas'],
+		invoice_options: [],
 		/* user inputs */
 		start_date: '',
 		representative: '',
@@ -33,6 +34,7 @@ export default class Sale extends Component {
 		shipping: '',
 		address: '',
 		packaging: '',
+		invoice: '',
 		/* sale status */
 		status: '',
 		/* error messages */
@@ -45,7 +47,8 @@ export default class Sale extends Component {
 		error_time: '',
 		error_shipping: '',
 		error_address: '',
-		error_packaging: ''
+		error_packaging: '',
+		error_invoice: ''
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()

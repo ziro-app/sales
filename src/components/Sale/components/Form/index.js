@@ -28,7 +28,7 @@ const Form = ({
 		error_representative, resellers, reseller, error_reseller, category, error_category,
 		type, error_type, end_date, error_end_date, time, error_time, shipping_options,
 		shipping, error_shipping, packaging_options, packaging, error_packaging, addresses,
-		address, error_address
+		address, error_address, invoice_options, invoice, error_invoice
 	} = state
 	const editing = id
 	const editingNotAllowed = status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
@@ -250,10 +250,26 @@ const Form = ({
 					/>
 				)}
 			/>
-			<Submit
-				submitForm={submitForm}
-				uiState={uiState}
+		{/*---------------------------INVOICE-------------------------*/}	
+			<FormInput uiState={uiState} errorMessage={error_invoice}
+				render={() => (
+					<Dropdown
+						name='invoice'
+						placeholder='Nota'
+						options={invoice_options}
+						value={invoice}
+						updateParent={updateDropdown}
+					/>
+				)}
+				renderSubmitting={() => (
+					<input
+						style={input}
+						placeholder={invoice}
+						disabled={true}
+					/>
+				)}
 			/>
+			<Submit submitForm={submitForm} uiState={uiState} />
 		</div>
 	)
 }
