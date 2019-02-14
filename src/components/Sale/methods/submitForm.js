@@ -5,8 +5,8 @@ import sendToBackend from '../utils/sendToBackend'
 const submitForm = that => async () => {
 	const sale = that.props.match.params.id
 	const action = sale ? 'EDIT' : 'CREATE'
-	const { formIsValid, ...fieldsAreValid } = validateForm(that.state)
-	that.setState(generateErrorMessages(fieldsAreValid))
+	const { formIsValid, formIsComplete, ...fieldsAreValid } = validateForm(that.state)
+	that.setState(generateErrorMessages(formIsComplete, fieldsAreValid))
 	that.changeUiState('INPUT')
 	if (formIsValid) {
 		try {
