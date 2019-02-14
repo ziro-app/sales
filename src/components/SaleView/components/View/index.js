@@ -13,7 +13,7 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet, 
 		return (
 			<div style={container}>
 				{saleData.map( ({ value, name }) => (
-					<div style={row}>
+					<div style={row} key={name}>
 						<span style={label}>{name}</span>
 						<span style={data}>{value}</span>
 					</div>
