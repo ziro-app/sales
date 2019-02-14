@@ -6,69 +6,18 @@ import EditButton from './EditButton/index'
 import { container, row, label, data, notFound } from './styles'
 
 const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet, forceReloadAfterEdit }) => {
-	const {
-		found,
-		inicio,
-		assessor,
-		lojista,
-		categoria,
-		tipo,
-		despacho,
-		horario,
-		transporte,
-		endereco,
-		fardo,
-		nota,
-		status
-	} = getSale(id, sales)
+	const { found, saleData, status } = getSale(id, sales)
+	const inicio = saleData[0].value
 	const selectValue = userStatus === '' ? status : userStatus
 	if (found)
 		return (
 			<div style={container}>
-				<div style={row}>
-					<span style={label}>Início</span>
-					<span style={data}>{inicio}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Assessor</span>
-					<span style={data}>{assessor}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Lojista</span>
-					<span style={data}>{lojista}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Categoria</span>
-					<span style={data}>{categoria}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Tipo</span>
-					<span style={data}>{tipo}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Despacho</span>
-					<span style={data}>{despacho}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Horario</span>
-					<span style={data}>{horario}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Transporte</span>
-					<span style={data}>{transporte}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Endereço</span>
-					<span style={data}>{endereco}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Fardo</span>
-					<span style={data}>{fardo}</span>
-				</div>
-				<div style={row}>
-					<span style={label}>Nota</span>
-					<span style={data}>{nota}</span>
-				</div>
+				{saleData.map( ({ value, name }) => (
+					<div style={row}>
+						<span style={label}>{name}</span>
+						<span style={data}>{value}</span>
+					</div>
+				))}
 				<Select
 					uiState={uiState}
 					selectValue={selectValue}
