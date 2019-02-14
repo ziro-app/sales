@@ -6,7 +6,21 @@ import EditButton from './EditButton/index'
 import { container, row, label, data, notFound } from './styles'
 
 const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet, forceReloadAfterEdit }) => {
-	const { found, inicio, assessor, lojista, categoria, tipo, despacho, status } = getSale(id, sales)
+	const {
+		found,
+		inicio,
+		assessor,
+		lojista,
+		categoria,
+		tipo,
+		despacho,
+		horario,
+		transporte,
+		endereco,
+		fardo,
+		nota,
+		status
+	} = getSale(id, sales)
 	const selectValue = userStatus === '' ? status : userStatus
 	if (found)
 		return (
@@ -34,7 +48,27 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet, 
 				<div style={row}>
 					<span style={label}>Despacho</span>
 					<span style={data}>{despacho}</span>
-				</div>	
+				</div>
+				<div style={row}>
+					<span style={label}>Horario</span>
+					<span style={data}>{horario}</span>
+				</div>
+				<div style={row}>
+					<span style={label}>Transporte</span>
+					<span style={data}>{transporte}</span>
+				</div>
+				<div style={row}>
+					<span style={label}>Endereço</span>
+					<span style={data}>{endereco}</span>
+				</div>
+				<div style={row}>
+					<span style={label}>Fardo</span>
+					<span style={data}>{fardo}</span>
+				</div>
+				<div style={row}>
+					<span style={label}>Nota</span>
+					<span style={data}>{nota}</span>
+				</div>
 				<Select
 					uiState={uiState}
 					selectValue={selectValue}
