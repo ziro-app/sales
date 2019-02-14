@@ -21,7 +21,12 @@ const submitForm = that => async () => {
 					category: '',
 					type: '',
 					end_date: '',
-					time: ''
+					time: '',
+					shipping: '',
+					address: '',
+					packaging: '',
+					invoice: '',
+					comments: ''
 				})
 			}
 			if (action === 'EDIT')
