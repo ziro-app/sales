@@ -189,7 +189,7 @@ const Form = ({
 					<input
 						style={inputTime}
 						type='text'
-						placeholder={time}
+						placeholder={time || 'Horário'}
 						disabled={true}
 					/>
 				)}
@@ -208,7 +208,7 @@ const Form = ({
 				renderSubmitting={() => (
 					<input
 						style={input}
-						placeholder={shipping}
+						placeholder={shipping || 'Transporte'}
 						disabled={true}
 					/>
 				)}
@@ -227,7 +227,7 @@ const Form = ({
 				renderSubmitting={() => (
 					<input
 						style={input}
-						placeholder={address}
+						placeholder={address || 'Endereço'}
 						disabled={true}
 					/>
 				)}
@@ -246,7 +246,7 @@ const Form = ({
 				renderSubmitting={() => (
 					<input
 						style={input}
-						placeholder={packaging}
+						placeholder={packaging || 'Fardo'}
 						disabled={true}
 					/>
 				)}
@@ -265,7 +265,7 @@ const Form = ({
 				renderSubmitting={() => (
 					<input
 						style={input}
-						placeholder={invoice}
+						placeholder={invoice || 'Nota Fiscal'}
 						disabled={true}
 					/>
 				)}
@@ -282,7 +282,7 @@ const Form = ({
 				renderSubmitting={() => (
 					<textarea
 						style={area}
-						placeholder={comments}
+						placeholder={comments || 'Observações'}
 						rows='3'
 						disabled={true}
 					/>
