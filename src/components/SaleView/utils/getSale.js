@@ -1,8 +1,10 @@
 const getSale = (id, sales) => {
 	const filtered = sales.filter(sale => sale[0] === id).pop()
+	const isComplete = filtered[7] && filtered[8] && filtered[9] && filtered[10] && filtered[11]
 	if (filtered && filtered.length)
 		return {
 			found: true,
+			isComplete,
 			saleData: [
 				{ value: filtered[1].substring(0,6), name: 'Início' },
 				{ value: filtered[2], name: 'Assessor' },

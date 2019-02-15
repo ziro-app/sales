@@ -8,8 +8,6 @@ import { row, label, data, select, selectSubmit, message, submitting, success, e
 const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start }) => {
 	const saleIsScheduled = compareDateToNow(start)
 	const messages = {
-		default:
-			null,
 		submitting:
 			<span style={submitting}><Spinner size={'25px'} />{'Enviando...'}</span>,
 		submitted:

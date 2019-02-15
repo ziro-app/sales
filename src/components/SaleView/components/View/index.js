@@ -6,7 +6,7 @@ import EditButton from './EditButton/index'
 import { container, row, label, data, notFound } from './styles'
 
 const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet, forceReloadAfterEdit }) => {
-	const { found, saleData, status } = getSale(id, sales)
+	const { found, isComplete, saleData, status } = getSale(id, sales)
 	const inicio = saleData[0].value
 	const selectValue = userStatus === '' ? status : userStatus
 	if (found)
@@ -24,6 +24,7 @@ const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet, 
 					updateParentAndSheet={updateParentAndSheet}
 					statuses={statuses}
 					start={inicio}
+					saleIsComplete={isComplete}
 				/>
 				<EditButton
 					status={selectValue}
