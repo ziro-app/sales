@@ -51,7 +51,7 @@ Select.propTypes = {
 	updateParentAndSheet: PropTypes.func.isRequired,
 	statuses: PropTypes.array.isRequired,
 	start: PropTypes.string.isRequired,
-	errorIsComplete: PropTypes.bool.isRequired
+	errorIsComplete: PropTypes.string.isRequired
 }
 
 export default Select
