@@ -16,8 +16,8 @@ export default class View extends Component {
 		this.setState(getSale(id, sales, updateIsComplete))
 	}
 	render = () => {
-		const { uiState, id, sales, statuses, userStatus, updateParentAndSheet, forceReloadAfterEdit,
-			saleIsComplete, errorIsComplete, updateIsComplete } = this.props
+		const { uiState, id, statuses, userStatus, updateParentAndSheet, forceReloadAfterEdit,
+			errorIsComplete } = this.props
 		const { found, saleData, status } = this.state
 		const selectValue = userStatus === '' ? status : userStatus
 		if (found)
@@ -35,7 +35,7 @@ export default class View extends Component {
 						updateParentAndSheet={updateParentAndSheet}
 						statuses={statuses}
 						start={saleData[0].value}
-						saleIsComplete={saleIsComplete}
+						errorIsComplete={errorIsComplete}
 					/>
 					<EditButton
 						status={selectValue}
@@ -57,7 +57,6 @@ View.propTypes = {
 	userStatus: PropTypes.string.isRequired,
 	updateParentAndSheet: PropTypes.func.isRequired,
 	forceReloadAfterEdit: PropTypes.func.isRequired,
-	saleIsComplete: PropTypes.bool.isRequired,
 	errorIsComplete: PropTypes.string.isRequired,
 	updateIsComplete: PropTypes.func.isRequired,
 }

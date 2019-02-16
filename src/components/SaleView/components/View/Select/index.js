@@ -5,7 +5,7 @@ import Spinner from './Spinner/index'
 import compareDateToNow from '../../../utils/compareDateToNow'
 import { row, label, data, select, selectSubmit, message, submitting, success, error } from './styles'
 
-const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, saleIsComplete }) => {
+const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, errorIsComplete }) => {
 	const saleIsScheduled = compareDateToNow(start)
 	const messages = {
 		submitting:
@@ -13,7 +13,9 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, s
 		submitted:
 			<span style={success}>{'Status atualizado!'}</span>,
 		error_submitting:
-			<span style={error}><AlertSvg size={16} />{'Erro ao enviar'}</span>
+			<span style={error}><AlertSvg size={16} />{'Erro ao enviar'}</span>,
+		error_status:
+			<span style={error}><AlertSvg size={16} />{errorIsComplete}</span>
 	}
 	return (
 		<div style={row}>
@@ -34,7 +36,7 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, s
 							)}
 						</select>
 						<label style={message}>
-							{messages[uiState]}
+							{errorIsComplete ? messages['error_status'] : messages[uiState]}
 						</label>
 					</Fragment>
 			}
@@ -48,7 +50,7 @@ Select.propTypes = {
 	updateParentAndSheet: PropTypes.func.isRequired,
 	statuses: PropTypes.array.isRequired,
 	start: PropTypes.string.isRequired,
-	saleIsComplete: PropTypes.bool.isRequired
+	errorIsComplete: PropTypes.bool.isRequired
 }
 
 export default Select
