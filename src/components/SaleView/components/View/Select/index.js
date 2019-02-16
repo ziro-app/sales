@@ -5,7 +5,7 @@ import Spinner from './Spinner/index'
 import compareDateToNow from '../../../utils/compareDateToNow'
 import { row, label, data, select, selectSubmit, message, submitting, success, error } from './styles'
 
-const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start }) => {
+const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, saleIsComplete }) => {
 	const saleIsScheduled = compareDateToNow(start)
 	const messages = {
 		submitting:
@@ -47,7 +47,8 @@ Select.propTypes = {
 	selectValue: PropTypes.string.isRequired,
 	updateParentAndSheet: PropTypes.func.isRequired,
 	statuses: PropTypes.array.isRequired,
-	start: PropTypes.string.isRequired
+	start: PropTypes.string.isRequired,
+	saleIsComplete: PropTypes.bool.isRequired
 }
 
 export default Select
