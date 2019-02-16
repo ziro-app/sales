@@ -5,7 +5,7 @@ import Spinner from '../../Spinner/index'
 import ErrorOnFetch from '../../ErrorOnFetch/index'
 
 const renderSaleView = that =>
-	({ uiState, status, isComplete, errorIsComplete }, saveStatus, updateIsComplete) => {
+	({ uiState, status, saleIsComplete, errorIsComplete }, saveStatus, updateIsComplete) => {
 		const path = that.props.match.path
 		const id = that.props.match.params.id
 		/* define which component the UI will display based on the current state */
@@ -18,10 +18,10 @@ const renderSaleView = that =>
 					statuses={that.props.statuses.length === 0 ? that.state.statuses : that.props.statuses}				
 					userStatus={status}
 					updateParentAndSheet={saveStatus}
-					isComplete={isComplete}
+					forceReloadAfterEdit={that.props.forceReloadAfterEdit}
+					saleIsComplete={saleIsComplete}
 					errorIsComplete={errorIsComplete}
 					updateIsComplete={updateIsComplete}
-					forceReloadAfterEdit={that.props.forceReloadAfterEdit}
 				/>,
 			fetching:
 				<Spinner size={'8rem'} />,

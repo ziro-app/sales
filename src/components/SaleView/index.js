@@ -19,8 +19,8 @@ export default class SaleView extends Component {
 		/* user inputs */
 		status: '',
 		/* error validation */
-		isComplete: false,
-		errorIsComplete: ''
+		errorIsComplete: '',
+		saleIsComplete: false
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()

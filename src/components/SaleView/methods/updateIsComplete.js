@@ -1,4 +1,4 @@
 const updateIsComplete = that => value =>
-	that.setState({ isComplete: value })
+	that.setState({ saleIsComplete: value })
 
 export default updateIsComplete
