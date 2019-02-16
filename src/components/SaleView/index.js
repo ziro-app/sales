@@ -6,6 +6,7 @@ import { CancelToken } from 'axios'
 import { initialUiState, changeUiState } from './methods/stateMachine'
 import fetchInitialData from './methods/fetchInitialData'
 import saveStatus from './methods/saveStatus'
+import updateIsComplete from './methods/updateIsComplete'
 import renderSaleView from './methods/renderSaleView'
 
 export default class SaleView extends Component {
@@ -16,18 +17,22 @@ export default class SaleView extends Component {
 		sales: [],
 		statuses: [],
 		/* user inputs */
-		status: ''
+		status: '',
+		/* error validation */
+		isComplete: false,
+		errorIsComplete: ''
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()
 	changeUiState = changeUiState(this)
 	fetchInitialData = fetchInitialData(this)
 	saveStatus = saveStatus(this)
+	updateIsComplete = updateIsComplete(this)
 	renderSaleView = renderSaleView(this)
 	/*-- lifecycle --*/
 	componentDidMount = () => this.fetchInitialData()
 	componentWillUnmount = () => this.cancelTokenSource.cancel()
-	render = () => this.renderSaleView(this.state, this.saveStatus)
+	render = () => this.renderSaleView(this.state, this.saveStatus, this.updateIsComplete)
 }
 
 SaleView.propTypes = {

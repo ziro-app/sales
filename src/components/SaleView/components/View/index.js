@@ -5,8 +5,11 @@ import Select from './Select/index'
 import EditButton from './EditButton/index'
 import { container, row, label, data, notFound } from './styles'
 
-const View = ({ uiState, id, sales, statuses, userStatus, updateParentAndSheet, forceReloadAfterEdit }) => {
-	const { found, isComplete, saleData, status } = getSale(id, sales)
+const View = ({
+	uiState, id, sales, statuses, userStatus, updateParentAndSheet, forceReloadAfterEdit,
+	isComplete, errorIsComplete, updateIsComplete
+}) => {
+	const { found, saleData, status } = getSale(id, sales, updateIsComplete)
 	const inicio = saleData[0].value
 	const selectValue = userStatus === '' ? status : userStatus
 	if (found)
@@ -44,7 +47,10 @@ View.propTypes = {
 	statuses: PropTypes.array.isRequired,
 	userStatus: PropTypes.string.isRequired,
 	updateParentAndSheet: PropTypes.func.isRequired,
-	forceReloadAfterEdit: PropTypes.func.isRequired
+	forceReloadAfterEdit: PropTypes.func.isRequired,
+	isComplete: PropTypes.bool.isRequired,
+	errorIsComplete: PropTypes.string.isRequired,
+	updateIsComplete: PropTypes.func.isRequired,
 }
 
 export default View
