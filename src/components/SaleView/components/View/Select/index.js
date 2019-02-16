@@ -17,29 +17,30 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, e
 		error_status:
 			<span style={error}><AlertSvg size={16} />{errorIsComplete}</span>
 	}
+	const inputToRender = {
+		scheduled:
+			<span style={data}>Agendado</span>,
+		default:
+			<Fragment>
+				<select
+					style={uiState === 'submitting' ? selectSubmit : select}
+					value={selectValue}
+					onChange={updateParentAndSheet}
+					disabled={uiState === 'submitting'}
+				>
+					{statuses.map( (option, index) =>
+						<option value={option} key={index}>{option}</option>
+					)}
+				</select>
+				<label style={message}>
+					{errorIsComplete ? messages['error_status'] : messages[uiState]}
+				</label>
+			</Fragment>			
+	}
 	return (
 		<div style={row}>
 			<span style={label}>Status</span>
-			{saleIsScheduled
-				?
-					<span style={data}>Agendado</span>
-				:
-					<Fragment>
-						<select
-							style={uiState === 'submitting' ? selectSubmit : select}
-							value={selectValue}
-							onChange={updateParentAndSheet}
-							disabled={uiState === 'submitting'}
-						>
-							{statuses.map( (option, index) =>
-								<option value={option} key={index}>{option}</option>
-							)}
-						</select>
-						<label style={message}>
-							{errorIsComplete ? messages['error_status'] : messages[uiState]}
-						</label>
-					</Fragment>
-			}
+			{saleIsScheduled ? inputToRender['scheduled'] : inputToRender['default']}
 		</div>
 	)
 }
