@@ -28,7 +28,7 @@ export default class EditButton extends Component {
 			<Fragment>
 				{hideButton
 				?
-					null
+					<div style={{ height: '58px' }}></div>
 				:
 					uiState === 'submitting'
 					?
