@@ -16,7 +16,8 @@ const getSale = (id, sales, updateIsComplete) => {
 				{ value: filtered[9], name: 'Endereço' },
 				{ value: filtered[10], name: 'Fardo' },
 				{ value: filtered[11], name: 'Nota' },
-				{ value: filtered[12], name: 'Observações' }
+				{ value: filtered[12], name: 'Observações' },
+				{ value: filtered[14], name: 'Retirada'}
 			],
 			status: filtered[13]
 		}

@@ -12,7 +12,7 @@ const saveStatus = that => async ({ target: { value } }) => {
 			console.log(error.response)
 		}
 	}
-	else that.setState({ errorIsComplete: 'Preencha todos os campos' })
+	else that.setState({ errorIsComplete: 'Campos em branco' })
 }
 
 export default saveStatus
