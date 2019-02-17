@@ -25,7 +25,8 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 		if (values_sales.length === 0)
 			await Promise.reject('Error at fetchFromSpreadsheet. values_sales.length === 0')
 		const [ sale ] = values_sales.filter( value => value[1] === id )
-		const [ , , start_date, representative, reseller, category, type, end_date, , , , , , status ] = sale
+		const [ , , start_date, representative, reseller, category, type, end_date, time,
+			shipping, address, packaging, invoice, status ] = sale
 		return {
 			resellers,
 			representatives,
@@ -38,6 +39,11 @@ const fetchFromSpreadsheet = async (id, get, cancelTokenSource) => {
 			category,
 			type,
 			end_date: dateToEnglish(end_date),
+			time,
+			shipping,
+			address,
+			packaging,
+			invoice,
 			status
 		}
 	}
