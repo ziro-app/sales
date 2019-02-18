@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import AlertSvg from './AlertSvg/index'
 import Spinner from './Spinner/index'
-import compareDateToNow from '../../../utils/compareDateToNow'
+import compareDateToNow from './compareDateToNow'
 import { row, label, data, select, selectSubmit, message, submitting, success, error } from './styles'
 
 const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, errorIsComplete }) => {
