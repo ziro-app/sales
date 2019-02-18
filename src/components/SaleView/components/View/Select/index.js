@@ -17,7 +17,7 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, e
 		error_status:
 			<span style={error}><AlertSvg size={16} />{errorIsComplete}</span>
 	}
-	const selectStatus = selectValue.match(/(Em trânsito)|(Entregue)|(Cancelado)/g) && uiState !== 'submitting'
+	const selectStatus = selectValue.match(/(Entregue)|(Cancelado)/g) && uiState !== 'submitting'
 		? 'disabled'
 		: 'enabled'
 	const inputToRender = {
