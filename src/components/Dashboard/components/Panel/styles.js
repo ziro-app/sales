@@ -9,7 +9,7 @@ container = {
 
 title = {
 	margin: '0 0 5px',
-	fontSize: '1.8rem',
+	fontSize: '1.6rem',
 	color: 'rgba(48, 62, 77, 0.8)'
 },
 
@@ -18,7 +18,7 @@ header = {
 	gridTemplateColumns: '30% 30% 40%',
 	fontSize: '1.5rem',
 	color: 'rgba(48, 62, 77, 0.8)',
-	fontWeight: '700'
+	fontWeight: '600'
 },
 
 empty = {

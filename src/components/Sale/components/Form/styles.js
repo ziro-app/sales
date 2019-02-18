@@ -29,7 +29,7 @@ input = {
 },
 
 subtitle = {
-	margin: '60px 0 0',
+	margin: '30px 0 0',
 	textTransform: 'uppercase',
 	textAlign: 'center',
 	fontSize: '1.6rem',

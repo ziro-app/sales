@@ -8,7 +8,7 @@ const FilterDroppingOff = ({ sales }) => {
 	const filteredData = droppingOff(sales)
 	return (
 		<div style={container}>
-			<h1 style={title}>Despachando</h1>
+			<h1 style={title}>DESPACHANDO</h1>
 			{filteredData && filteredData.length
 				?
 					<Fragment>

@@ -8,7 +8,7 @@ const FilterScheduled = ({ sales }) => {
 	const filteredData = scheduled(sales)
 	return (
 		<div style={container}>
-			<h1 style={title}>Agendados</h1>
+			<h1 style={title}>AGENDADOS</h1>
 			{filteredData && filteredData.length
 				?
 					<Fragment>

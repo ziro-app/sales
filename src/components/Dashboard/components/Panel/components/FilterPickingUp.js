@@ -8,7 +8,7 @@ const FilterPickingUp = ({ sales }) => {
 	const filteredData = pickingUp(sales)
 	return (
 		<div style={container}>
-			<h1 style={title}>Retirando</h1>
+			<h1 style={title}>RETIRANDO</h1>
 			{filteredData && filteredData.length
 				?
 					<Fragment>

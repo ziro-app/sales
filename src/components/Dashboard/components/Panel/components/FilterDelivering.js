@@ -8,7 +8,7 @@ const FilterDelivering = ({ sales }) => {
 	const filteredData = delivering(sales)
 	return (
 		<div style={container}>
-			<h1 style={title}>Em trânsito</h1>
+			<h1 style={title}>EM TRÂNSITO</h1>
 			{filteredData && filteredData.length
 				?
 					<Fragment>
