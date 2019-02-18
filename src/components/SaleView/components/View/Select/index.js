@@ -17,10 +17,15 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, e
 		error_status:
 			<span style={error}><AlertSvg size={16} />{errorIsComplete}</span>
 	}
+	const selectStatus = selectValue.match(/(Em trânsito)|(Entregue)|(Cancelado)/g) && uiState !== 'submitting'
+		? 'disabled'
+		: 'enabled'
 	const inputToRender = {
 		scheduled:
 			<span style={data}>Agendado</span>,
-		default:
+		disabled:
+			<span style={data}>{selectValue}</span>,
+		enabled:
 			<Fragment>
 				<select
 					style={uiState === 'submitting' ? selectSubmit : select}
@@ -40,7 +45,7 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, e
 	return (
 		<div style={row}>
 			<span style={label}>Status</span>
-			{saleIsScheduled ? inputToRender['scheduled'] : inputToRender['default']}
+			{saleIsScheduled ? inputToRender['scheduled'] : inputToRender[selectStatus]}
 		</div>
 	)
 }

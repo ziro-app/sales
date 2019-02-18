@@ -5,14 +5,14 @@ import { link, edit, submitting } from './styles'
 
 export default class EditButton extends Component {
 	state = {
-		hideButton: this.props.status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
+		hideButton: this.props.status.match(/(Em trânsito)|(Entregue)|(Cancelado)/g)
 	}
 	handleClick = () => {
 		if (this.props.uiState === 'submitted')
 			this.props.forceReloadAfterEdit()
 	}
 	componentDidUpdate = () => {
-		const nonEditableStatus = this.props.status.match(/(Em trânsito)|(Entregue)|(Cancelado)/)
+		const nonEditableStatus = this.props.status.match(/(Em trânsito)|(Entregue)|(Cancelado)/g)
 		const uiStateIsSubmitted = this.props.uiState === 'submitted'
 		const hideButton = this.state.hideButton
 		if (uiStateIsSubmitted && nonEditableStatus && !hideButton)
