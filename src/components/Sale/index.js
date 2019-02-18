@@ -37,8 +37,9 @@ export default class Sale extends Component {
 		packaging: '',
 		invoice: '',
 		comments: '',
-		/* sale status */
+		/* sale data */
 		status: '',
+		pickup_code: '',
 		/* error messages */
 		error_start_date: '',
 		error_representative: '',

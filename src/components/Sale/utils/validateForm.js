@@ -13,6 +13,7 @@ const validateForm = ({
 	address,
 	packaging,
 	invoice,
+	pickup_code,
 	representatives,
 	resellers,
 	shipping_options,
@@ -36,7 +37,7 @@ const validateForm = ({
 		/* supplementary fields are valid only if any has been filled */
 		let formIsComplete,
 			formIsValid
-		if (time || shipping || address || packaging || invoice) {
+		if (time || shipping || address || packaging || invoice || pickup_code) {
 			formIsComplete = true
 			formIsValid = start_date_is_valid
 				&& representative_is_valid
