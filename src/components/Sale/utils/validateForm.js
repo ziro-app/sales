@@ -19,7 +19,8 @@ const validateForm = ({
 	shipping_options,
 	addresses,
 	packaging_options,
-	invoice_options
+	invoice_options,
+	eventIsCreated
 }) => {
 	if (representatives && resellers && shipping_options && addresses && packaging_options && invoice_options) {
 		/* check if each field contains valid values */
@@ -37,7 +38,7 @@ const validateForm = ({
 		/* supplementary fields are valid only if any has been filled */
 		let formIsComplete,
 			formIsValid
-		if (time || shipping || address || packaging || invoice || pickup_code) {
+		if (time || shipping || address || packaging || invoice || pickup_code || eventIsCreated) {
 			formIsComplete = true
 			formIsValid = start_date_is_valid
 				&& representative_is_valid

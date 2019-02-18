@@ -10,6 +10,7 @@ import updateDayPicker from './methods/updateDayPicker'
 import updateRadio from './methods/updateRadio'
 import updateTime from './methods/updateTime'
 import updateComments from './methods/updateComments'
+import updateEventIsCreated from './methods/updateEventIsCreated'
 import submitForm from './methods/submitForm'
 import renderForm from './methods/renderForm'
 
@@ -52,7 +53,9 @@ export default class Sale extends Component {
 		error_address: '',
 		error_packaging: '',
 		error_invoice: '',
-		error_comments: ''
+		error_comments: '',
+		/* support variable */
+		eventIsCreated: false
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()
@@ -63,6 +66,7 @@ export default class Sale extends Component {
 	updateRadio = updateRadio(this)
 	updateTime = updateTime(this)
 	updateComments = updateComments(this)
+	updateEventIsCreated = updateEventIsCreated(this)
 	submitForm = submitForm(this)
 	renderForm = renderForm(this)
 	/*-- lifecycle --*/

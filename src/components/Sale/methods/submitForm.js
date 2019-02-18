@@ -30,7 +30,7 @@ const submitForm = that => async () => {
 				})
 			}
 			if (action === 'EDIT')
-				that.props.forceReloadAfterEdit()
+				that.props.forceReloadAfterEdit(that.state.time, that.updateEventIsCreated)
 		} catch (error) {
 			console.log(error)
 			that.changeUiState('ERROR')
