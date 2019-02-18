@@ -1,7 +1,7 @@
 import sendToBackend from '../utils/sendToBackend'
 
 const saveStatus = that => async ({ target: { value } }) => {
-	if (that.state.saleIsComplete) {
+	if (that.state.saleIsComplete || value === 'Cancelado') {
 		that.setState({ status: value, errorIsComplete: '' })
 		try {
 			that.changeUiState('SUBMIT')
