@@ -1,10 +1,11 @@
 import sendToBackend from '../utils/sendToBackend'
 
 const saveStatus = that => async ({ target: { value } }) => {
-	if (that.state.saleIsComplete || value === 'Cancelado') {
+	const saleIsComplete = that.state.saleIsComplete
+	if (saleIsComplete || value === 'Cancelado') {
 		try {
 			that.changeUiState('SUBMIT')
-			await sendToBackend(that.props.match.params.id, value)
+			await sendToBackend(that.props.match.params.id, value, saleIsComplete)
 			that.changeUiState('SUCCESS')
 			that.setState({ status: value, errorIsComplete: '' })
 		} catch (error) {
