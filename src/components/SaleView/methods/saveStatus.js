@@ -8,8 +8,10 @@ const saveStatus = that => async ({ target: { value } }) => {
 			await sendToBackend(that.props.match.params.id, value)
 			that.changeUiState('SUCCESS')
 		} catch (error) {
+			console.log(error)
 			that.changeUiState('ERROR')
-			console.log(error.response)
+			if (error.response)
+				console.log(error.response)
 		}
 	}
 	else that.setState({ errorIsComplete: 'Campos em branco' })
