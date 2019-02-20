@@ -7,6 +7,7 @@ import { row, label, data, select, selectSubmit, message, submitting, success, e
 
 const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, errorIsComplete }) => {
 	const saleIsScheduled = compareDateToNow(start)
+	const statusesToShow = saleIsScheduled ? ['Agendado', 'Cancelado'] : statuses
 	const messages = {
 		submitting:
 			<span style={submitting}><Spinner size={'25px'} />{'Enviando...'}</span>,
@@ -21,8 +22,6 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, e
 		? 'disabled'
 		: 'enabled'
 	const inputToRender = {
-		scheduled:
-			<span style={data}>Agendado</span>,
 		disabled:
 			<span style={data}>{selectValue}</span>,
 		enabled:
@@ -33,7 +32,7 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, e
 					onChange={updateParentAndSheet}
 					disabled={uiState === 'submitting'}
 				>
-					{statuses.map( (option, index) =>
+					{statusesToShow.map( (option, index) =>
 						<option value={option} key={index}>{option}</option>
 					)}
 				</select>
@@ -45,7 +44,7 @@ const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, e
 	return (
 		<div style={row}>
 			<span style={label}>Status</span>
-			{saleIsScheduled ? inputToRender['scheduled'] : inputToRender[selectStatus]}
+			{inputToRender[selectStatus]}
 		</div>
 	)
 }
