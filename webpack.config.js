@@ -43,7 +43,7 @@ module.exports = (env, { mode }) => {
 		plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ]
 	}
 	if (mode === 'development') {
-		const {options, sales, statuses, create_row, edit_status, edit_row } = require('./credentials')
+		const { options, sales, statuses, api_url } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
 		config.output = { publicPath: '/' }
 		config.devServer = { historyApiFallback: true }
@@ -53,9 +53,7 @@ module.exports = (env, { mode }) => {
 					OPTIONS_SHEET_URL: JSON.stringify(options),
 					SALES_SHEET_URL: JSON.stringify(sales),
 					STATUSES_SHEET_URL: JSON.stringify(statuses),
-					CREATE_ROW_URL: JSON.stringify(create_row),
-					EDIT_STATUS_URL: JSON.stringify(edit_status),
-					EDIT_ROW_URL: JSON.stringify(edit_row)
+					API_URL: JSON.stringify(api_url)
 				}
 			})
 		)
@@ -81,9 +79,7 @@ module.exports = (env, { mode }) => {
 					OPTIONS_SHEET_URL: JSON.stringify(process.env.OPTIONS_SHEET_URL),
 					SALES_SHEET_URL: JSON.stringify(process.env.SALES_SHEET_URL),
 					STATUSES_SHEET_URL: JSON.stringify(process.env.STATUSES_SHEET_URL),
-					CREATE_ROW_URL: JSON.stringify(process.env.CREATE_ROW_URL),
-					EDIT_STATUS_URL: JSON.stringify(process.env.EDIT_STATUS_URL),
-					EDIT_ROW_URL: JSON.stringify(process.env.EDIT_ROW_URL)
+					API_URL: JSON.stringify(process.env.API_URL)
 				}
 			})
 		)

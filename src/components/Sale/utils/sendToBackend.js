@@ -14,8 +14,8 @@ const sendToBackend = async ({
 		invoice,
 		comments
 	}, sale, action) => {
-	const url = action === 'CREATE' ? process.env.CREATE_ROW_URL : process.env.EDIT_ROW_URL
-	const { data: message } = await post(`${url}`, {
+	const url = action === 'CREATE' ? '/create-row' : '/edit-row'
+	const { data: message } = await post(`${process.env.API_URL}${url}`, {
 		sale,
 		start_date,
 		representative,
