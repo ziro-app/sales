@@ -28,7 +28,7 @@ const sendToBackend = async ({
 		address,
 		packaging,
 		invoice,
-		comments
+		comments: comments.trim()
 	})
 	if (message !== 'Success')
 		await Promise.reject(`Error submitting form. At sendToBackend: ${message}`)
