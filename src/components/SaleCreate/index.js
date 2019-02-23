@@ -14,7 +14,7 @@ import updateEventIsCreated from './methods/updateEventIsCreated'
 import submitForm from './methods/submitForm'
 import renderForm from './methods/renderForm'
 
-export default class Sale extends Component {
+export default class SaleCreate extends Component {
 	state = {
 		/* initial ui state */
 		uiState: initialUiState,
@@ -75,6 +75,6 @@ export default class Sale extends Component {
 	render = () => this.renderForm(this.state.uiState)
 }
 
-Sale.propTypes = {
+SaleCreate.propTypes = {
 	forceReloadAfterEdit: PropTypes.func
 }
