@@ -1,4 +1,4 @@
-import { getOptions } from './getOptions'
+import { getOptions, getSales } from './getOptions'
 
 const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 	const { data: { values } } = await get(
@@ -10,7 +10,8 @@ const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 	if (values.length === 0)
 		await Promise.reject('Error at fetchFromSpreadsheet. values.length === 0')
 	const statuses = getOptions(values,6)
-	console.log(statuses)
+	const sales = getSales(values)
+	return { statuses, sales }
 }
 
 export default fetchFromSpreadsheet
