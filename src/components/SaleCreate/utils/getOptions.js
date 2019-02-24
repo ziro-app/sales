@@ -12,4 +12,7 @@ getOptionsAddress = (data, index) => {
 		[value[index]]: value[index + 1]
 	})).slice(1)
 	return [ ...two, { FAVORITOS: one } ]
-}
+},
+
+getSales = data =>
+	data.map(value => value.slice(7)).slice(1).filter(value => Boolean(value.length))
