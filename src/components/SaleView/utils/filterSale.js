@@ -1,4 +1,4 @@
-const getSale = (id, sales, updateIsComplete) => {
+const filterSale = (id, sales, updateIsComplete) => {
 	const filtered = sales.filter(sale => sale[0] === id).pop()
 	updateIsComplete(Boolean(filtered[7] && filtered[8] && filtered[9] && filtered[10] && filtered[11]))
 	if (filtered && filtered.length)
@@ -24,4 +24,4 @@ const getSale = (id, sales, updateIsComplete) => {
 	return { found: false }
 }
 
-export default getSale
+export default filterSale

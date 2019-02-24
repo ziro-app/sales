@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import getSale from '../../utils/getSale'
+import filterSale from '../../utils/filterSale'
 import Select from './Select/index'
 import EditButton from './EditButton/index'
 import { container, row, label, data, notFound } from './styles'
@@ -13,7 +13,7 @@ export default class View extends Component {
 	}
 	componentDidMount = () => {
 		const { id, sales, updateIsComplete } = this.props
-		this.setState(getSale(id, sales, updateIsComplete))
+		this.setState(filterSale(id, sales, updateIsComplete))
 	}
 	render = () => {
 		const { uiState, id, statuses, userStatus, updateParentAndSheet, forceReloadAfterEdit,
