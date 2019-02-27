@@ -2,7 +2,7 @@ import React from 'react'
 import { Image } from 'cloudinary-react'
 import { container } from './styles'
 
-const RenderErrorMessage = () =>
+const ErrorMessage = () =>
 	<div style={container}>
 	    <Image
 	      cloudName='ziro'
@@ -13,8 +13,8 @@ const RenderErrorMessage = () =>
 	      secure='true'
 	      alt='logo'
 	    />
-		<p>Ocorreu um erro na renderização do aplicativo</p>
+		<p>Ocorreu um erro na renderização</p>
 		<p>Tente novamente ou contate o suporte</p>
 	</div>
 
-export default RenderErrorMessage
+export default ErrorMessage
