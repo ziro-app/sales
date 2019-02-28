@@ -9,11 +9,11 @@ const Spinner = ({ size }) =>
 	</svg>
 
 Spinner.defaultProps = {
-	size: '10.0rem'
+	size: '7rem'
 }
 
 Spinner.propTypes = {
-	size: PropTypes.string.isRequired
+	size: PropTypes.string
 }
 
 export default Spinner
