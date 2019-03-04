@@ -91,7 +91,7 @@ const Form = ({
 					/>
 				)}
 			/>
-		{/*---------------------------RESSELER-------------------------*/}
+		{/*---------------------------RESELLER-------------------------*/}
 			<FormInput uiState={uiState} errorMessage={error_reseller}
 				render={() => (
 					<Dropdown
@@ -299,6 +299,8 @@ Form.propTypes = {
 	updateDropdown: PropTypes.func.isRequired,
 	updateDayPicker: PropTypes.func.isRequired,
 	updateRadio: PropTypes.func.isRequired,
+	updateTime: PropTypes.func.isRequired,
+	updateComments: PropTypes.func.isRequired,
 	submitForm: PropTypes.func.isRequired
 }
 
