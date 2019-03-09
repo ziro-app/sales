@@ -11,7 +11,10 @@ export default class App extends Component {
 		windowWidth: window.innerWidth,
 		scrollY: 0,
 		sales: [],
-		statuses: []
+		statuses: [],
+		pickedup: [],
+		droppedoff: [],
+		tracking: [],
 	}
 	getWindowWidth = getWindowWidth(this)
 	getScrollY = getScrollY(this)
