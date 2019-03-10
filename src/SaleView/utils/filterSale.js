@@ -1,8 +1,8 @@
 const filterSale = (id, sales, pickedup, droppedoff, tracking, updateIsComplete) => {
 	const filtered = sales.filter(sale => sale[0] === id).pop()
-	const [ [ , isPickedUp ] ] = pickedup.filter(value => value[0] === `RL${id}`)
-	const [ [ , isDroppedOff ] ] = droppedoff.filter(value => value[0] === `RL${id}`)
-	const [ [ , trackingNumber ] ] = tracking.filter(value => value[0] === `RL${id}`)
+	const isPickedUp = pickedup.filter(value => value[0] === `RL${id}`)
+	const isDroppedOff = droppedoff.filter(value => value[0] === `RL${id}`)
+	const trackingNumber = tracking.filter(value => value[0] === `RL${id}`)
 	updateIsComplete(Boolean(filtered[7] && filtered[8] && filtered[9] && filtered[10] && filtered[11]))
 	if (filtered && filtered.length)
 		return {
@@ -21,9 +21,9 @@ const filterSale = (id, sales, pickedup, droppedoff, tracking, updateIsComplete)
 				{ value: filtered[11], name: 'Nota' },
 				{ value: filtered[12], name: 'Observações' },
 				{ value: filtered[14], name: 'Retirada'},
-				{ value: isPickedUp, name: 'Retirados'},
-				{ value: isDroppedOff, name: 'Despachado'},
-				{ value: trackingNumber, name: 'Rastreio'},
+				{ value: isPickedUp[1], name: 'Retirados'},
+				{ value: isDroppedOff[1], name: 'Despachado'},
+				{ value: trackingNumber[1], name: 'Rastreio'},
 			],
 			status: filtered[13]
 		}
