@@ -15,4 +15,8 @@ getOptionsAddress = (data, index) => {
 },
 
 getSales = data =>
-	data.map(value => value.slice(7)).slice(1).filter(value => Boolean(value.length))
+	data.map(value => value.slice(7,22)).slice(1).filter(value => {
+		if (value.length)
+			return Boolean(value[0])
+		return false
+	})
