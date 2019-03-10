@@ -16,9 +16,7 @@ export default class SaleView extends Component {
 		/* view data */
 		sales: [],
 		statuses: [],
-		pickedup: [],
-		droppedoff: [],
-		tracking: [],
+		logistics: [],
 		/* user inputs */
 		status: '',
 		/* error validation */

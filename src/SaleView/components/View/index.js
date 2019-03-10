@@ -12,8 +12,8 @@ export default class View extends Component {
 		status: ''
 	}
 	componentDidMount = () => {
-		const { id, sales, pickedup, droppedoff, tracking, updateIsComplete } = this.props
-		this.setState(filterSale(id, sales, pickedup, droppedoff, tracking, updateIsComplete))
+		const { id, sales, logistics, updateIsComplete } = this.props
+		this.setState(filterSale(id, sales, logistics, updateIsComplete))
 	}
 	render = () => {
 		const { uiState, id, statuses, userStatus, updateParentAndSheet, forceReloadAfterEdit,
