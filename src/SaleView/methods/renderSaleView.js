@@ -15,10 +15,8 @@ const renderSaleView = that =>
 					uiState={uiState}
 					id={id}
 					sales={that.props.sales.length === 0 ? that.state.sales : that.props.sales}
-					statuses={that.props.statuses.length === 0 ? that.state.statuses : that.props.statuses}				
-					pickedup={that.props.pickedup.length === 0 ? that.state.pickedup : that.props.pickedup}				
-					droppedoff={that.props.droppedoff.length === 0 ? that.state.droppedoff : that.props.droppedoff}				
-					tracking={that.props.tracking.length === 0 ? that.state.tracking : that.props.tracking}				
+					statuses={that.props.statuses.length === 0 ? that.state.statuses : that.props.statuses}
+					logistics={that.props.logistics.length === 0 ? that.state.logistics : that.props.logistics}
 					userStatus={status}
 					updateParentAndSheet={saveStatus}
 					forceReloadAfterEdit={that.props.forceReloadAfterEdit}

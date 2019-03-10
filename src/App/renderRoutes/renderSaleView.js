@@ -1,14 +1,12 @@
 import React from 'react'
 import SaleView from '../../SaleView/index'
 
-const renderSaleView = (props, { sales, statuses, pickedup, droppedoff, tracking }, forceReloadAfterEdit) =>
+const renderSaleView = (props, { sales, statuses, logistics }, forceReloadAfterEdit) =>
 	<SaleView
 		{...props}
 		sales={sales}
 		statuses={statuses}
-		pickedup={pickedup}
-		droppedoff={droppedoff}
-		tracking={tracking}
+		logistics={logistics}
 		forceReloadAfterEdit={forceReloadAfterEdit}
 	/>
 

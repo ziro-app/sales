@@ -1,5 +1,7 @@
 const filterSale = (id, sales, logistics, updateIsComplete) => {
 	const filtered = sales.filter(sale => sale[0] === id).pop()
+	console.log(logistics)
+	console.log(sales)
 	const isPickedUp = []
 	const isDroppedOff = []
 	const trackingNumber = []

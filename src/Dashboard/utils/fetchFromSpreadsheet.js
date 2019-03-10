@@ -12,10 +12,7 @@ const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 	const statuses = getOptions(values,6)
 	const sales = getSales(values)
 	const logistics = getLogistics(values,34)
-	const pickedup = logistics.map(value => [ value[0], value[1] ])
-	const droppedoff = logistics.map(value => [ value[0], value[2] ])
-	const tracking = logistics.map(value => [ value[0], value[3] ])
-	return { statuses, sales, pickedup, droppedoff, tracking }
+	return { statuses, sales, logistics }
 }
 
 export default fetchFromSpreadsheet

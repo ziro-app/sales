@@ -12,9 +12,7 @@ export default class App extends Component {
 		scrollY: 0,
 		sales: [],
 		statuses: [],
-		pickedup: [],
-		droppedoff: [],
-		tracking: [],
+		logistics: []
 	}
 	getWindowWidth = getWindowWidth(this)
 	getScrollY = getScrollY(this)

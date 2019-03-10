@@ -40,8 +40,6 @@ SaleView.propTypes = {
 	match: PropTypes.object.isRequired,
 	sales: PropTypes.array.isRequired,
 	statuses: PropTypes.array.isRequired,
-	pickedup: PropTypes.array.isRequired,
-	droppedoff: PropTypes.array.isRequired,
-	tracking: PropTypes.array.isRequired,
+	logistics: PropTypes.array.isRequired,
 	forceReloadAfterEdit: PropTypes.func.isRequired
 }
