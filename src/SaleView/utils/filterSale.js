@@ -1,10 +1,9 @@
 const filterSale = (id, sales, logistics, updateIsComplete) => {
-	const filtered = sales.filter(sale => sale[0] === id).pop()
-	console.log(logistics)
-	console.log(sales)
-	const isPickedUp = []
-	const isDroppedOff = []
-	const trackingNumber = []
+	const [ filtered ] = sales.filter(sale => sale[0] === id)
+	const [ filteredByPickupCode ] = logistics.filter(value => value[0] === filtered[14])
+	const isPickedUp = filteredByPickupCode ? filteredByPickupCode[1] : ''
+	const isDroppedOff = filteredByPickupCode ? filteredByPickupCode[2] : ''
+	const trackingNumber = filteredByPickupCode ? filteredByPickupCode[3] : ''
 	updateIsComplete(Boolean(filtered[7] && filtered[8] && filtered[9] && filtered[10] && filtered[11]))
 	if (filtered && filtered.length)
 		return {
@@ -23,9 +22,9 @@ const filterSale = (id, sales, logistics, updateIsComplete) => {
 				{ value: filtered[11], name: 'Nota' },
 				{ value: filtered[12], name: 'Observações' },
 				{ value: filtered[14], name: 'Retirada'},
-				{ value: isPickedUp[1], name: 'Retirados'},
-				{ value: isDroppedOff[1], name: 'Despachado'},
-				{ value: trackingNumber[1], name: 'Rastreio'},
+				{ value: isPickedUp, name: 'Retirados'},
+				{ value: isDroppedOff, name: 'Despachado'},
+				{ value: trackingNumber, name: 'Rastreio'},
 			],
 			status: filtered[13]
 		}
