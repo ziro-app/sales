@@ -11,7 +11,7 @@ const fetchFromSpreadsheet = async (get, cancelTokenSource) => {
 		await Promise.reject('Error at fetchFromSpreadsheet. values.length === 0')
 	const statuses = getOptions(values,6)
 	const sales = getSales(values)
-	const logistics = getLogistics(values,34)
+	const logistics = getLogistics(values,36)
 	return { statuses, sales, logistics }
 }
 
