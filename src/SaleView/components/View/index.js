@@ -35,6 +35,7 @@ export default class View extends Component {
 						updateParentAndSheet={updateParentAndSheet}
 						statuses={statuses}
 						start={saleData[0].value}
+						end={saleData[5].value}
 						errorIsComplete={errorIsComplete}
 					/>
 					<EditButton

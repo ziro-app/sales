@@ -5,9 +5,10 @@ import Spinner from './Spinner/index'
 import compareDateToNow from './compareDateToNow'
 import { row, label, data, select, selectSubmit, message, submitting, success, error } from './styles'
 
-const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, errorIsComplete }) => {
+const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, end, errorIsComplete }) => {
 	const saleIsScheduled = compareDateToNow(start)
-	const statusesToShow = saleIsScheduled ? ['Agendado', 'Cancelado'] : statuses
+	const dropoffIsScheduled = compareDateToNow(end)
+	const statusesToShow = saleIsScheduled ? ['Agendado', 'Cancelado'] : dropoffIsScheduled ? [...statuses.slice(0,4), 'Cancelado'] : statuses
 	const messages = {
 		submitting:
 			<span style={submitting}><Spinner size={'25px'} />{'Enviando...'}</span>,
@@ -55,6 +56,7 @@ Select.propTypes = {
 	updateParentAndSheet: PropTypes.func.isRequired,
 	statuses: PropTypes.array.isRequired,
 	start: PropTypes.string.isRequired,
+	end: PropTypes.string.isRequired,
 	errorIsComplete: PropTypes.string.isRequired
 }
 
