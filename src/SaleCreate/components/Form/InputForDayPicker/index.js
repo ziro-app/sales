@@ -3,7 +3,8 @@ import { input, inputFocus } from './styles'
 
 export default class InputForDayPicker extends Component {
 	render = () =>
-		<input 
+		<input
+			readOnly={true}
 			onKeyPress={event => event.preventDefault()}
 			style={this.props.value ? inputFocus : input}
 			{...this.props}
