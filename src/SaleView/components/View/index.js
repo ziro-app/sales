@@ -20,6 +20,7 @@ export default class View extends Component {
 			errorIsComplete } = this.props
 		const { found, saleData, status } = this.state
 		const selectValue = userStatus === '' ? status : userStatus
+		console.log(saleData)
 		if (found)
 			return (
 				<div style={container}>

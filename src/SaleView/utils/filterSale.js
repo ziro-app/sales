@@ -21,10 +21,10 @@ const filterSale = (id, sales, logistics, updateIsComplete) => {
 				{ value: filtered[10], name: 'Fardo' },
 				{ value: filtered[11], name: 'Nota' },
 				{ value: filtered[12], name: 'Observações' },
-				{ value: filtered[14], name: 'Retirada'},
-				{ value: isPickedUp, name: 'Retirados'},
+				{ value: filtered[14], name: 'Cód. Retirada'},
 				{ value: isDroppedOff, name: 'Despachado'},
-				{ value: trackingNumber, name: 'Rastreio'},
+				{ value: isPickedUp, name: 'Retirados'},
+				{ value: trackingNumber, name: 'Rastreio'}
 			],
 			status: filtered[13]
 		}
