@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import filterSale from '../../utils/filterSale'
 import Select from './Select/index'
 import EditButton from './EditButton/index'
-import { container, row, label, data, notFound } from './styles'
+import { container, row, label, data, notFound, divider } from './styles'
 
 export default class View extends Component {
 	state = {
@@ -23,12 +23,23 @@ export default class View extends Component {
 		if (found)
 			return (
 				<div style={container}>
-					{saleData.map( ({ value, name }) => (
-						<div style={row} key={name}>
-							<span style={label}>{name}</span>
-							<span style={data}>{value}</span>
-						</div>
-					))}
+					{saleData.map( ({ value, name }) => {
+						if (name === 'Observações')
+							return (
+								<Fragment key={name}>
+									<div style={row}>
+										<span style={label}>{name}</span>
+										<span style={data}>{value}</span>
+									</div>
+									<div><hr style={divider} /></div>
+								</Fragment>
+							)
+						return (
+							<div style={row} key={name}>
+								<span style={label}>{name}</span>
+								<span style={data}>{value}</span>
+							</div>
+					)})}
 					<Select
 						uiState={uiState}
 						selectValue={selectValue}

@@ -2,7 +2,7 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '10px',
+	gridRowGap: '7px',
 	width: '100%',
 	textAlign: 'left',
 	fontSize: '1.5rem',
@@ -17,14 +17,19 @@ row = {
 },
 
 label = {
-	fontWeight: '600'
+	fontWeight: '600',
+	padding: '5px 0px'
 },
 
 data = {
-	padding: '5px 20px'	
+	padding: '5px 20px'
 },
 
 notFound = {
 	fontSize: '1.6rem',
 	color: 'rgba(48, 62, 77, 0.8)'
+},
+
+divider = {
+	border: '1px solid rgba(48, 62, 77, 0.05)'
 }
