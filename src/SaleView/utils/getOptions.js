@@ -16,5 +16,5 @@ getLogistics = (data, index) => data.map(value => [
 	value[index + 2],
 	value[index + 3],
 	value[index + 4],
-	value[index + 5],
+	value[index + 5]
 ]).slice(1).filter(value => Boolean(value[0]))
