@@ -31,7 +31,10 @@ export default class SaleView extends Component {
 	updateIsComplete = updateIsComplete(this)
 	renderSaleView = renderSaleView(this)
 	/*-- lifecycle --*/
-	componentDidMount = () => this.fetchInitialData()
+	componentDidMount = () => {
+		window.scroll(0,0)
+		this.fetchInitialData()
+	}
 	componentWillUnmount = () => this.cancelTokenSource.cancel()
 	render = () => this.renderSaleView(this.state, this.saveStatus, this.updateIsComplete)
 }
