@@ -13,7 +13,8 @@ row = {
 	display: 'grid',
 	gridTemplateColumns: '100px 1fr',
 	alignItems: 'center',
-	gridColumnGap: '5px'
+	gridColumnGap: '5px',
+	overflow: 'hidden'
 },
 
 label = {
