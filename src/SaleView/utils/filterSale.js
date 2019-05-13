@@ -6,6 +6,7 @@ const filterSale = (id, sales, logistics, updateIsComplete) => {
 	const isPacked = filteredByPickupCode ? filteredByPickupCode[3] : ''
 	const isDroppedOff = filteredByPickupCode ? filteredByPickupCode[4] : ''
 	const trackingNumber = filteredByPickupCode ? filteredByPickupCode[5] : ''
+	const isDelivered = filteredByPickupCode ? filteredByPickupCode[6] : ''
 	updateIsComplete(Boolean(filtered[7] && filtered[8] && filtered[9] && filtered[10] && filtered[11]))
 	if (filtered && filtered.length)
 		return {
@@ -28,7 +29,8 @@ const filterSale = (id, sales, logistics, updateIsComplete) => {
 				{ value: isPacked, name: 'Fardo'},
 				{ value: isDroppedOff, name: 'Despachado'},
 				{ value: allPickedUp, name: 'Retirados'},
-				{ value: trackingNumber, name: 'Rastreio'}
+				{ value: trackingNumber, name: 'Rastreio'},
+				{ value: isDelivered, name: 'Entrega'}
 			],
 			status: filtered[13]
 		}
