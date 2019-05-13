@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import filterSale from '../../utils/filterSale'
 import Select from './Select/index'
 import EditButton from './EditButton/index'
-import { container, row, label, data, notFound, divider } from './styles'
+import { container, row, label, data, error, notFound, divider } from './styles'
 
 export default class View extends Component {
 	state = {
@@ -37,7 +37,7 @@ export default class View extends Component {
 						return (
 							<div style={row} key={name}>
 								<span style={label}>{name}</span>
-								<span style={data}>{value}</span>
+								<span style={value === 'ERRO' ? error : data}>{value}</span>
 							</div>
 					)})}
 					<Select

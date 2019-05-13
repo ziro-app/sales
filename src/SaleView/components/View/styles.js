@@ -26,6 +26,12 @@ data = {
 	padding: '5px 20px'
 },
 
+error = {
+	padding: '5px 20px',
+	color: '#F16B6F',
+	fontWeight: '600'	
+},
+
 notFound = {
 	fontSize: '1.6rem',
 	color: 'rgba(48, 62, 77, 0.8)'
