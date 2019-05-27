@@ -2,11 +2,12 @@ const filterSale = (id, sales, logistics, updateIsComplete) => {
 	const [ filtered ] = sales.filter(sale => sale[0] === id)
 	const [ filteredByPickupCode ] = logistics.filter(value => value[0] === filtered[14])
 	const allPickedUp = filteredByPickupCode ? filteredByPickupCode[1] : ''
-	const isPickedUp = filteredByPickupCode ? filteredByPickupCode[2] : ''
-	const isPacked = filteredByPickupCode ? filteredByPickupCode[3] : ''
-	const isDroppedOff = filteredByPickupCode ? filteredByPickupCode[4] : ''
-	const isDelivered = filteredByPickupCode ? filteredByPickupCode[5] : ''
-	const trackingNumber = filteredByPickupCode ? filteredByPickupCode[6] : ''
+	const allPending = filteredByPickupCode ? filteredByPickupCode[2] : ''
+	const isPickedUp = filteredByPickupCode ? filteredByPickupCode[3] : ''
+	const isPacked = filteredByPickupCode ? filteredByPickupCode[4] : ''
+	const isDroppedOff = filteredByPickupCode ? filteredByPickupCode[5] : ''
+	const isDelivered = filteredByPickupCode ? filteredByPickupCode[6] : ''
+	const trackingNumber = filteredByPickupCode ? filteredByPickupCode[7] : ''
 	updateIsComplete(Boolean(filtered[7] && filtered[8] && filtered[9] && filtered[10] && filtered[11]))
 	if (filtered && filtered.length)
 		return {
@@ -25,6 +26,7 @@ const filterSale = (id, sales, logistics, updateIsComplete) => {
 				{ value: filtered[11], name: 'Nota' },
 				{ value: filtered[12], name: 'Observações' },
 				{ value: filtered[14], name: 'Cód. Retirada'},
+				{ value: allPending, name: 'A Retirar'},
 				{ value: isPickedUp, name: 'Retirado'},
 				{ value: isPacked, name: 'Fardo'},
 				{ value: isDroppedOff, name: 'Despachado'},
