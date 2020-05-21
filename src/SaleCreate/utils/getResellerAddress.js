@@ -3,7 +3,7 @@ const getResellerAddress = (addresses, reseller) => {
 		const [ resellerAddress ] = addresses.filter( address => Boolean(address[reseller]) )
 		const [ favorites ] = addresses.filter( address => Boolean(address['FAVORITOS']) )
 		if (resellerAddress && favorites)
-			return [ ...Object.values(resellerAddress), ...favorites['FAVORITOS'] ]
+			return [ ...Object.values(resellerAddress)[0], ...favorites['FAVORITOS'] ]
 		if (favorites)
 			return [ ...favorites['FAVORITOS'] ]
 		return []
