@@ -7,6 +7,7 @@ import { initialUiState, changeUiState } from './methods/stateMachine'
 import fetchInitialData from './methods/fetchInitialData'
 import renderDashboard from './methods/renderDashboard'
 import scrollToYPosition from './utils/scrollToYPosition'
+import updateDropdown from '../SaleCreate/methods/updateDropdown'
 
 export default class Dashboard extends Component {
 	state = {
@@ -15,7 +16,10 @@ export default class Dashboard extends Component {
 		/* dashboard data */
 		sales: [],
 		statuses: [],
-		scrolled: false
+		filterAssessores:'',
+		scrolled: false,
+		/* error */
+		error_filter: ''
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()
@@ -23,6 +27,7 @@ export default class Dashboard extends Component {
 	fetchInitialData = fetchInitialData(this)
 	renderDashboard = renderDashboard(this)
 	scrollToYPosition = scrollToYPosition(this)
+	updateDropdown = updateDropdown(this)
 	/*-- lifecycle --*/
 	componentDidMount = () => this.fetchInitialData()
 	componentDidUpdate = () => this.scrollToYPosition()
