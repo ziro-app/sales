@@ -13,7 +13,9 @@ import AddNew from '../AddNew/index'
 
 const Panel = ({ state, windowWidth, updateDropdown }) =>{
 	const {sales, filterAssessores} = state
-	const arrayAssessores = removeDuplicates(sales.map(sale => sale[2]))
+	const arrayAssessores = removeDuplicates(sales.filter(sale => {
+		return sale[13] === 'Escolhendo' || sale[13] === 'Agendado' || sale[13] === 'Pagando' || sale[13] === 'Retirando' || sale[13] === 'Despachando' || sale[13] === 'Em trânsito'
+	}).map(item => item[2]))
 	const salesValue = calcSales(filterAssessores, arrayAssessores, sales)
 	return (
 		<Fragment>
