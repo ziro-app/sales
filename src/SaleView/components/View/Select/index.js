@@ -8,7 +8,7 @@ import { row, label, data, select, selectSubmit, message, submitting, success, e
 const Select = ({ uiState, selectValue, updateParentAndSheet, statuses, start, end, errorIsComplete }) => {
 	const saleIsScheduled = compareDateToNow(start)
 	const dropoffIsScheduled = compareDateToNow(end)
-	const statusesToShow = saleIsScheduled ? ['Agendado', 'Cancelado'] : dropoffIsScheduled ? [...statuses.slice(0,4), 'Cancelado'] : statuses
+	const statusesToShow = saleIsScheduled ? ['Agendado', 'Cancelado'] : dropoffIsScheduled ? [...statuses.slice(0,5)] : statuses
 	const messages = {
 		submitting:
 			<span style={submitting}><Spinner size={'25px'} />{'Enviando...'}</span>,
